@@ -2,52 +2,57 @@ import { questions } from "../questions";
 import { QuestionComponent } from "../components/QuestionComponent";
 import s from "./QuizPage.module.css";
 import { SettingsModal } from "../components/SettingsModal";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { defaultSettings, type ISettings } from "../types/ISettings";
 import { generateRandomNumber } from "../utils/generateRandomNumber";
+import type { IQuestion } from "../types/IQuestion";
 
 export const QuizPage = () => {
   const [settings, setSettings] = useState<ISettings>();
-  const [questionIndex, setQuestionIndex] = useState<number>();
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [answeredCount, setAnsweredCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [showAnswerButtons, setShowAnswerButtons] = useState(true);
-  const [currenQuestionAnswered, setCurrentQuestionAnsered] = useState(false)
+  const [currenQuestionAnswered, setCurrentQuestionAnsered] = useState(false);
 
-  const question = useMemo(() => {
-    if (typeof questionIndex === "number" && questions[questionIndex]) {
-      return questions[questionIndex];
+  const [questionsList, setQuestionsList] = useState(
+    questions.map((q, i) => ({ ...q, id: i }))
+  );
+
+  const [question, setQuestion] = useState<IQuestion | null>(null);
+
+  const setNextQuestion = (list: IQuestion[]) => {
+    if (!list.length) {
+      setQuestion(null);
     }
-  }, [questions, questionIndex]);
-
-  const setNextQuestion = useCallback(() => {
     setShowAnswer(false);
-    setShowAnswerButtons(true)
-    setCurrentQuestionAnsered(false)
+    setShowAnswerButtons(true);
+    setCurrentQuestionAnsered(false);
     if (settings && settings.random) {
-      const index = generateRandomNumber(0, questions.length - 1);
-      setQuestionIndex(index);
+      const index = generateRandomNumber(0, list.length - 1);
+      setQuestion(list[index]);
     }
     if (settings && !settings.random) {
-      setQuestionIndex(0);
+      setQuestion(list[0]);
     }
-  }, [settings, questions]);
+  };
 
   const buttonClick = (type: "yes" | "no") => {
-    setCurrentQuestionAnsered(true)
+    setCurrentQuestionAnsered(true);
+    const updatedList = questionsList.filter((q) => q.id !== question?.id);
+    setQuestionsList(updatedList);
     if (type === "yes") {
       setAnsweredCount(answeredCount + 1);
-      setNextQuestion();
+      setNextQuestion(updatedList);
     }
     if (type === "no" && showAnswer) {
       setWrongCount(wrongCount + 1);
-      setNextQuestion();
+      setNextQuestion(updatedList);
     }
     if (type === "no" && !showAnswer) {
       setWrongCount(wrongCount + 1);
       setShowAnswer(true);
-      setShowAnswerButtons(false)
+      setShowAnswerButtons(false);
     }
   };
 
@@ -61,10 +66,10 @@ export const QuizPage = () => {
 
   //Set initial question index
   useEffect(() => {
-    if (typeof questionIndex !== "number") {
-      setNextQuestion();
+    if (!question && questionsList.length) {
+      setNextQuestion(questionsList);
     }
-  }, [questionIndex, setNextQuestion]);
+  }, [question, questionsList, settings]);
 
   return (
     <div className={s.wrapper}>
@@ -77,46 +82,45 @@ export const QuizPage = () => {
         onChangeSettings={(s) => setSettings(s)}
       />
       {question && (
-        <QuestionComponent
-          question={question}
-          showAnswer={showAnswer}
-          index={0}
-        />
+        <>
+          <QuestionComponent question={question} showAnswer={showAnswer} />
+          <div className={s.buttons}>
+            {!showAnswer && (
+              <button
+                className={`${s.button} ${s.show_answer}`}
+                onClick={() => setShowAnswer(true)}
+              >
+                Show answer
+              </button>
+            )}
+            {showAnswer && currenQuestionAnswered && (
+              <button
+                className={`${s.button} ${s.show_answer}`}
+                onClick={() => setNextQuestion(questionsList)}
+              >
+                Next question
+              </button>
+            )}
+            {showAnswerButtons && (
+              <>
+                <button
+                  className={`${s.button} ${s.dont_know}`}
+                  onClick={() => buttonClick("no")}
+                >
+                  Don't know
+                </button>
+                <button
+                  className={`${s.button} ${s.know}`}
+                  onClick={() => buttonClick("yes")}
+                >
+                  Know answer
+                </button>
+              </>
+            )}
+          </div>
+        </>
       )}
-      <div className={s.buttons}>
-        {!showAnswer && (
-          <button
-            className={`${s.button} ${s.show_answer}`}
-            onClick={() => setShowAnswer(true)}
-          >
-            Show answer
-          </button>
-        )}
-        {showAnswer && currenQuestionAnswered && (
-          <button
-            className={`${s.button} ${s.show_answer}`}
-            onClick={() => setNextQuestion()}
-          >
-            Next question
-          </button>
-        )}
-        {showAnswerButtons && (
-          <>
-            <button
-              className={`${s.button} ${s.dont_know}`}
-              onClick={() => buttonClick("no")}
-            >
-              Don't know
-            </button>
-            <button
-              className={`${s.button} ${s.know}`}
-              onClick={() => buttonClick("yes")}
-            >
-              Know answer
-            </button>
-          </>
-        )}
-      </div>
+      {!question && <p>No questions left</p>}
     </div>
   );
 };

@@ -13,6 +13,7 @@ export const QuizPage = () => {
   const [answeredCount, setAnsweredCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [showAnswerButtons, setShowAnswerButtons] = useState(true);
+  const [currenQuestionAnswered, setCurrentQuestionAnsered] = useState(false)
 
   const question = useMemo(() => {
     if (typeof questionIndex === "number" && questions[questionIndex]) {
@@ -23,6 +24,7 @@ export const QuizPage = () => {
   const setNextQuestion = useCallback(() => {
     setShowAnswer(false);
     setShowAnswerButtons(true)
+    setCurrentQuestionAnsered(false)
     if (settings && settings.random) {
       const index = generateRandomNumber(0, questions.length - 1);
       setQuestionIndex(index);
@@ -33,6 +35,7 @@ export const QuizPage = () => {
   }, [settings, questions]);
 
   const buttonClick = (type: "yes" | "no") => {
+    setCurrentQuestionAnsered(true)
     if (type === "yes") {
       setAnsweredCount(answeredCount + 1);
       setNextQuestion();
@@ -42,6 +45,7 @@ export const QuizPage = () => {
       setNextQuestion();
     }
     if (type === "no" && !showAnswer) {
+      setWrongCount(wrongCount + 1);
       setShowAnswer(true);
       setShowAnswerButtons(false)
     }
@@ -88,7 +92,7 @@ export const QuizPage = () => {
             Show answer
           </button>
         )}
-        {showAnswer && (
+        {showAnswer && currenQuestionAnswered && (
           <button
             className={`${s.button} ${s.show_answer}`}
             onClick={() => setNextQuestion()}

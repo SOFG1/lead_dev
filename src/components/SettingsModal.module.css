@@ -1,0 +1,46 @@
+.button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    transition: 300ms;
+}
+
+.button:active {
+    opacity: 0.6;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+}
+
+.modal {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    left: 40px;
+    bottom: 40px;
+    background-color: #fff;
+    border-radius: 40px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-weight: 700;
+    background-color: transparent;
+    border: 0;
+}
+
+.content {
+    padding: 40px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}

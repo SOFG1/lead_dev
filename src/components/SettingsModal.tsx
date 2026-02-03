@@ -26,7 +26,7 @@ export const SettingsModal = ({ settings, onChangeSettings }: IProps) => {
 
   return (
     <>
-      <button className={s.button} onClick={() => setOpened(true)}>
+      <button className={s.button} onClick={() => setOpened(!opened)}>
         <img className={s.icon} src={SettingsIcon} alt="Settings Icon" />
       </button>
       {opened && (

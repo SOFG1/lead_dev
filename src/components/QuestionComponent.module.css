@@ -11,7 +11,8 @@
 
 .answer {
     max-width: 400px;
-    text-align: center;
     line-height: 1.15;
+    margin: 0 auto;
     font-size: 18px;
+    white-space: pre-wrap;
 }

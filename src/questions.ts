@@ -203,7 +203,7 @@ Super() - must be called in extended Class constructor
     tag: "3 RegExp",
   },
   {
-    title: "\ - escape a special character",
+    title: " - escape a special character",
     answer: `
 /color\\?/ - matches ‘color?’
     `,
@@ -259,7 +259,8 @@ Super() - must be called in extended Class constructor
     tag: "3 RegExp",
   },
   {
-    title: "Greedy search matches ‘color, colo, colorrr’ in 'color colo colorrr'",
+    title:
+      "Greedy search matches ‘color, colo, colorrr’ in 'color colo colorrr'",
     answer: `
  /color*/
     `,
@@ -278,5 +279,302 @@ Super() - must be called in extended Class constructor
  /color+/
     `,
     tag: "3 RegExp",
+  },
+  {
+    title: "Primitive types",
+    answer: `
+  String, number, boolean, bigint, undefined, null
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Structural vs Nominal types",
+    answer: `
+Complex structures for example objects can have different names but identical structures.
+So they will be equal by structural comparison and different by nominal comparison
+
+Typescript has structural type checking and doesn’t look at names when compares types. It only compares properties and their types.
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Never type",
+    answer: `
+Never type defines a type which will never occur.
+This means that a variable with never type can never hold any value. Using it we can denote impossibility in the system.
+It can happen after throwing an error and in the last condition of exhaustive check function.
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Record",
+    answer: `
+Record is a utility type which defines an object with the same key type and value type for all properties
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Tuple",
+    answer: `
+Tuple is a type similar to array but with fixed size
+eg: Tuple - [string, number, number, string]
+Array - string | number[]
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Named tuple",
+    answer: `
+Named tuple syntax for giving names to tuple elements
+eg: type UserTuple = [id: number, name: string, isAdmin: boolean];
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "as const",
+    answer: `
+as const prevents type widening and makes variable readonly(on typescript level)
+eg: const person = {name: ‘John Doe’, age: 32}  will have type: {name: string, age: number}
+With as const it will have {name: ‘John Doe’, age: 32} type
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Call Signatures (for callable functions)",
+    answer: `
+Call signature is syntax for creating types for functions with properties
+eg:
+type FunctionWithProp = {
+ (param1: string, param2: number): void
+ customProp: string
+}
+
+const functionWithProp:  FunctionWithProp = (param1, param2) => {
+ //…do something
+}
+
+functionWithProp.customProp = “custom property”
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Construct signatures (for constructor functions)",
+    answer: `
+Construct signature is signature for creating types for constructor functions
+eg:
+type StringConstructable = {
+  new (name: string): {name: string};
+};
+
+// A function that takes a constructor adhering to StringConstructable
+function createInstance(ctor: StringConstructable, name: string): {name: string} {
+  return new ctor(name); // Use the new keyword to create an instance
+}
+
+PS - you can create type with call and construct signatures
+eg:
+interface CallOrConstruct {
+  (n?: number): string; // Call signature (can be called as a normal function)
+  new (s: string): Date; // Construct signature (can be called with "new")
+}
+
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "strictBindCallApply",
+    answer: `
+strictBindCallApply - is a flag in “complierOptions” in typescript configuration.
+If the flag is enabled typescript checks parameters and ‘this’ context for bind(), call(), apply()
+If not enables they will be type of any
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Classes",
+    answer: `
+TypeScript classes have prefixes for its properties:
+
+Public - property is accessible from everywhere
+Readonly - makes property writable only in constructor function
+Protected - property is only visible inside subclasses of the class they’re declared in. (not from instances)
+Private - property is available only inside the class and not even in subclasses (not from instances)
+Static - property is available only from the Class(not instance, like in native JS)
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Class static block",
+    answer: `
+Static blocks in class are executed during initialization and have access to private properties
+eg:
+class Database {
+ private static connection: Connection
+
+ private static createConnection {
+  Database.connection = this.createConnection()
+ }
+}
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Class auto accessors",
+    answer: `
+Typescript has feature for declaring simple get() and set() methods in a class with less boilerplate code
+
+eg:
+class MyClass {
+ private _value: string
+ get value(): string {
+  return this.value
+ }
+ set value(v: string) {
+  this.value = v
+ }
+}
+//This class can be implemented this way:
+class MyClass {
+ accessor value: string
+}
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Readonly",
+    answer: `
+Readonly<T> - prefix for type, interface or class properties which will throw an error when we try to modify the property.
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "ReadonlyArray",
+    answer: `
+ReadonlyArray<T> is a operator which makes an array immutable
+The difference between “as const” and ReadonlyArray is that “as const” provides deep immutability
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Conditional types",
+    answer: `
+Conditional type is like ternary operator in JS:
+type MyConditionalType<T> = T extends U ? X : Y;
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Infer",
+    answer: `
+Infer can only be used on the right hand side of the extends keyword
+Infer extracts a generic type and allows to return it in a condition
+type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Awaited",
+    answer: `
+  returns awaited type
+  type A = Awaited<Promise<string>> //type A = string
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "makes all properties of a type optional",
+    answer: `
+  Partial<T>
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "makes all properties of a type required",
+    answer: `
+  Required<T>
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Makes all properties readonly",
+    answer: `
+Readonly<T>
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Picks optional properties of a type(object)",
+    answer: `
+    Pick<T>
+    interface MyInterface {
+ a: string,
+ b: boolean,
+ c: number
+}
+type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’> //takes only a and b from MyInterface
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "creates a new type from a type(object) removing some properties.",
+    answer: `
+    Omit<T>
+    type OmitedType = Omit<MyInterface, ‘c’ | ‘b’> //Will be MyInterface without ‘c’ and ‘b’ properties
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Constructs a type excluding types from a union type",
+    answer: `
+    Exclude<T>
+
+  type UnionType = ‘a’ | ‘b’ | ‘c’
+  type ExcludedType = Exclude<UnionType, ‘c’> //equals - ‘a’ | ‘b’
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "extracts matching types from first union type that exist in the second union",
+    answer: `
+    Extract<T>
+
+    type Extracted = Extract<'a' | ‘b’ | ‘c’, ‘b’, | ‘c’ | ‘f’> // returns ‘b’ | ‘c’
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "defines the type of context ‘this’ for an object and it’s methods",
+    answer: `
+    ThisType
+
+const obj: ThisType<TypeOfThis> { doSomething() { this.doSomething() } }
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "extracts type of ‘this’ from a function type",
+    answer: `
+ThisParameterType<T>
+
+type ThisType = ThisParameterType<type of someFunction> //Checks parameters of context ’this’ in the function and constructs a type
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "removes type of context ’this’ from a function type",
+    answer: `
+OmitThisParameter<T>
+
+type FunctionWithoutContextType = OmitThisParameter<FunctionWithContextType>
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "extracts type of the instance of a class type",
+    answer: `
+InstanceType<T>
+
+type MyClassInstanceType = InstanceType<typeof MyClass>
+    `,
+    tag: "4 TypeScript",
   },
 ];

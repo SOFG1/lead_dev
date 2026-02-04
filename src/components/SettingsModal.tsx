@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import SettingsIcon from "../assets/settings.svg";
 import s from "./SettingsModal.module.css";
 import type { ISettings } from "../types/ISettings";
+import Select from "react-select";
+import { questions } from "../questions";
 
 interface IProps {
   settings: ISettings;
-  onChangeSettings: (settings: ISettings) => void
+  onChangeSettings: (settings: ISettings) => void;
 }
 
 export const SettingsModal = ({ settings, onChangeSettings }: IProps) => {
@@ -20,9 +22,15 @@ export const SettingsModal = ({ settings, onChangeSettings }: IProps) => {
       [prop]: value,
     };
     localStorage.setItem("settings", JSON.stringify(newSettings));
-    onChangeSettings(newSettings)
-
+    onChangeSettings(newSettings);
   };
+
+  const options = useMemo(() => {
+    return Array.from(new Set(questions.map((q) => q.tag))).map((o) => ({
+      label: o,
+      value: o,
+    }));
+  }, [questions]);
 
   return (
     <>
@@ -35,6 +43,20 @@ export const SettingsModal = ({ settings, onChangeSettings }: IProps) => {
             X
           </button>
           <div className={s.content}>
+            <div className={s.item}>
+              <Select
+                className={s.dropdown}
+                options={options}
+                value={settings.tags?.map((v) => ({ label: v, value: v }))}
+                onChange={(v) =>
+                  onChangeSetting(
+                    "tags",
+                    v.map((v) => v.value)
+                  )
+                }
+                isMulti={true}
+              />
+            </div>
             <div className={s.item}>
               <label htmlFor="">Random</label>
               <input

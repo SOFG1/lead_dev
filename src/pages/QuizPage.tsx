@@ -15,9 +15,7 @@ export const QuizPage = () => {
   const [showAnswerButtons, setShowAnswerButtons] = useState(true);
   const [currenQuestionAnswered, setCurrentQuestionAnsered] = useState(false);
 
-  const [questionsList, setQuestionsList] = useState(
-    questions.map((q, i) => ({ ...q, id: i }))
-  );
+  const [questionsList, setQuestionsList] = useState<IQuestion[]>([]);
 
   const [question, setQuestion] = useState<IQuestion | null>(null);
 
@@ -70,6 +68,15 @@ export const QuizPage = () => {
       setNextQuestion(questionsList);
     }
   }, [question, questionsList, settings]);
+
+  useEffect(() => {
+    let list = questions.map((q, i) => ({ ...q, id: i }));
+    if (settings?.tags.length) {
+      list = list.filter((q) => settings.tags.includes(q.tag));
+    }
+    setQuestionsList(list);
+    setNextQuestion(list)
+  }, [settings?.tags]);
 
   return (
     <div className={s.wrapper}>

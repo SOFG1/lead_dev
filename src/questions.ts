@@ -4,67 +4,67 @@ export const questions: Omit<IQuestion, "id">[] = [
   {
     title: "HTML inputs",
     answer: "hidden, image, color, month, week, search…",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "CSS Float",
     answer: "allows streamlined text",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "Polyfils",
     answer:
       "Code that implements features on browsers that aren’t supported natively. Included in babel.",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "Cross browser compatibility",
     answer:
       "use testing platforms, reset.css, vendor prefixes, auto prefixers, polyfils",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "CSS custom properties",
     answer: "variables, @property, var(—foo)",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "CSS functions",
     answer: "min, max, clamp, calc, linear-gradient…",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "CSS performance",
     answer: "simplify selectors, use content-visibility, avoid @import in css",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "CSS properties which affect performance",
     answer: "size, position, margins, paddings, shadows",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "Font loading strategies.",
     answer:
       "Flash Of Invisible Text - font-display-block, Flash Of Unstyled Text font-display-swap, Flash Of Faux Text)",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "Aspect-ratio",
     answer: "defines aspect ratio of element aspect-ratio: 1/2;",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "Content-visibility",
     answer:
       "Sets content visibility for CSS, used for optimizations. visible, hidden, auto",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "Contain-intrinsic-size",
     answer:
       "“1000px”, “200px 400px”, “auto 500px” (placeholder size when content-visibility is auto)",
-    tag: "HTML, CSS",
+    tag: "1 HTML, CSS",
   },
   {
     title: "Object property descriptor",
@@ -77,7 +77,7 @@ export const questions: Omit<IQuestion, "id">[] = [
 
 Object.getOwnPropertyDescriptor(obj, 'myProp') - get configuration of property
 `,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Recursion",
@@ -86,14 +86,14 @@ Object.getOwnPropertyDescriptor(obj, 'myProp') - get configuration of property
 Cons: Memory usage, stack overflow risk, performance overhead. Infinite loop risk
 Example: factorial, tree operations
     `,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Chaining",
     answer: `
     Chaining is approach when method of an object return the object and we can toggle several methods sequently
     `,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Currying(каррирование)",
@@ -107,12 +107,12 @@ const numbers = [1, 5, 10, 20];
 const isGreaterThan10 = greaterThan(10);
 const filtered = numbers.filter(isGreaterThan10); // [20]
     `,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Bind arguments to function",
     answer: `bind(), call(), apply()`,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Memoization",
@@ -127,17 +127,17 @@ function getSquare(num) {
 
 PS - use WeakMap if parameter is an object to prevent garbage collection
     `,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Garbage collector",
     answer: `Garbage collector is a built in tool in JS which removes unused data. But it has some drawbacks during circular references`,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "WeakMap, WeakSet",
     answer: `Are the same Map and Set. But work only with objects to prevent memory leaks`,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Prototypal Inheritance, create an object with prototype",
@@ -147,7 +147,7 @@ Properties of a Class are in the proto of its instances
 Object.create(protoObject) - creates an empty object and receives its prototype as an object
 Prototypal inheritance temporary constructor pattern - old pattern which implements Object.create
 Instanceof - operator which check Classes instances looking its prototype in object’s proto`,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Classes",
@@ -155,37 +155,37 @@ Instanceof - operator which check Classes instances looking its prototype in obj
 Static - static properties only available in Class not in instances
 Super() - must be called in extended Class constructor
 `,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "Function properties",
     answer: `In javascript we can assign properties to functions`,
-    tag: "Javascript",
+    tag: "2 Javascript",
   },
   {
     title: "First ‘test’ match in the text",
     answer: `/test/`,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "All ’test’ matches in the text",
     answer: `/test/g`,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "First case insensitive ‘test’ match",
     answer: `/test/i`,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "all case insensitive ‘test’ matches",
     answer: `/test/gi`,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "| - OR operator",
     answer: `/(bob|alice) marley/ - matches ‘bob marley’, ‘alice marley’`,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "? - optional operator",
@@ -193,83 +193,90 @@ Super() - must be called in extended Class constructor
     /c?olor/ - matches ‘color’, ‘olor’
     /color?/ - matches ‘color’, ‘colo’
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "() - wraps part (grouping)",
     answer: `
 /col(or)/ - matches ‘color’, ‘col’
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "\ - escape a special character",
     answer: `
 /color\\?/ - matches ‘color?’
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "matches all digits",
     answer: `
   \\d
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "matches all non digits",
     answer: `
  \\D
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "matches all non-capitalized letters",
     answer: `
  [a-z]
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "matches all capital letters (range)",
     answer: `
  [A-Z]
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "matches letters from a to d (range)",
     answer: `
  [a-d]
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "matches digits from 1 to 5 (range)",
     answer: `
  [1-5]
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "Greedy search matches ‘color, colo, color’ in 'color colo colorrr'",
     answer: `
  /color?/
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "Greedy search matches ‘color, colo, colorrr’ in 'color colo colorrr'",
     answer: `
  /color*/
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
   },
   {
     title: "Greedy search matches ‘color, colorrr’ in 'color colo colorrr'",
     answer: `
  /color+/
     `,
-    tag: "RegExp",
+    tag: "3 RegExp",
+  },
+  {
+    title: "Greedy search matches ‘color, colorrr’ in 'color colo colorrr'",
+    answer: `
+ /color+/
+    `,
+    tag: "3 RegExp",
   },
 ];

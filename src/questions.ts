@@ -140,7 +140,7 @@ PS - use WeakMap if parameter is an object to prevent garbage collection
     tag: "Javascript",
   },
   {
-    title: "Prototypal Inheritance",
+    title: "Prototypal Inheritance, create an object with prototype",
     answer: `obj.__proto__ - get prototype of an object
 Class.prototype - get prototype of a Class
 Properties of a Class are in the proto of its instances
@@ -161,5 +161,115 @@ Super() - must be called in extended Class constructor
     title: "Function properties",
     answer: `In javascript we can assign properties to functions`,
     tag: "Javascript",
+  },
+  {
+    title: "First ‘test’ match in the text",
+    answer: `/test/`,
+    tag: "RegExp",
+  },
+  {
+    title: "All ’test’ matches in the text",
+    answer: `/test/g`,
+    tag: "RegExp",
+  },
+  {
+    title: "First case insensitive ‘test’ match",
+    answer: `/test/i`,
+    tag: "RegExp",
+  },
+  {
+    title: "all case insensitive ‘test’ matches",
+    answer: `/test/gi`,
+    tag: "RegExp",
+  },
+  {
+    title: "| - OR operator",
+    answer: `/(bob|alice) marley/ - matches ‘bob marley’, ‘alice marley’`,
+    tag: "RegExp",
+  },
+  {
+    title: "? - optional operator",
+    answer: `
+    /c?olor/ - matches ‘color’, ‘olor’
+    /color?/ - matches ‘color’, ‘colo’
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "() - wraps part (grouping)",
+    answer: `
+/col(or)/ - matches ‘color’, ‘col’
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "\ - escape a special character",
+    answer: `
+/color\\?/ - matches ‘color?’
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "matches all digits",
+    answer: `
+  \\d
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "matches all non digits",
+    answer: `
+ \\D
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "matches all non-capitalized letters",
+    answer: `
+ [a-z]
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "matches all capital letters (range)",
+    answer: `
+ [A-Z]
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "matches letters from a to d (range)",
+    answer: `
+ [a-d]
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "matches digits from 1 to 5 (range)",
+    answer: `
+ [1-5]
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "Greedy search matches ‘color, colo, color’ in 'color colo colorrr'",
+    answer: `
+ /color?/
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "Greedy search matches ‘color, colo, colorrr’ in 'color colo colorrr'",
+    answer: `
+ /color*/
+    `,
+    tag: "RegExp",
+  },
+  {
+    title: "Greedy search matches ‘color, colorrr’ in 'color colo colorrr'",
+    answer: `
+ /color+/
+    `,
+    tag: "RegExp",
   },
 ];

@@ -8,6 +8,7 @@ interface Props {
 
 export const QuestionComponent = ({question, showAnswer}: Props) => {
     return <div>
+        <p className={s.tag}>{question.tag}</p>
         <h2 className={s.title}><span>{question.id! + 1}.</span> {question.title}</h2>
         <p className={s.answer} style={{opacity: showAnswer ? 1 :0}}>{question.answer}</p>
     </div>

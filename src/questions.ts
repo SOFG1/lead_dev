@@ -68,14 +68,15 @@ export const questions: Omit<IQuestion, "id">[] = [
   },
   {
     title: "Object property descriptor",
-    answer: `Object.defineProperty(obj, 'myProp', {
-  value: 42,   //Define value
-  writable: true,   //Set editable or not
+    code: `Object.defineProperty(obj, "myProp", {
+  value: 42, //Define value
+  writable: true, //Set editable or not
   enumerable: false, //Set if enumerable in loops(for, Object.keys…)
-  configurable: true //Set if we can reconfigure again
+  configurable: true, //Set if we can reconfigure again
 });
 
-Object.getOwnPropertyDescriptor(obj, 'myProp') - get configuration of property
+// get configuration of property
+Object.getOwnPropertyDescriptor(obj, "myProp");
 `,
     tag: "2 Javascript",
   },
@@ -97,11 +98,11 @@ Example: factorial, tree operations
   },
   {
     title: "Currying(каррирование)",
-    answer: `
-    const curriedAdd = a => b => a + b;
+    code: `
+const curriedAdd = (a) => (b) => a + b;
 console.log(curriedAdd(5)(3)); // Output: 8
 
-const greaterThan = min => num => num > min;
+const greaterThan = (min) => (num) => num > min;
 
 const numbers = [1, 5, 10, 20];
 const isGreaterThan10 = greaterThan(10);
@@ -116,16 +117,16 @@ const filtered = numbers.filter(isGreaterThan10); // [20]
   },
   {
     title: "Memoization",
-    answer: `
-    const cache = {}
+    code: `
+const cache = {}
 function getSquare(num) {
- if(cache[num]) return cache[num]
- const value = num * num
- cache[num] = value
- return value
+  if(cache[num]) return cache[num]
+  const value = num * num
+  cache[num] = value
+  return value
 }
 
-PS - use WeakMap if parameter is an object to prevent garbage collection
+//PS - use WeakMap if parameter is an object to prevent garbage collection
     `,
     tag: "2 Javascript",
   },
@@ -141,12 +142,15 @@ PS - use WeakMap if parameter is an object to prevent garbage collection
   },
   {
     title: "Prototypal Inheritance, create an object with prototype",
-    answer: `obj.__proto__ - get prototype of an object
-Class.prototype - get prototype of a Class
-Properties of a Class are in the proto of its instances
-Object.create(protoObject) - creates an empty object and receives its prototype as an object
-Prototypal inheritance temporary constructor pattern - old pattern which implements Object.create
-Instanceof - operator which check Classes instances looking its prototype in object’s proto`,
+    answer: `
+    Properties of a Class are in the proto of its instances
+    Prototypal inheritance temporary constructor pattern - old pattern which implements Object.create
+    Instanceof - operator which check Classes instances looking its prototype in object’s proto`,
+    code: `
+obj.__proto__ // Get prototype of an object
+Class.prototype // Get prototype of a Class
+//Properties of a Class are in the proto of its instances
+Object.create(protoObject) // Creates an empty object and receives its prototype as an object`,
     tag: "2 Javascript",
   },
   {
@@ -311,41 +315,50 @@ It can happen after throwing an error and in the last condition of exhaustive ch
     answer: `
 Record is a utility type which defines an object with the same key type and value type for all properties
     `,
+    code: `
+      type RecordType = Record<string, string | number>
+    `,
     tag: "4 TypeScript",
   },
   {
     title: "Tuple",
     answer: `
 Tuple is a type similar to array but with fixed size
-eg: Tuple - [string, number, number, string]
-Array - string | number[]
     `,
+    code: `
+    [string, number, number, string] //Tuple
+    string | number[] //Array
+        `,
     tag: "4 TypeScript",
   },
   {
     title: "Named tuple",
     answer: `
 Named tuple syntax for giving names to tuple elements
-eg: type UserTuple = [id: number, name: string, isAdmin: boolean];
     `,
+    code: `
+    type UserTuple = [id: number, name: string, isAdmin: boolean];
+        `,
     tag: "4 TypeScript",
   },
   {
     title: "as const",
     answer: `
 as const prevents type widening and makes variable readonly(on typescript level)
+
 eg: const person = {name: ‘John Doe’, age: 32}  will have type: {name: string, age: number}
+
 With as const it will have {name: ‘John Doe’, age: 32} type
     `,
     tag: "4 TypeScript",
   },
   {
     title: "Call Signatures (for callable functions)",
-    answer: `
-Call signature is syntax for creating types for functions with properties
-eg:
+    answer:
+      "Call signature is syntax for creating types for functions with properties",
+    code: `
 type FunctionWithProp = {
- (param1: string, param2: number): void
+ (param1: string, param2: number): void,
  customProp: string
 }
 
@@ -359,9 +372,9 @@ functionWithProp.customProp = “custom property”
   },
   {
     title: "Construct signatures (for constructor functions)",
-    answer: `
-Construct signature is signature for creating types for constructor functions
-eg:
+    answer:
+      "Construct signature is signature for creating types for constructor functions",
+    code: `
 type StringConstructable = {
   new (name: string): {name: string};
 };
@@ -371,14 +384,11 @@ function createInstance(ctor: StringConstructable, name: string): {name: string}
   return new ctor(name); // Use the new keyword to create an instance
 }
 
-PS - you can create type with call and construct signatures
-eg:
+//PS - you can create type with call and construct signatures
 interface CallOrConstruct {
   (n?: number): string; // Call signature (can be called as a normal function)
   new (s: string): Date; // Construct signature (can be called with "new")
-}
-
-    `,
+}`,
     tag: "4 TypeScript",
   },
   {
@@ -405,39 +415,39 @@ Static - property is available only from the Class(not instance, like in native 
   },
   {
     title: "Class static block",
-    answer: `
-Static blocks in class are executed during initialization and have access to private properties
-eg:
-class Database {
- private static connection: Connection
+    answer:
+      "Static blocks in class are executed during initialization and have access to private properties",
+    code: `
+    class Database {
+     private static connection: Connection
 
- private static createConnection {
-  Database.connection = this.createConnection()
- }
-}
-    `,
+     private static createConnection {
+      Database.connection = this.createConnection()
+     }
+    }
+        `,
     tag: "4 TypeScript",
   },
   {
     title: "Class auto accessors",
-    answer: `
-Typescript has feature for declaring simple get() and set() methods in a class with less boilerplate code
+    answer:
+      "Typescript has feature for declaring simple get() and set() methods in a class with less boilerplate code",
+    code: `
+    class MyClass {
+     private _value: string
 
-eg:
-class MyClass {
- private _value: string
- get value(): string {
-  return this.value
- }
- set value(v: string) {
-  this.value = v
- }
-}
-//This class can be implemented this way:
-class MyClass {
- accessor value: string
-}
-    `,
+     get value(): string {
+      return this.value
+     }
+
+     set value(v: string) {
+      this.value = v
+     }
+    }
+    //This class can be implemented this way:
+    class MyClass {
+     accessor value: string
+    }`,
     tag: "4 TypeScript",
   },
   {
@@ -458,9 +468,11 @@ The difference between “as const” and ReadonlyArray is that “as const” p
   {
     title: "Conditional types",
     answer: `
-Conditional type is like ternary operator in JS:
-type MyConditionalType<T> = T extends U ? X : Y;
+Conditional type is like ternary operator in JS
     `,
+    code: `
+    type MyConditionalType<T> = T extends U ? X : Y;
+        `,
     tag: "4 TypeScript",
   },
   {
@@ -468,48 +480,54 @@ type MyConditionalType<T> = T extends U ? X : Y;
     answer: `
 Infer can only be used on the right hand side of the extends keyword
 Infer extracts a generic type and allows to return it in a condition
-type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
     `,
+    code: `
+    type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
+        `,
     tag: "4 TypeScript",
   },
   {
     title: "Awaited",
     answer: `
   returns awaited type
-  type A = Awaited<Promise<string>> //type A = string
     `,
+    code: `
+    type A = Awaited<Promise<string>> //type A = string
+      `,
     tag: "4 TypeScript",
   },
   {
     title: "makes all properties of a type optional",
-    answer: `
+    code: `
   Partial<T>
     `,
     tag: "4 TypeScript",
   },
   {
     title: "makes all properties of a type required",
-    answer: `
+    code: `
   Required<T>
     `,
     tag: "4 TypeScript",
   },
   {
     title: "Makes all properties readonly",
-    answer: `
+    code: `
 Readonly<T>
     `,
     tag: "4 TypeScript",
   },
   {
     title: "Picks optional properties of a type(object)",
-    answer: `
-    Pick<T>
-    interface MyInterface {
- a: string,
- b: boolean,
- c: number
+    code: `
+Pick<T>
+
+interface MyInterface {
+  a: string,
+  b: boolean,
+  c: number
 }
+
 type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’> //takes only a and b from MyInterface
     `,
     tag: "4 TypeScript",
@@ -518,7 +536,13 @@ type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’> //takes only a and b fro
     title: "creates a new type from a type(object) removing some properties.",
     answer: `
     Omit<T>
-    type OmitedType = Omit<MyInterface, ‘c’ | ‘b’> //Will be MyInterface without ‘c’ and ‘b’ properties
+
+    //Will be MyInterface without ‘c’ and ‘b’ properties
+    type OmitedType = Omit<MyInterface, ‘c’ | ‘b’>
+    `,
+    code: `
+    //Will be MyInterface without ‘c’ and ‘b’ properties
+    type OmitedType = Omit<MyInterface, ‘c’ | ‘b’>
     `,
     tag: "4 TypeScript",
   },
@@ -526,18 +550,21 @@ type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’> //takes only a and b fro
     title: "Constructs a type excluding types from a union type",
     answer: `
     Exclude<T>
-
+    `,
+    code: `
   type UnionType = ‘a’ | ‘b’ | ‘c’
   type ExcludedType = Exclude<UnionType, ‘c’> //equals - ‘a’ | ‘b’
     `,
     tag: "4 TypeScript",
   },
   {
-    title: "extracts matching types from first union type that exist in the second union",
+    title:
+      "extracts matching types from first union type that exist in the second union",
     answer: `
     Extract<T>
-
-    type Extracted = Extract<'a' | ‘b’ | ‘c’, ‘b’, | ‘c’ | ‘f’> // returns ‘b’ | ‘c’
+    `,
+    code: `
+    type Extracted = Extract<'a' | 'b' | 'c', 'b', | 'c' | 'f'> // returns 'b' | 'c'
     `,
     tag: "4 TypeScript",
   },
@@ -545,36 +572,45 @@ type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’> //takes only a and b fro
     title: "defines the type of context ‘this’ for an object and it’s methods",
     answer: `
     ThisType
-
-const obj: ThisType<TypeOfThis> { doSomething() { this.doSomething() } }
+    `,
+    code: `
+const obj: ThisType<TypeOfThis> {
+  doSomething() {
+    this.doSomething()
+  }
+}
     `,
     tag: "4 TypeScript",
   },
   {
     title: "extracts type of ‘this’ from a function type",
     answer: `
+    Checks parameters of context 'this' in the function and constructs a type
 ThisParameterType<T>
-
-type ThisType = ThisParameterType<type of someFunction> //Checks parameters of context ’this’ in the function and constructs a type
     `,
+    code: `
+    type ThisType = ThisParameterType<type of someFunction>
+        `,
     tag: "4 TypeScript",
   },
   {
     title: "removes type of context ’this’ from a function type",
     answer: `
 OmitThisParameter<T>
-
-type FunctionWithoutContextType = OmitThisParameter<FunctionWithContextType>
     `,
+    code: `
+    type FunctionWithoutContextType = OmitThisParameter<FunctionWithContextType>
+        `,
     tag: "4 TypeScript",
   },
   {
     title: "extracts type of the instance of a class type",
     answer: `
 InstanceType<T>
-
-type MyClassInstanceType = InstanceType<typeof MyClass>
     `,
+    code: `
+    type MyClassInstanceType = InstanceType<typeof MyClass>
+        `,
     tag: "4 TypeScript",
   },
 ];

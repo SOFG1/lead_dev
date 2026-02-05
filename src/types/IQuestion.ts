@@ -3,5 +3,6 @@ export interface IQuestion {
     title: string,
     description?: string,
     tag: string
-    answer: string
+    answer?: string
+    code?: string
 }

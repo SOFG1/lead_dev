@@ -22,7 +22,7 @@ export const QuestionComponent = ({ question, showAnswer }: Props) => {
           <SyntaxHighlighter
             language="typescript"
             style={monokai}
-            customStyle={{ fontSize: "12px" }}
+            customStyle={{ fontSize: "12px", padding: "0px", overflow: "hidden" }}
           >
             {question.code}
           </SyntaxHighlighter>

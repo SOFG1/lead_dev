@@ -169,6 +169,15 @@ Super() - must be called in extended Class constructor
     tag: "2 Javascript",
   },
   {
+    title: "Strict Mode",
+    answer: `
+ 1. Throws a ReferenceError accessing undeclared variables.
+ 2. In simple functions ‘this’ is undefined instead of referring to global window(to prevent accidental modifications).
+ 3. Variables inside eval() stay within the eval() scope.
+ 4. Assigning to a read-only property operation throws an error instead of silent failing.`,
+    tag: "2 Javascript",
+  },
+  {
     title: "First ‘test’ match in the text",
     answer: `/test/`,
     tag: "3 RegExp",
@@ -616,6 +625,129 @@ InstanceType<T>
     `,
     code: `
     type MyClassInstanceType = InstanceType<typeof MyClass>
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Function overloads",
+    answer: `
+InstanceType<T>
+    `,
+    code: `
+//Overloads
+function add(a: number, b: number): number;
+function add(a: string, b: string): number;
+
+//Implementation
+function add(a: unknown, b: unknown): number {
+  if (typeof a === "string" && typeof b === "string") {
+    return Number(a) + Number(b);
+  } else if (typeof a === "number" && typeof b === "number") {
+    return a + b;
+  }
+  return 0;
+}
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Decorators",
+    answer: `
+Decorator is a tool for adding additional logic to classes, method, etc. Without changing the initial implementation.
+They work as Higher Order Functions under the hood
+
+Limitations: is experimental feature, requires specific configuration in tsconfig.json
+
+TypeScript has different types of decorators:
+Class Decorator, Class Method Decorator, Class Property Decorator, Accessor Decorator, Parameter Decorator.
+
+To use decorators, you must enable the experimentalDecorators option in your tsconfig.json file:
+    `,
+    code: `
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "experimentalDecorators": true
+  }
+}
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Class Method Decorator",
+    answer: `
+Class method decorator adds additional logic or different implementation to Class method without touching the original implementation
+    `,
+    code: `
+
+    function MethodDecorator<This, Args extends any[], Return>(
+      target: (this: This, ...args: Args) => Return,
+      context: ClassMethodDecoratorContext<
+        This,
+        (this: This, ...args: Args) => Return
+      >,
+    ) {
+      console.log("initialization"); //Will be logged only once
+      return function (this: This, ...args: Args): Return {
+        // Redefine original implementation in return functions
+        //console.log Will be called every time the method is called
+        console.log("execution");
+        const res = target.call(this, ...args);
+        return res;
+      };
+    }
+
+    class Demo {
+      @MethodDecorator
+      exec() {
+        console.log("Demo exec");
+      }
+    }
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Class Decorator",
+    code: `
+function ClassDec<This, Args extends any[]>(
+  target: new (...args: any[]) => This,
+  context: ClassDecoratorContext<new (...args: any[]) => This>,
+) {
+  console.log('class init')
+
+}
+
+@ClassDec
+class Demo {
+  exec(num: number) {
+    console.log("Demo exec");
+  }
+}
+
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Class Field Decorator",
+    code: `
+function FieldDec<This, Args extends any[]>(
+  target: undefined,
+  context: ClassFieldDecoratorContext<This, string>,
+) {
+  console.log('init') //Will log only once, at class definition time
+  return function(value: string) {
+  // Will log on reading the field from an instance
+    console.log("return value")
+    return value //Returned value on getting property
+  }
+}
+
+class Demo {
+  @FieldDec
+   name: string = 'test'
+}
+
+const obj = new Demo()
         `,
     tag: "4 TypeScript",
   },

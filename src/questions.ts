@@ -150,7 +150,9 @@ function getSquare(num) {
 obj.__proto__ // Get prototype of an object
 Class.prototype // Get prototype of a Class
 //Properties of a Class are in the proto of its instances
-Object.create(protoObject) // Creates an empty object and receives its prototype as an object`,
+
+// Create an empty object and receive its prototype as an object
+Object.create(protoObject)`,
     tag: "2 Javascript",
   },
   {
@@ -528,7 +530,8 @@ interface MyInterface {
   c: number
 }
 
-type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’> //takes only a and b from MyInterface
+//takes only a and b from MyInterface
+type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’>
     `,
     tag: "4 TypeScript",
   },
@@ -553,7 +556,9 @@ type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’> //takes only a and b fro
     `,
     code: `
   type UnionType = ‘a’ | ‘b’ | ‘c’
-  type ExcludedType = Exclude<UnionType, ‘c’> //equals - ‘a’ | ‘b’
+
+  //equals - ‘a’ | ‘b’
+  type ExcludedType = Exclude<UnionType, ‘c’>
     `,
     tag: "4 TypeScript",
   },
@@ -564,7 +569,8 @@ type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’> //takes only a and b fro
     Extract<T>
     `,
     code: `
-    type Extracted = Extract<'a' | 'b' | 'c', 'b', | 'c' | 'f'> // returns 'b' | 'c'
+    // returns 'b' | 'c'
+    type Extracted = Extract<'a' | 'b' | 'c', 'b', | 'c' | 'f'>
     `,
     tag: "4 TypeScript",
   },

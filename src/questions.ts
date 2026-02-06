@@ -748,7 +748,135 @@ class Demo {
 }
 
 const obj = new Demo()
+`,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Type Narrowing",
+    answer: `
+Type narrowing is when we get type of variables more specific conditions
+    `,
+    code: `
+function padLeft(padding: number | string, input: string): string {
+  if (typeof padding === "number") {
+    return " ".repeat(padding) + input;
+  }
+  return padding + input;
+}
         `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Type Predicate",
+    answer: `
+Type predicates are functions which return whether a variable matches type or not
+    `,
+    code: `
+function isFish(pet: Fish | Bird): pet is Fish {
+  return !!pet?.swim
+}
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Assert Function",
+    answer: `
+Assert functions are like predicates but throw error when condition is not met
+    `,
+    code: `
+//Function will throw an error if value is not a string
+function assertString(value: unknown): asserts value is string {
+  if (typeof value !== "string") {
+    throw new Error("Expected a string");
+  }
+}
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Type Casting",
+    answer: `
+Casting is when we tell typescript compiler what type will variable have
+    `,
+    code: `
+let x: unknown = 'hello';
+console.log((x as string).length);
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Satisfies operator",
+    answer: `
+The satisfies operator ensures that an expression is assignable to a given type, without modifying or transforming it’s type.
+    `,
+    code: `
+let expression: any;
+type TargetType = string | number;
+
+const variable = expression satisfies TargetType;
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Satisfies vs Casting(as)",
+    answer: `
+Difference between Satisfies and Casting is that satisfies doesn’t change the type and leaves it as it was.
+    `,
+    code: `
+let expression: any;
+type TargetType = string | number;
+
+const variable = expression satisfies TargetType; //variable type will be any
+const variable2 = expression as TargetType; //variable2 type will be string | number
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "TS Config",
+    answer: `
+marget - Specifies javascript version to compile - ES5, ES6, ESNext
+module - Defines the module system(import/export) for output code - CommonJS, ES2015, ESNext
+rootDir - Specifies folder of TS files
+outDir - specifies target folder for compiled files
+moduleResolution - module system for input code
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Multiple TS config files",
+    answer: `
+It’s allowed to create multiple ts config files. For example: tsconfig.base.ts, tsconfig.test.ts
+    `,
+    code: `
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["jest", "node"] // Include test-specific types
+  },
+  "include": ["test/**/*", "src/**/*"] // Include both source and test files
+}
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "TS Config Isolated modules",
+    answer: `
+solated module ensures that your code can be compiled into a single file basis. This is safer when we use an alternative compiler or single file compilation
+    `,
+    code: `
+{
+  "compilerOptions": {
+    "isolatedModules": true
+  }
+}
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "rootDirs (Virtual Directories)",
+    answer: `
+Root dirs - helps to specify physically separate folders as single merged module
+    `,
     tag: "4 TypeScript",
   },
 ];

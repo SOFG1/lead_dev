@@ -18,15 +18,17 @@ export const QuestionComponent = ({ question, showAnswer }: Props) => {
       </h2>
       <div style={{ opacity: showAnswer ? 1 : 0 }}>
         <p className={s.answer}>{question.answer}</p>
+        <div className={s.code_wrapper}>
         {question.code && (
           <SyntaxHighlighter
             language="typescript"
             style={monokai}
-            customStyle={{ fontSize: "12px", padding: "0px", overflow: "hidden" }}
+            customStyle={{ fontSize: "12px", width: "370px", margin: "0 auto"}}
           >
             {question.code}
           </SyntaxHighlighter>
         )}
+        </div>
       </div>
     </div>
   );

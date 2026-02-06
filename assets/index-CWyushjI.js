@@ -344,7 +344,77 @@ class Demo {
 }
 
 const obj = new Demo()
-        `,tag:"4 TypeScript"}];function DN(i,a){if(i==null)return{};var l={};for(var s in i)if({}.hasOwnProperty.call(i,s)){if(a.indexOf(s)!==-1)continue;l[s]=i[s]}return l}function Zn(i,a){if(i==null)return{};var l,s,o=DN(i,a);if(Object.getOwnPropertySymbols){var _=Object.getOwnPropertySymbols(i);for(s=0;s<_.length;s++)l=_[s],a.indexOf(l)===-1&&{}.propertyIsEnumerable.call(i,l)&&(o[l]=i[l])}return o}function ep(i,a){(a==null||a>i.length)&&(a=i.length);for(var l=0,s=Array(a);l<a;l++)s[l]=i[l];return s}function MN(i){if(Array.isArray(i))return ep(i)}function LN(i){if(typeof Symbol<"u"&&i[Symbol.iterator]!=null||i["@@iterator"]!=null)return Array.from(i)}function OR(i,a){if(i){if(typeof i=="string")return ep(i,a);var l={}.toString.call(i).slice(8,-1);return l==="Object"&&i.constructor&&(l=i.constructor.name),l==="Map"||l==="Set"?Array.from(i):l==="Arguments"||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(l)?ep(i,a):void 0}}function xN(){throw new TypeError(`Invalid attempt to spread non-iterable instance.
+`,tag:"4 TypeScript"},{title:"Type Narrowing",answer:`
+Type narrowing is when we get type of variables more specific conditions
+    `,code:`
+function padLeft(padding: number | string, input: string): string {
+  if (typeof padding === "number") {
+    return " ".repeat(padding) + input;
+  }
+  return padding + input;
+}
+        `,tag:"4 TypeScript"},{title:"Type Predicate",answer:`
+Type predicates are functions which return whether a variable matches type or not
+    `,code:`
+function isFish(pet: Fish | Bird): pet is Fish {
+  return !!pet?.swim
+}
+        `,tag:"4 TypeScript"},{title:"Assert Function",answer:`
+Assert functions are like predicates but throw error when condition is not met
+    `,code:`
+//Function will throw an error if value is not a string
+function assertString(value: unknown): asserts value is string {
+  if (typeof value !== "string") {
+    throw new Error("Expected a string");
+  }
+}
+        `,tag:"4 TypeScript"},{title:"Type Casting",answer:`
+Casting is when we tell typescript compiler what type will variable have
+    `,code:`
+let x: unknown = 'hello';
+console.log((x as string).length);
+        `,tag:"4 TypeScript"},{title:"Satisfies operator",answer:`
+The satisfies operator ensures that an expression is assignable to a given type, without modifying or transforming it’s type.
+    `,code:`
+let expression: any;
+type TargetType = string | number;
+
+const variable = expression satisfies TargetType;
+        `,tag:"4 TypeScript"},{title:"Satisfies vs Casting(as)",answer:`
+Difference between Satisfies and Casting is that satisfies doesn’t change the type and leaves it as it was.
+    `,code:`
+let expression: any;
+type TargetType = string | number;
+
+const variable = expression satisfies TargetType; //variable type will be any
+const variable2 = expression as TargetType; //variable2 type will be string | number
+        `,tag:"4 TypeScript"},{title:"TS Config",answer:`
+marget - Specifies javascript version to compile - ES5, ES6, ESNext
+module - Defines the module system(import/export) for output code - CommonJS, ES2015, ESNext
+rootDir - Specifies folder of TS files
+outDir - specifies target folder for compiled files
+moduleResolution - module system for input code
+    `,tag:"4 TypeScript"},{title:"Multiple TS config files",answer:`
+It’s allowed to create multiple ts config files. For example: tsconfig.base.ts, tsconfig.test.ts
+    `,code:`
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["jest", "node"] // Include test-specific types
+  },
+  "include": ["test/**/*", "src/**/*"] // Include both source and test files
+}
+        `,tag:"4 TypeScript"},{title:"TS Config Isolated modules",answer:`
+solated module ensures that your code can be compiled into a single file basis. This is safer when we use an alternative compiler or single file compilation
+    `,code:`
+{
+  "compilerOptions": {
+    "isolatedModules": true
+  }
+}
+        `,tag:"4 TypeScript"},{title:"rootDirs (Virtual Directories)",answer:`
+Root dirs - helps to specify physically separate folders as single merged module
+    `,tag:"4 TypeScript"}];function DN(i,a){if(i==null)return{};var l={};for(var s in i)if({}.hasOwnProperty.call(i,s)){if(a.indexOf(s)!==-1)continue;l[s]=i[s]}return l}function Zn(i,a){if(i==null)return{};var l,s,o=DN(i,a);if(Object.getOwnPropertySymbols){var _=Object.getOwnPropertySymbols(i);for(s=0;s<_.length;s++)l=_[s],a.indexOf(l)===-1&&{}.propertyIsEnumerable.call(i,l)&&(o[l]=i[l])}return o}function ep(i,a){(a==null||a>i.length)&&(a=i.length);for(var l=0,s=Array(a);l<a;l++)s[l]=i[l];return s}function MN(i){if(Array.isArray(i))return ep(i)}function LN(i){if(typeof Symbol<"u"&&i[Symbol.iterator]!=null||i["@@iterator"]!=null)return Array.from(i)}function OR(i,a){if(i){if(typeof i=="string")return ep(i,a);var l={}.toString.call(i).slice(8,-1);return l==="Object"&&i.constructor&&(l=i.constructor.name),l==="Map"||l==="Set"?Array.from(i):l==="Arguments"||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(l)?ep(i,a):void 0}}function xN(){throw new TypeError(`Invalid attempt to spread non-iterable instance.
 In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`)}function pr(i){return MN(i)||LN(i)||OR(i)||xN()}function yi(i){"@babel/helpers - typeof";return yi=typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?function(a){return typeof a}:function(a){return a&&typeof Symbol=="function"&&a.constructor===Symbol&&a!==Symbol.prototype?"symbol":typeof a},yi(i)}function wN(i,a){if(yi(i)!="object"||!i)return i;var l=i[Symbol.toPrimitive];if(l!==void 0){var s=l.call(i,a);if(yi(s)!="object")return s;throw new TypeError("@@toPrimitive must return a primitive value.")}return(a==="string"?String:Number)(i)}function NR(i){var a=wN(i,"string");return yi(a)=="symbol"?a:a+""}function hi(i,a,l){return(a=NR(a))in i?Object.defineProperty(i,a,{value:l,enumerable:!0,configurable:!0,writable:!0}):i[a]=l,i}function Re(){return Re=Object.assign?Object.assign.bind():function(i){for(var a=1;a<arguments.length;a++){var l=arguments[a];for(var s in l)({}).hasOwnProperty.call(l,s)&&(i[s]=l[s])}return i},Re.apply(null,arguments)}function sf(i,a){var l=Object.keys(i);if(Object.getOwnPropertySymbols){var s=Object.getOwnPropertySymbols(i);a&&(s=s.filter(function(o){return Object.getOwnPropertyDescriptor(i,o).enumerable})),l.push.apply(l,s)}return l}function dr(i){for(var a=1;a<arguments.length;a++){var l=arguments[a]!=null?arguments[a]:{};a%2?sf(Object(l),!0).forEach(function(s){hi(i,s,l[s])}):Object.getOwnPropertyDescriptors?Object.defineProperties(i,Object.getOwnPropertyDescriptors(l)):sf(Object(l)).forEach(function(s){Object.defineProperty(i,s,Object.getOwnPropertyDescriptor(l,s))})}return i}function PN(i){var a=i.length;if(a===0||a===1)return i;if(a===2)return[i[0],i[1],"".concat(i[0],".").concat(i[1]),"".concat(i[1],".").concat(i[0])];if(a===3)return[i[0],i[1],i[2],"".concat(i[0],".").concat(i[1]),"".concat(i[0],".").concat(i[2]),"".concat(i[1],".").concat(i[0]),"".concat(i[1],".").concat(i[2]),"".concat(i[2],".").concat(i[0]),"".concat(i[2],".").concat(i[1]),"".concat(i[0],".").concat(i[1],".").concat(i[2]),"".concat(i[0],".").concat(i[2],".").concat(i[1]),"".concat(i[1],".").concat(i[0],".").concat(i[2]),"".concat(i[1],".").concat(i[2],".").concat(i[0]),"".concat(i[2],".").concat(i[0],".").concat(i[1]),"".concat(i[2],".").concat(i[1],".").concat(i[0])];if(a>=4)return[i[0],i[1],i[2],i[3],"".concat(i[0],".").concat(i[1]),"".concat(i[0],".").concat(i[2]),"".concat(i[0],".").concat(i[3]),"".concat(i[1],".").concat(i[0]),"".concat(i[1],".").concat(i[2]),"".concat(i[1],".").concat(i[3]),"".concat(i[2],".").concat(i[0]),"".concat(i[2],".").concat(i[1]),"".concat(i[2],".").concat(i[3]),"".concat(i[3],".").concat(i[0]),"".concat(i[3],".").concat(i[1]),"".concat(i[3],".").concat(i[2]),"".concat(i[0],".").concat(i[1],".").concat(i[2]),"".concat(i[0],".").concat(i[1],".").concat(i[3]),"".concat(i[0],".").concat(i[2],".").concat(i[1]),"".concat(i[0],".").concat(i[2],".").concat(i[3]),"".concat(i[0],".").concat(i[3],".").concat(i[1]),"".concat(i[0],".").concat(i[3],".").concat(i[2]),"".concat(i[1],".").concat(i[0],".").concat(i[2]),"".concat(i[1],".").concat(i[0],".").concat(i[3]),"".concat(i[1],".").concat(i[2],".").concat(i[0]),"".concat(i[1],".").concat(i[2],".").concat(i[3]),"".concat(i[1],".").concat(i[3],".").concat(i[0]),"".concat(i[1],".").concat(i[3],".").concat(i[2]),"".concat(i[2],".").concat(i[0],".").concat(i[1]),"".concat(i[2],".").concat(i[0],".").concat(i[3]),"".concat(i[2],".").concat(i[1],".").concat(i[0]),"".concat(i[2],".").concat(i[1],".").concat(i[3]),"".concat(i[2],".").concat(i[3],".").concat(i[0]),"".concat(i[2],".").concat(i[3],".").concat(i[1]),"".concat(i[3],".").concat(i[0],".").concat(i[1]),"".concat(i[3],".").concat(i[0],".").concat(i[2]),"".concat(i[3],".").concat(i[1],".").concat(i[0]),"".concat(i[3],".").concat(i[1],".").concat(i[2]),"".concat(i[3],".").concat(i[2],".").concat(i[0]),"".concat(i[3],".").concat(i[2],".").concat(i[1]),"".concat(i[0],".").concat(i[1],".").concat(i[2],".").concat(i[3]),"".concat(i[0],".").concat(i[1],".").concat(i[3],".").concat(i[2]),"".concat(i[0],".").concat(i[2],".").concat(i[1],".").concat(i[3]),"".concat(i[0],".").concat(i[2],".").concat(i[3],".").concat(i[1]),"".concat(i[0],".").concat(i[3],".").concat(i[1],".").concat(i[2]),"".concat(i[0],".").concat(i[3],".").concat(i[2],".").concat(i[1]),"".concat(i[1],".").concat(i[0],".").concat(i[2],".").concat(i[3]),"".concat(i[1],".").concat(i[0],".").concat(i[3],".").concat(i[2]),"".concat(i[1],".").concat(i[2],".").concat(i[0],".").concat(i[3]),"".concat(i[1],".").concat(i[2],".").concat(i[3],".").concat(i[0]),"".concat(i[1],".").concat(i[3],".").concat(i[0],".").concat(i[2]),"".concat(i[1],".").concat(i[3],".").concat(i[2],".").concat(i[0]),"".concat(i[2],".").concat(i[0],".").concat(i[1],".").concat(i[3]),"".concat(i[2],".").concat(i[0],".").concat(i[3],".").concat(i[1]),"".concat(i[2],".").concat(i[1],".").concat(i[0],".").concat(i[3]),"".concat(i[2],".").concat(i[1],".").concat(i[3],".").concat(i[0]),"".concat(i[2],".").concat(i[3],".").concat(i[0],".").concat(i[1]),"".concat(i[2],".").concat(i[3],".").concat(i[1],".").concat(i[0]),"".concat(i[3],".").concat(i[0],".").concat(i[1],".").concat(i[2]),"".concat(i[3],".").concat(i[0],".").concat(i[2],".").concat(i[1]),"".concat(i[3],".").concat(i[1],".").concat(i[0],".").concat(i[2]),"".concat(i[3],".").concat(i[1],".").concat(i[2],".").concat(i[0]),"".concat(i[3],".").concat(i[2],".").concat(i[0],".").concat(i[1]),"".concat(i[3],".").concat(i[2],".").concat(i[1],".").concat(i[0])]}var uu={};function UN(i){if(i.length===0||i.length===1)return i;var a=i.join(".");return uu[a]||(uu[a]=PN(i)),uu[a]}function kN(i){var a=arguments.length>1&&arguments[1]!==void 0?arguments[1]:{},l=arguments.length>2?arguments[2]:void 0,s=i.filter(function(_){return _!=="token"}),o=UN(s);return o.reduce(function(_,d){return dr(dr({},_),l[d])},a)}function lf(i){return i.join(" ")}function BN(i,a){var l=0;return function(s){return l+=1,s.map(function(o,_){return hR({node:o,stylesheet:i,useInlineStyles:a,key:"code-segment-".concat(l,"-").concat(_)})})}}function hR(i){var a=i.node,l=i.stylesheet,s=i.style,o=s===void 0?{}:s,_=i.useInlineStyles,d=i.key,p=a.properties,m=a.type,E=a.tagName,S=a.value;if(m==="text")return S;if(E){var f=BN(l,_),b;if(!_)b=dr(dr({},p),{},{className:lf(p.className)});else{var v=Object.keys(l).reduce(function(O,y){return y.split(".").forEach(function(I){O.includes(I)||O.push(I)}),O},[]),C=p.className&&p.className.includes("token")?["token"]:[],N=p.className&&C.concat(p.className.filter(function(O){return!v.includes(O)}));b=dr(dr({},p),{},{className:lf(N)||void 0,style:kN(p.className,Object.assign({},p.style,o),l)})}var R=f(a.children);return ba.createElement(E,Re({key:d},b),R)}}const FN=(function(i,a){var l=i.listLanguages();return l.indexOf(a)!==-1});var GN=["language","children","style","customStyle","codeTagProps","useInlineStyles","showLineNumbers","showInlineLineNumbers","startingLineNumber","lineNumberContainerStyle","lineNumberStyle","wrapLines","wrapLongLines","lineProps","renderer","PreTag","CodeTag","code","astGenerator"];function cf(i,a){var l=Object.keys(i);if(Object.getOwnPropertySymbols){var s=Object.getOwnPropertySymbols(i);a&&(s=s.filter(function(o){return Object.getOwnPropertyDescriptor(i,o).enumerable})),l.push.apply(l,s)}return l}function Ja(i){for(var a=1;a<arguments.length;a++){var l=arguments[a]!=null?arguments[a]:{};a%2?cf(Object(l),!0).forEach(function(s){hi(i,s,l[s])}):Object.getOwnPropertyDescriptors?Object.defineProperties(i,Object.getOwnPropertyDescriptors(l)):cf(Object(l)).forEach(function(s){Object.defineProperty(i,s,Object.getOwnPropertyDescriptor(l,s))})}return i}var YN=/\n/g;function qN(i){return i.match(YN)}function HN(i){var a=i.lines,l=i.startingLineNumber,s=i.style;return a.map(function(o,_){var d=_+l;return ba.createElement("span",{key:"line-".concat(_),className:"react-syntax-highlighter-line-number",style:typeof s=="function"?s(d):s},"".concat(d,`
 `))})}function VN(i){var a=i.codeString,l=i.codeStyle,s=i.containerStyle,o=s===void 0?{float:"left",paddingRight:"10px"}:s,_=i.numberStyle,d=_===void 0?{}:_,p=i.startingLineNumber;return ba.createElement("code",{style:Object.assign({},l,o)},HN({lines:a.replace(/\n$/,"").split(`
 `),style:d,startingLineNumber:p}))}function zN(i){return"".concat(i.toString().length,".25em")}function yR(i,a){return{type:"element",tagName:"span",properties:{key:"line-number--".concat(i),className:["comment","linenumber","react-syntax-highlighter-line-number"],style:a},children:[{type:"text",value:i}]}}function AR(i,a,l){var s={display:"inline-block",minWidth:zN(l),paddingRight:"1em",textAlign:"right",userSelect:"none"},o=typeof i=="function"?i(a):i,_=Ja(Ja({},s),o);return _}function Fs(i){var a=i.children,l=i.lineNumber,s=i.lineNumberStyle,o=i.largestLineNumber,_=i.showInlineLineNumbers,d=i.lineProps,p=d===void 0?{}:d,m=i.className,E=m===void 0?[]:m,S=i.showLineNumbers,f=i.wrapLongLines,b=i.wrapLines,v=b===void 0?!1:b,C=v?Ja({},typeof p=="function"?p(l):p):{};if(C.className=C.className?[].concat(pr(C.className.trim().split(/\s+/)),pr(E)):E,l&&_){var N=AR(s,l,o);a.unshift(yR(l,N))}return f&S&&(C.style=Ja({display:"flex"},C.style)),{type:"element",tagName:"span",properties:C,children:a}}function IR(i){var a=arguments.length>1&&arguments[1]!==void 0?arguments[1]:[],l=arguments.length>2&&arguments[2]!==void 0?arguments[2]:[];i.length===void 0&&(i=[i]);for(var s=0;s<i.length;s++){var o=i[s];if(o.type==="text")l.push(Fs({children:[o],className:pr(new Set(a))}));else if(o.children){var _,d=a.concat(((_=o.properties)===null||_===void 0?void 0:_.className)||[]);IR(o.children,d).forEach(function(p){return l.push(p)})}}return l}function KN(i,a,l,s,o,_,d,p,m){var E,S=IR(i.value),f=[],b=-1,v=0;function C(M,U){var L=arguments.length>2&&arguments[2]!==void 0?arguments[2]:[];return Fs({children:M,lineNumber:U,lineNumberStyle:p,largestLineNumber:d,showInlineLineNumbers:o,lineProps:l,className:L,showLineNumbers:s,wrapLongLines:m,wrapLines:a})}function N(M,U){if(s&&U&&o){var L=AR(p,U,d);M.unshift(yR(U,L))}return M}function R(M,U){var L=arguments.length>2&&arguments[2]!==void 0?arguments[2]:[];return a||L.length>0?C(M,U,L):N(M,U)}for(var O=function(){var U=S[v],L=U.children[0].value,W=qN(L);if(W){var j=L.split(`

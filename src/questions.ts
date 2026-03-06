@@ -879,4 +879,107 @@ Root dirs - helps to specify physically separate folders as single merged module
     `,
     tag: "4 TypeScript",
   },
+  {
+    title: "Namespace",
+    answer: `
+Namespace is a feature for creating isolated scopes in typescript to prevent global space pollution.
+PS - using modules is better approach than using namespaces
+    `,
+    code: `
+namespace Geometry {
+  export class Circle {
+    constructor(public radius: number) {}
+    area(): number {
+      return Math.PI * this.radius ** 2;
+    }
+  }
+
+  export namespace Shapes { // Nested namespace
+    export class Square {
+        /* ... */
+    }
+  }
+}
+
+const circle = new Geometry.Circle(5);
+const square = new Geometry.Shapes.Square();
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Modules",
+    answer: `
+TypeScript modules are imports and exports from different files
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Type Definitions",
+    answer: `
+Type definitions(DefinitelyTyped) are typescript repositories(declaration types) for javascript npm libraries that don’t have their own types.
+
+DefinitelyTyped is a single place for community to provide declaration types. TypeScript compiler automatically detects and uses packages of DefinitelyTyped. Type definitions are published to the npm registry under the “@types” scope.
+    `,
+    code: `npm install -D @types/jquery`,
+
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Declaration merging",
+    answer: `
+Declaration merging is a tool in TypeScript which merges instances when they are declared multiple times.
+Mergable types: Interface, Namespace… \nPS - Classes are not mergable
+    `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Extending and Overriding globals or libraries",
+    answer: `
+In typescript we can Extend or Override global types and libraries types.
+    `,
+    code: `
+// Extending globals
+// types/global.d.ts
+export {}; // Ensure this file is treated as a module
+
+declare global {
+  interface Window {
+    customConfig: {
+      theme: string;
+    };
+  }
+}
+
+//Extending libraries
+//types/some-lib.d.ts
+import 'some-lib'; // Import original types
+
+declare module 'some-lib' {
+  interface OriginalInterface {
+    newProperty: string; // Add new property
+  }
+}
+
+
+//Overriding ‘window’ in a single module
+
+declare const window: {
+  customProp: string;
+} & Window;
+
+window.customProp = "value";
+
+        `,
+    tag: "4 TypeScript",
+  },
+  {
+    title: "Declare const",
+    answer: `
+In TypeScript we can define in a single file that a variable which exists globally will have the declared type in the file
+    `,
+    code: `
+    //This means that this global variable is string type in this file
+    declare const API_URL: string; `,
+    tag: "4 TypeScript",
+  },
 ];

@@ -1,4 +1,3 @@
-import { questions } from "../questions";
 import { QuestionComponent } from "../components/QuestionComponent";
 import s from "./QuizPage.module.css";
 import { SettingsModal } from "../components/SettingsModal";
@@ -6,6 +5,7 @@ import { useEffect, useState } from "react";
 import { defaultSettings, type ISettings } from "../types/ISettings";
 import { generateRandomNumber } from "../utils/generateRandomNumber";
 import type { IQuestion } from "../types/IQuestion";
+import { allQuestions } from '../questions';
 
 export const QuizPage = () => {
   const [settings, setSettings] = useState<ISettings>();
@@ -70,7 +70,7 @@ export const QuizPage = () => {
   }, [question, questionsList, settings]);
 
   useEffect(() => {
-    let list = questions.map((q, i) => ({ ...q, id: i }));
+    let list = allQuestions.map((q, i) => ({ ...q, id: i }));
     if (settings?.tags.length) {
       list = list.filter((q) => settings.tags.includes(q.tag));
     }

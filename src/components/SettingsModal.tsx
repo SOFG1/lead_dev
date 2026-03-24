@@ -3,7 +3,7 @@ import SettingsIcon from "../assets/settings.svg";
 import s from "./SettingsModal.module.css";
 import type { ISettings } from "../types/ISettings";
 import Select from "react-select";
-import { questions } from "../questions";
+import { allQuestions } from '../questions';
 
 interface IProps {
   settings: ISettings;
@@ -26,11 +26,11 @@ export const SettingsModal = ({ settings, onChangeSettings }: IProps) => {
   };
 
   const options = useMemo(() => {
-    return Array.from(new Set(questions.map((q) => q.tag))).map((o) => ({
+    return Array.from(new Set(allQuestions.map((q) => q.tag))).map((o) => ({
       label: o,
       value: o,
     }));
-  }, [questions]);
+  }, [allQuestions]);
 
   return (
     <>

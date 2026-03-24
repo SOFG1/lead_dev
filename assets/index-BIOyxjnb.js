@@ -60,7 +60,7 @@ Super() - must be called in extended Class constructor
     /c?olor/ - matches ‘color’, ‘olor’
     /color?/ - matches ‘color’, ‘colo’
     `,tag:"3 RegExp"},{title:"() - wraps part (grouping)",answer:`
-/col(or)/ - matches ‘color’, ‘col’
+/col(or)?/ - matches ‘color’, ‘col’
     `,tag:"3 RegExp"},{title:" - escape a special character",answer:`
 /color\\?/ - matches ‘color?’
     `,tag:"3 RegExp"},{title:"matches all digits",answer:`
@@ -389,7 +389,7 @@ type TargetType = string | number;
 const variable = expression satisfies TargetType; //variable type will be any
 const variable2 = expression as TargetType; //variable2 type will be string | number
         `,tag:"4 TypeScript"},{title:"TS Config",answer:`
-marget - Specifies javascript version to compile - ES5, ES6, ESNext
+target - Specifies javascript version to compile - ES5, ES6, ESNext
 module - Defines the module system(import/export) for output code - CommonJS, ES2015, ESNext
 rootDir - Specifies folder of TS files
 outDir - specifies target folder for compiled files
@@ -405,7 +405,7 @@ It’s allowed to create multiple ts config files. For example: tsconfig.base.ts
   "include": ["test/**/*", "src/**/*"] // Include both source and test files
 }
         `,tag:"4 TypeScript"},{title:"TS Config Isolated modules",answer:`
-solated module ensures that your code can be compiled into a single file basis. This is safer when we use an alternative compiler or single file compilation
+Isolated module ensures that your code can be compiled into a single file basis. This is safer when we use an alternative compiler or single file compilation
     `,code:`
 {
   "compilerOptions": {
@@ -437,7 +437,7 @@ const circle = new Geometry.Circle(5);
 const square = new Geometry.Shapes.Square();
     `,tag:"4 TypeScript"},{title:"Modules",answer:`
 TypeScript modules are imports and exports from different files
-    `,tag:"4 TypeScript"},{title:"Type Definitions",answer:`
+    `,tag:"4 TypeScript"},{title:"Type Definitions (DefinitelyTyped)",answer:`
 Type definitions(DefinitelyTyped) are typescript repositories(declaration types) for javascript npm libraries that don’t have their own types.
 
 DefinitelyTyped is a single place for community to provide declaration types. TypeScript compiler automatically detects and uses packages of DefinitelyTyped. Type definitions are published to the npm registry under the “@types” scope.

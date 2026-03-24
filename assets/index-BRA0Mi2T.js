@@ -517,13 +517,19 @@ Yarn is not user friendly for beginners
 NPM is very popular and easy for beginners, also has a large community
 NPM is less performant than yarn
      `,tag:"5 CI/CD and Devtools"}],Qx=[{title:"Accessibility(a11y)",answer:`
-Use labels for inputs and other elements, use aria-labels for audio for screen readers.
-Make UI accessible for people who doesn’t differ colors, provide contrast and accessible elements sizes
-Use semantic html tags to help screen readers recognize elements
-Use tab-index attribute to make elements properly focused with tab
-Use es-lint plugin (eslint-plugin-jsx-a11y) for analyzing accessibility
-Use lighthouse, chrome://accessibility and dev tools rendering tools for analyzing pages for accessibility
-Use hidden html blocks which are not visible but contains some content and can be transcribed with audio
+1. Use labels for inputs and other elements, use aria-labels for audio for screen readers.
+
+2. Make UI accessible for people who doesn’t differ colors, provide contrast and accessible elements sizes
+
+3. Use semantic html tags to help screen readers recognize elements
+
+4. Use tab-index attribute to make elements properly focused with tab
+
+4. Use es-lint plugin (eslint-plugin-jsx-a11y) for analyzing accessibility
+
+6. Use lighthouse, chrome://accessibility and dev tools rendering tools for analyzing pages for accessibility
+
+7. Use hidden html blocks which are not visible but contains some content and can be transcribed with audio
     `,tag:"6 Security, Optimization and A11y"},{title:"Web Security",answer:`
 Secure front-end source code with obfuscation
 
@@ -546,14 +552,21 @@ Avoid using Iframes whenever possible
 Man in the middle - interception into client requests and replacing requested resources with scripts with harmful code
 Use http protocol to prevent this
     `,tag:"6 Security, Optimization and A11y"},{title:"Web optimization",answer:`
-Assets optimization. Minify images(use lightweight formats like waif, fetch priority attribute), css files, fonts and scripts
-Code splitting. Split app bundle into chunks
-Use CDNs for assets to upload faster
-API requests optimization
-Computations memoization and caching
-Using web workers for heavy operations to run in the background
-Remove render blocking javascript
-Set sizes for images to prevent layout shifts
+1. Assets optimization. Minify images(use lightweight formats like waif, fetch priority attribute), css files, fonts and scripts
+
+2. Code splitting. Split app bundle into chunks
+
+3. Use CDNs for assets to upload faster
+
+4. API requests optimization
+
+5. Computations memoization and caching
+
+6. Using web workers for heavy operations to run in the background
+
+7. Remove render blocking javascript
+
+8. Set sizes for images to prevent layout shifts
 
 Core Web Vitals:
 Largest contentful paint

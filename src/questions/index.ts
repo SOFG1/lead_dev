@@ -3,6 +3,7 @@ import { questions2 } from './2javascript';
 import { questions3 } from './3regexp';
 import { questions4 } from './4typescript';
 import { questions5 } from './5cicd';
+import { questions6 } from './6securityOptimizationA11y';
 
 export const allQuestions = [
     ...questions1,
@@ -10,4 +11,6 @@ export const allQuestions = [
     ...questions3,
     ...questions4,
     ...questions5,
+    ...questions6,
+
 ]

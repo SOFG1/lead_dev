@@ -116,8 +116,8 @@ Super() - must be called in extended Class constructor
     title: "structuredClone",
     answer: `structuredClone - is a native js method for deepCloning objects`,
     code: `
-    const obj = { id: 1, name: "test" };
-    const cloned = structuredClone(obj);
+const obj = { id: 1, name: "test" };
+const cloned = structuredClone(obj);
     `,
     tag: "2 Javascript",
   },

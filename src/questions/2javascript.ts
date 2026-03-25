@@ -112,4 +112,18 @@ Super() - must be called in extended Class constructor
  4. Assigning to a read-only property operation throws an error instead of silent failing.`,
     tag: "2 Javascript",
   },
+  {
+    title: "structuredClone",
+    answer: `structuredClone - is a native js method for deepCloning objects`,
+    code: `
+    const obj = { id: 1, name: "test" };
+    const cloned = structuredClone(obj);
+    `,
+    tag: "2 Javascript",
+  },
+  {
+    title: "Tree shaking",
+    answer: `Tree shaking is the process of removing dead(unused) code during bundling. Included in modern bundlers`,
+    tag: "2 Javascript",
+  },
 ];

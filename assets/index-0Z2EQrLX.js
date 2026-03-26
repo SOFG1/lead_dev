@@ -61,16 +61,20 @@ function getSquare(num) {
 
 //PS - use WeakMap if parameter is an object to prevent garbage collection
     `,tag:"2 Javascript"},{title:"Garbage collector",answer:"Garbage collector is a built in tool in JS which removes unused data. But it has some drawbacks during circular references",tag:"2 Javascript"},{title:"WeakMap, WeakSet",answer:"Are the same Map and Set. But work only with objects to prevent memory leaks",tag:"2 Javascript"},{title:"Prototypal Inheritance, create an object with prototype",answer:`
-    Properties of a Class are in the proto of its instances
-    Prototypal inheritance temporary constructor pattern - old pattern which implements Object.create
-    Instanceof - operator which check Classes instances looking its prototype in object’s proto`,code:`
+Properties of a Class are in the proto of its instances
+
+Prototypal inheritance temporary constructor pattern - old pattern which implements Object.create
+
+Instanceof - operator which check Classes instances looking its prototype in object’s proto`,code:`
 obj.__proto__ // Get prototype of an object
 Class.prototype // Get prototype of a Class
 //Properties of a Class are in the proto of its instances
 
 // Create an empty object and receive its prototype as an object
 Object.create(protoObject)`,tag:"2 Javascript"},{title:"Classes",answer:`Methods and props of a Class goes into proto of its instance
+
 Static - static properties only available in Class not in instances
+
 Super() - must be called in extended Class constructor
 `,tag:"2 Javascript"},{title:"Function properties",answer:"In javascript we can assign properties to functions",tag:"2 Javascript"},{title:"Strict Mode",answer:`
  1. Throws a ReferenceError accessing undeclared variables.
@@ -102,8 +106,6 @@ const cloned = structuredClone(obj);
  /color?/
     `,tag:"3 RegExp"},{title:"Greedy search matches ‘color, colo, colorrr’ in 'color colo colorrr'",answer:`
  /color*/
-    `,tag:"3 RegExp"},{title:"Greedy search matches ‘color, colorrr’ in 'color colo colorrr'",answer:`
- /color+/
     `,tag:"3 RegExp"},{title:"Greedy search matches ‘color, colorrr’ in 'color colo colorrr'",answer:`
  /color+/
     `,tag:"3 RegExp"}],zx=[{title:"Primitive types",answer:`
@@ -413,9 +415,13 @@ const variable = expression satisfies TargetType; //variable type will be any
 const variable2 = expression as TargetType; //variable2 type will be string | number
         `,tag:"4 TypeScript"},{title:"TS Config",answer:`
 target - Specifies javascript version to compile - ES5, ES6, ESNext
+
 module - Defines the module system(import/export) for output code - CommonJS, ES2015, ESNext
+
 rootDir - Specifies folder of TS files
+
 outDir - specifies target folder for compiled files
+
 moduleResolution - module system for input code
     `,tag:"4 TypeScript"},{title:"Multiple TS config files",answer:`
 It’s allowed to create multiple ts config files. For example: tsconfig.base.ts, tsconfig.test.ts

@@ -7,6 +7,7 @@ import { generateRandomNumber } from "../utils/generateRandomNumber";
 import type { IQuestion } from "../types/IQuestion";
 import { allQuestions } from "../questions";
 import { AnsweredTopicsComponent } from "../components/AnsweredTopicsComponent";
+import { useAnsweredQuestions } from "../hooks/useAnsweredQuestions";
 
 export const QuizPage = () => {
   const [settings, setSettings] = useState<ISettings>();
@@ -20,9 +21,8 @@ export const QuizPage = () => {
 
   const [question, setQuestion] = useState<IQuestion | null>(null);
 
-  const [answeredQuestionsList, setAnsweredQuestionsList] = useState<
-    IQuestion[]
-  >([]);
+  const { answeredQuestionsList, setAnsweredQuestionsList } =
+    useAnsweredQuestions();
 
   const setNextQuestion = (list: IQuestion[]) => {
     if (!list.length) {
@@ -42,7 +42,7 @@ export const QuizPage = () => {
 
   const buttonClick = (type: "yes" | "no") => {
     setCurrentQuestionAnsered(true);
-    setAnsweredQuestionsList((p) => [...p, question!]); //Add question to answered list
+    setAnsweredQuestionsList([...answeredQuestionsList, question!]); //Add question to answered list
     const updatedList = questionsList.filter((q) => q.id !== question?.id);
     setQuestionsList(updatedList);
     if (type === "yes") {
@@ -86,7 +86,11 @@ export const QuizPage = () => {
 
   return (
     <div className={s.wrapper}>
-      <AnsweredTopicsComponent answeredCount={answeredCount} wrongCount={wrongCount} answeredQuestions={answeredQuestionsList} />
+      <AnsweredTopicsComponent
+        answeredCount={answeredCount}
+        wrongCount={wrongCount}
+        answeredQuestions={answeredQuestionsList}
+      />
       <SettingsModal
         settings={settings || defaultSettings}
         onChangeSettings={(s) => setSettings(s)}

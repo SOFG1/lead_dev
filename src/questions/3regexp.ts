@@ -112,12 +112,4 @@ export const questions3: Omit<IQuestion, "id">[] = [
     `,
     tag: "3 RegExp",
   },
-  {
-    title: "Greedy search matches ‘color, colorrr’ in 'color colo colorrr'",
-    answer: `
- /color+/
-    `,
-    tag: "3 RegExp",
-  },
-
 ];

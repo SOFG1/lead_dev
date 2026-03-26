@@ -542,9 +542,13 @@ const variable2 = expression as TargetType; //variable2 type will be string | nu
     title: "TS Config",
     answer: `
 target - Specifies javascript version to compile - ES5, ES6, ESNext
+
 module - Defines the module system(import/export) for output code - CommonJS, ES2015, ESNext
+
 rootDir - Specifies folder of TS files
+
 outDir - specifies target folder for compiled files
+
 moduleResolution - module system for input code
     `,
     tag: "4 TypeScript",

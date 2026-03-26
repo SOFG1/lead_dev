@@ -78,9 +78,11 @@ function getSquare(num) {
   {
     title: "Prototypal Inheritance, create an object with prototype",
     answer: `
-    Properties of a Class are in the proto of its instances
-    Prototypal inheritance temporary constructor pattern - old pattern which implements Object.create
-    Instanceof - operator which check Classes instances looking its prototype in object’s proto`,
+Properties of a Class are in the proto of its instances
+
+Prototypal inheritance temporary constructor pattern - old pattern which implements Object.create
+
+Instanceof - operator which check Classes instances looking its prototype in object’s proto`,
     code: `
 obj.__proto__ // Get prototype of an object
 Class.prototype // Get prototype of a Class
@@ -93,7 +95,9 @@ Object.create(protoObject)`,
   {
     title: "Classes",
     answer: `Methods and props of a Class goes into proto of its instance
+
 Static - static properties only available in Class not in instances
+
 Super() - must be called in extended Class constructor
 `,
     tag: "2 Javascript",

@@ -36,11 +36,11 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 // get configuration of property
 Object.getOwnPropertyDescriptor(obj, "myProp");
 `,tag:"2 Javascript"},{title:"Recursion",answer:`
-    Pros: Simplicity, reduces code complexity
+Pros: Simplicity, reduces code complexity
 Cons: Memory usage, stack overflow risk, performance overhead. Infinite loop risk
 Example: factorial, tree operations
     `,tag:"2 Javascript"},{title:"Chaining",answer:`
-    Chaining is approach when method of an object return the object and we can toggle several methods sequently
+Chaining is approach when method of an object return the object and we can toggle several methods sequently
     `,tag:"2 Javascript"},{title:"Currying(каррирование)",code:`
 const curriedAdd = (a) => (b) => a + b;
 console.log(curriedAdd(5)(3)); // Output: 8
@@ -78,8 +78,11 @@ Static - static properties only available in Class not in instances
 Super() - must be called in extended Class constructor
 `,tag:"2 Javascript"},{title:"Function properties",answer:"In javascript we can assign properties to functions",tag:"2 Javascript"},{title:"Strict Mode",answer:`
  1. Throws a ReferenceError accessing undeclared variables.
+
  2. In simple functions ‘this’ is undefined instead of referring to global window(to prevent accidental modifications).
+
  3. Variables inside eval() stay within the eval() scope.
+
  4. Assigning to a read-only property operation throws an error instead of silent failing.`,tag:"2 Javascript"},{title:"structuredClone",answer:"structuredClone - is a native js method for deepCloning objects",code:`
 const obj = { id: 1, name: "test" };
 const cloned = structuredClone(obj);

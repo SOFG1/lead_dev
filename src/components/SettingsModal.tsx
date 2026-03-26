@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import SettingsIcon from "../assets/settings.svg";
 import s from "./SettingsModal.module.css";
 import type { ISettings } from "../types/ISettings";
@@ -10,7 +10,7 @@ interface IProps {
   onChangeSettings: (settings: ISettings) => void;
 }
 
-export const SettingsModal = ({ settings, onChangeSettings }: IProps) => {
+export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
   const [opened, setOpened] = useState(false);
 
   const onChangeSetting = (
@@ -70,4 +70,4 @@ export const SettingsModal = ({ settings, onChangeSettings }: IProps) => {
       )}
     </>
   );
-};
+})

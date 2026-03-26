@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { defaultSettings, type ISettings } from "../types/ISettings";
 import { generateRandomNumber } from "../utils/generateRandomNumber";
 import type { IQuestion } from "../types/IQuestion";
-import { allQuestions } from '../questions';
+import { allQuestions } from "../questions";
+import { AnsweredTopicsComponent } from "../components/AnsweredTopicsComponent";
 
 export const QuizPage = () => {
   const [settings, setSettings] = useState<ISettings>();
@@ -18,6 +19,10 @@ export const QuizPage = () => {
   const [questionsList, setQuestionsList] = useState<IQuestion[]>([]);
 
   const [question, setQuestion] = useState<IQuestion | null>(null);
+
+  const [answeredQuestionsList, setAnsweredQuestionsList] = useState<
+    IQuestion[]
+  >([]);
 
   const setNextQuestion = (list: IQuestion[]) => {
     if (!list.length) {
@@ -37,6 +42,7 @@ export const QuizPage = () => {
 
   const buttonClick = (type: "yes" | "no") => {
     setCurrentQuestionAnsered(true);
+    setAnsweredQuestionsList((p) => [...p, question!]); //Add question to answered list
     const updatedList = questionsList.filter((q) => q.id !== question?.id);
     setQuestionsList(updatedList);
     if (type === "yes") {
@@ -75,15 +81,12 @@ export const QuizPage = () => {
       list = list.filter((q) => settings.tags.includes(q.tag));
     }
     setQuestionsList(list);
-    setNextQuestion(list)
+    setNextQuestion(list);
   }, [settings?.tags]);
 
   return (
     <div className={s.wrapper}>
-      <div className={s.results}>
-        <span style={{ color: "green" }}>{answeredCount}</span>{" "}
-        <span style={{ color: "red" }}>{wrongCount}</span>
-      </div>
+      <AnsweredTopicsComponent answeredCount={answeredCount} wrongCount={wrongCount} answeredQuestions={answeredQuestionsList} />
       <SettingsModal
         settings={settings || defaultSettings}
         onChangeSettings={(s) => setSettings(s)}

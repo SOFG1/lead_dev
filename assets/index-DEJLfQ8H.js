@@ -174,9 +174,13 @@ If not enables they will be type of any
 TypeScript classes have prefixes for its properties:
 
 Public - property is accessible from everywhere
+
 Readonly - makes property writable only in constructor function
+
 Protected - property is only visible inside subclasses of the class they’re declared in. (not from instances)
+
 Private - property is available only inside the class and not even in subclasses (not from instances)
+
 Static - property is available only from the Class(not instance, like in native JS)
     `,tag:"4 TypeScript"},{title:"Class static block",answer:"Static blocks in class are executed during initialization and have access to private properties",code:`
     class Database {
@@ -277,9 +281,7 @@ OmitThisParameter<T>
 InstanceType<T>
     `,code:`
     type MyClassInstanceType = InstanceType<typeof MyClass>
-        `,tag:"4 TypeScript"},{title:"Function overloads",answer:`
-InstanceType<T>
-    `,code:`
+        `,tag:"4 TypeScript"},{title:"Function overloads",code:`
 //Overloads
 function add(a: number, b: number): number;
 function add(a: string, b: string): number;
@@ -580,7 +582,8 @@ Use http protocol to prevent this
 
 8. Set sizes for images to prevent layout shifts
 
-Core Web Vitals:
+Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
+    `,tag:"6 Security, Optimization and A11y"},{title:"Core Web Vitals",answer:`
 Largest contentful paint
 First input delay
 Cumulative layout shift

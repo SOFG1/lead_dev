@@ -1,4 +1,4 @@
-import type { IQuestion } from '../types/IQuestion';
+import type { IQuestion } from "../types/IQuestion";
 
 export const questions6: Omit<IQuestion, "id">[] = [
   {
@@ -65,7 +65,14 @@ Use http protocol to prevent this
 
 8. Set sizes for images to prevent layout shifts
 
-Core Web Vitals:
+Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
+    `,
+    tag: "6 Security, Optimization and A11y",
+  },
+
+  {
+    title: "Core Web Vitals",
+    answer: `
 Largest contentful paint
 First input delay
 Cumulative layout shift

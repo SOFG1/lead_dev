@@ -124,9 +124,13 @@ If not enables they will be type of any
 TypeScript classes have prefixes for its properties:
 
 Public - property is accessible from everywhere
+
 Readonly - makes property writable only in constructor function
+
 Protected - property is only visible inside subclasses of the class they’re declared in. (not from instances)
+
 Private - property is available only inside the class and not even in subclasses (not from instances)
+
 Static - property is available only from the Class(not instance, like in native JS)
     `,
     tag: "4 TypeScript",
@@ -337,9 +341,6 @@ InstanceType<T>
   },
   {
     title: "Function overloads",
-    answer: `
-InstanceType<T>
-    `,
     code: `
 //Overloads
 function add(a: number, b: number): number;

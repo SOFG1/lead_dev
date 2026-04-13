@@ -701,6 +701,39 @@ Use testing tools like lighthouse, chrome profiler, react profiler and web vital
 5. Allow only trusted domains(CORS)
 
 6. Avoid oversharing data, don’t return sensitive data from the API and in error messages
-    `,tag:"6 Browser APIs"}],Xw=[{title:"React fiber",answer:`
+    `,tag:"6 Browser APIs"},{title:"Web Socket API",answer:"Web socket is a an API for bidirectional connection to the server.",code:`const ws = new WebSocket("url") //Create websocket
+ws.onmessage(ev => console.log(ev)) //Add message listener
+ws.send("test") //Send message
+    `,tag:"6 Browser APIs"},{title:"Browser Critical Rendering Path",answer:`
+1. Browser parses HTML and builds DOM (DOM)
+
+2. Browser parses CSS and constructs CSSOM (CSSOM)
+
+3. Combines DOM and CSSOM to form rendering tree (Render Tree)
+
+4. Browser calculates sizes and positions of elements (Reflow)
+
+5. Browser paints the pixels to the screen (Repaint)`,tag:"6 Browser APIs"},{title:"Browser Events",answer:`
+dblclick, dragstart (and other drag events), drop, mouseover, resize, focus, blur.
+
+Touch events are used to handle mobile/table touch events`,tag:"6 Browser APIs"},{title:"Custom events",answer:"You can create and dispatch custom events in the browser",code:`
+window.addEventListener("myEvent", (e) => console.log(e.detail));
+
+const myEvent = new CustomEvent("myEvent", {
+  detail: { username: "Alice", id: 101 },
+  bubbles: true, // Allow event to propagate up the DOM
+  cancelable: true, // Allow preventDefault() to work
+});
+
+dispatchEvent(myEvent);`,tag:"6 Browser APIs"},{title:"Browser modules",answer:`You can use native JS modules in the browser adding type="module” attribute to the script.
+Doing this the script won’t pollute the global scope and can have using of ES Modules(import/export) inside it.`,code:`
+//module1.js
+const name = "123"
+export {name}
+
+//module2.js
+import { name } from "./module1.js";
+const name2 = name + 2;
+console.log(name2)`,tag:"6 Browser APIs"}],Xw=[{title:"React fiber",answer:`
 React Fiber is React's core reconciliation algorithm, introduced in React 16 to enable incremental rendering and improve performance
     `,tag:"7 React"}],ei=[...Vw,...zw,...Kw,...Qw,...Ww,...$w,...Xw],Zw=$.memo(({settings:i,onChangeSettings:a})=>{const[l,s]=$.useState(!1),o=(d,p)=>{const m={...i,[d]:p};localStorage.setItem("settings",JSON.stringify(m)),a(m)},_=$.useMemo(()=>Array.from(new Set(ei.map(d=>d.tag))).map(d=>({label:d,value:d})),[ei]);return Me.jsxs(Me.Fragment,{children:[Me.jsx("button",{className:ja.button,onClick:()=>s(!l),children:Me.jsx("img",{className:ja.icon,src:JI,alt:"Settings Icon"})}),l&&Me.jsxs("div",{className:ja.modal,children:[Me.jsx("button",{className:ja.close,onClick:()=>s(!1),children:"X"}),Me.jsxs("div",{className:ja.content,children:[Me.jsx("div",{className:ja.item,children:Me.jsx(Hw,{className:ja.dropdown,options:_,value:i.tags?.map(d=>({label:d,value:d})),onChange:d=>o("tags",d.map(p=>p.value)),isMulti:!0})}),Me.jsxs("div",{className:ja.item,children:[Me.jsx("label",{htmlFor:"",children:"Random"}),Me.jsx("input",{checked:i.random,onChange:d=>o("random",d.target.checked),type:"checkbox"})]})]})]})]})}),RR={random:!1,tags:[]};function jw(i,a){return Math.floor(Math.random()*(a-i+1))+i}const Jw="_results_1e1hi_1",ex="_list_1e1hi_15",tx="_topic_1e1hi_23",ep={results:Jw,list:ex,topic:tx},CR=ei.reduce((i,a)=>(i.includes(a.tag)||i.push(a.tag),i),[]),nx=$.memo(({answeredQuestions:i,answeredCount:a,wrongCount:l})=>{const s=$.useMemo(()=>CR.filter(o=>{const _=ei.filter(p=>p.tag===o).length,d=i.filter(p=>p.tag===o).length;return _===d}),[i,ei,CR]);return Me.jsxs("div",{className:ep.results,children:[Me.jsx("span",{style:{color:"green"},children:a})," ",Me.jsx("span",{style:{color:"red"},children:l}),Me.jsx("div",{className:ep.list,children:s.map(o=>Me.jsx("p",{className:ep.topic,children:o},o))})]})}),OR="ANSWERED_INDEXES",ax=()=>{const[i,a]=$.useState([]),l=s=>{a(s);const o=s.map(_=>ei.findIndex(d=>d.tag===_.tag&&d.title===_.title));localStorage.setItem(OR,JSON.stringify({listOfIndexes:o,date:new Date().getDate()}))};return $.useEffect(()=>{const s=localStorage.getItem(OR);if(!s)return;const o=JSON.parse(s);if(o.date===new Date().getDate()){const _=o.listOfIndexes.map(d=>ei[d]);a(_)}},[]),{answeredQuestionsList:i,setAnsweredQuestionsList:l}},ix=()=>{const[i,a]=$.useState(),[l,s]=$.useState(!1),[o,_]=$.useState(0),[d,p]=$.useState(0),[m,E]=$.useState(!0),[S,f]=$.useState(!1),[b,v]=$.useState([]),[C,N]=$.useState(null),{answeredQuestionsList:R,setAnsweredQuestionsList:O}=ax(),I=w=>{if(w.length||N(null),s(!1),E(!0),f(!1),i&&i.random){const A=jw(0,w.length-1);N(w[A])}i&&!i.random&&N(w[0])},M=w=>{f(!0),O([...R,C]);const A=b.filter(U=>U.id!==C?.id);v(A),w==="yes"&&(_(o+1),I(A)),w==="no"&&l&&(p(d+1),I(A)),w==="no"&&!l&&(p(d+1),s(!0),E(!1))};return $.useEffect(()=>{if(i)return;const w=localStorage.getItem("settings"),A=w?JSON.parse(w):RR;a(A)},[i]),$.useEffect(()=>{!C&&b.length&&I(b)},[C,b,i]),$.useEffect(()=>{let w=ei.map((A,U)=>({...A,id:U}));i?.tags.length&&(w=w.filter(A=>i.tags.includes(A.tag))),v(w),I(w)},[i?.tags]),Me.jsxs("div",{className:Qn.wrapper,children:[Me.jsx(nx,{answeredCount:o,wrongCount:d,answeredQuestions:R}),Me.jsx(Zw,{settings:i||RR,onChangeSettings:w=>a(w)}),C&&Me.jsxs(Me.Fragment,{children:[Me.jsx(QI,{question:C,showAnswer:l}),Me.jsxs("div",{className:Qn.buttons,children:[!l&&Me.jsx("button",{className:`${Qn.button} ${Qn.show_answer}`,onClick:()=>s(!0),children:"Show answer"}),l&&S&&Me.jsx("button",{className:`${Qn.button} ${Qn.show_answer}`,onClick:()=>I(b),children:"Next question"}),m&&Me.jsxs(Me.Fragment,{children:[Me.jsx("button",{className:`${Qn.button} ${Qn.dont_know}`,onClick:()=>M("no"),children:"Don't know"}),Me.jsx("button",{className:`${Qn.button} ${Qn.know}`,onClick:()=>M("yes"),children:"Know answer"})]})]})]}),!C&&Me.jsx("p",{children:"No questions left"})]})};function rx(){return Me.jsx(ix,{})}LN.createRoot(document.getElementById("root")).render(Me.jsx($.StrictMode,{children:Me.jsx(rx,{})}));

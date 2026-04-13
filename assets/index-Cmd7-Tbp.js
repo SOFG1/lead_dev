@@ -530,87 +530,26 @@ Yarn is not user friendly for beginners
 
 NPM is very popular and easy for beginners, also has a large community
 NPM is less performant than yarn
-     `,tag:"5 CI/CD and Devtools"}],$w=[{title:"Accessibility(a11y)",answer:`
-1. Use labels for inputs and other elements, use aria-labels for audio for screen readers.
-
-2. Make UI accessible for people who doesn’t differ colors, provide contrast and accessible elements sizes
-
-3. Use semantic html tags to help screen readers recognize elements
-
-4. Use tab-index attribute to make elements properly focused with tab
-
-4. Use es-lint plugin (eslint-plugin-jsx-a11y) for analyzing accessibility
-
-6. Use lighthouse, chrome://accessibility and dev tools rendering tools for analyzing pages for accessibility
-
-7. Use hidden html blocks which are not visible but contains some content and can be transcribed with audio
-    `,tag:"6 Security, Optimization and A11y"},{title:"Web Security",answer:`
-Secure front-end source code with obfuscation
-
-XSS - Cross site scripting. Situation when hackers inject harmful code into our application
-Prevent code injection from installing untrusted libraries
-Protect forms and inputs in the app to prevent user to paste harmful code. Sanitize html and javascript inputs, sanitize ‘eval’ and ‘dangerouslySetInnerHTML’ inputs.
-
-
-CSRF - Cross site request forgery
-Add additional tokens from API when using sensitive tokens
-Use httpOnly cookies to prevent cookies leaks
-Enable CORS security to prevent requests to multiple domains
-Avoid storing cookies in accessible places on client side code(local storage, redux etc…)
-
-
-Click jacking - enabling transparent iframe on whole screen to steal data on user clicks
-Avoid using Iframes whenever possible
-
-
-Man in the middle - interception into client requests and replacing requested resources with scripts with harmful code
-Use http protocol to prevent this
-    `,tag:"6 Security, Optimization and A11y"},{title:"Web optimization",answer:`
-1. Assets optimization. Minify images(use lightweight formats like waif, fetch priority attribute), css files, fonts and scripts
-
-2. Code splitting. Split app bundle into chunks
-
-3. Use CDNs for assets to upload faster
-
-4. API requests optimization
-
-5. Computations memoization and caching
-
-6. Using web workers for heavy operations to run in the background
-
-7. Remove render blocking javascript
-
-8. Set sizes for images to prevent layout shifts
-
-Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
-    `,tag:"6 Security, Optimization and A11y"},{title:"Core Web Vitals",answer:`
-Largest contentful paint
-First input delay
-Cumulative layout shift
-
-Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
-    `,tag:"6 Security, Optimization and A11y"}],Xw=[{title:"React fiber",answer:`
-React Fiber is React's core reconciliation algorithm, introduced in React 16 to enable incremental rendering and improve performance
-    `,tag:"7 React"}],Zw=[{title:"Web Workers",answer:"Web workers are JavaScript threads which run in parallel with the main thread.",code:`//Dedicated web worker example
+     `,tag:"5 CI/CD and Devtools"}],$w=[{title:"Web Workers",answer:"Web workers are JavaScript threads which run in parallel with the main thread.",code:`//Dedicated web worker example
 const webWorker = new Worker(“worker.js”)
 webWorker.postMessage(messageData)
 
 webWorker.onmessage = (e) => console.log(e)
-    `,tag:"8 Browser APIs"},{title:"Shared Web Worker",answer:"The difference between dedicated and shared web workers is that shared web workers can be accessible from multiple scripts tabs and Iframes.",code:`
+    `,tag:"6 Browser APIs"},{title:"Shared Web Worker",answer:"The difference between dedicated and shared web workers is that shared web workers can be accessible from multiple scripts tabs and Iframes.",code:`
     const webWorker = new SharedWorker(“worker.js”)
-        `,tag:"8 Browser APIs"},{title:"Inline Web Worker",answer:"Inline web worker is a technique of creating a web worker in a single JS file",code:`const blob = new Blob([workerCode], { type: 'text/javascript' });
+        `,tag:"6 Browser APIs"},{title:"Inline Web Worker",answer:"Inline web worker is a technique of creating a web worker in a single JS file",code:`const blob = new Blob([workerCode], { type: 'text/javascript' });
 const url = URL.createObjectURL(blob);
-return new Worker(url);`,tag:"8 Browser APIs"},{title:"Importing scripts to Web Workers",code:"importScripts(‘script1.js', 'library.js')",tag:"8 Browser APIs"},{title:"Web Worker termination",code:`//Terminate a web worker
+return new Worker(url);`,tag:"6 Browser APIs"},{title:"Importing scripts to Web Workers",code:"importScripts(‘script1.js', 'library.js')",tag:"6 Browser APIs"},{title:"Web Worker termination",code:`//Terminate a web worker
 const worker = new Worker(“worker.js”)
 worker.terminate()
 
 //Terminate inside worker.js
-self.close()`,tag:"8 Browser APIs"},{title:"Web Worker error handling",code:`const myWorker = new Worker('worker.js');
+self.close()`,tag:"6 Browser APIs"},{title:"Web Worker error handling",code:`const myWorker = new Worker('worker.js');
 
-myWorker.onerror = (event) => { … error handling};`,tag:"8 Browser APIs"},{title:"Web Worker main thread communication",answer:`
+myWorker.onerror = (event) => { … error handling};`,tag:"6 Browser APIs"},{title:"Web Worker main thread communication",answer:`
 Use postMessage and on message functions inside web worker to communicate with the main thread
 And use worker.onmessage and worker.postMessage inside main thread to communicate with the worker
-    `,tag:"8 Browser APIs"},{title:"Get User Media (camera and microphone input)",answer:`
+    `,tag:"6 Browser APIs"},{title:"Get User Media (camera and microphone input)",answer:`
 Use navigator.mediaDevices.getUserMedia() method to get access to user camera and microphone data
 Use canvas element for taking screenshots and css for applying effects on streaming <video> element or <canvas> for screenshots
     `,code:`
@@ -629,7 +568,7 @@ navigator.mediaDevices.getUserMedia(options)
     // Handle errors (e.g., NotAllowedError, NotFoundError, OverconstrainedError)
     console.error("An error occurred", err);
  });
-    `,tag:"8 Browser APIs"},{title:"Post message",answer:`
+    `,tag:"6 Browser APIs"},{title:"Post message",answer:`
 postMessage() - is a method for sending messages to an iframe and vice versa.
 Set allowed origins for security reasons
     `,code:`
@@ -645,17 +584,17 @@ window.addEventListener("message", (event) => {
     console.log("Message received from iframe:", event.data);
   },
 );
-    `,tag:"8 Browser APIs"},{title:"FileSystem API",answer:`
+    `,tag:"6 Browser APIs"},{title:"FileSystem API",answer:`
 FileSystem API is an API for accessing files on user’s device from browser
-    `,tag:"8 Browser APIs"},{title:"Prompt user to upload a file (FileSystem API)",answer:`
+    `,tag:"6 Browser APIs"},{title:"Prompt user to upload a file (FileSystem API)",answer:`
 Use window.showOpenFilePicker() or <input type="file”> to prompt the user to upload a file
     `,code:`
 const [fileHandle] = await window.showOpenFilePicker();
-const file = await fileHandle.getFile()`,tag:"8 Browser APIs"},{title:"Prompt user to open a directory (FileSystem API)",answer:`Use window.showDirectoryPicker()
+const file = await fileHandle.getFile()`,tag:"6 Browser APIs"},{title:"Prompt user to open a directory (FileSystem API)",answer:`Use window.showDirectoryPicker()
 
 PS - this works only in https context and not in all browsers
 
-This will return an object with: keys(), values(), entries() and other methods to work with the content of selected directory`,tag:"8 Browser APIs"},{title:"Editing text files (FileSystem API)",answer:`
+This will return an object with: keys(), values(), entries() and other methods to work with the content of selected directory`,tag:"6 Browser APIs"},{title:"Editing text files (FileSystem API)",answer:`
 You can edit files using createWritable() method
     `,code:`
 [fileHandle] = await window.showOpenFilePicker();
@@ -663,17 +602,17 @@ const file = await fileHandle.getFile();
 const stream = await fileHandle.createWritable()
 await stream.write(“New content of the file”)
 await stream.close()
-    `,tag:"8 Browser APIs"},{title:"Save edited file as a new file (FileSystem API)",code:`
+    `,tag:"6 Browser APIs"},{title:"Save edited file as a new file (FileSystem API)",code:`
 const fileHandle = await window.showSaveFilePicker()
 const stream = await fileHandle.createWritable();
 await stream.write(“Content of the file”);
 await stream.close();
-    `,tag:"8 Browser APIs"},{title:"Save edited file as a new file (FileSystem API)",code:`
+    `,tag:"6 Browser APIs"},{title:"Save edited file as a new file (FileSystem API)",code:`
 const fileHandle = await window.showSaveFilePicker()
 const stream = await fileHandle.createWritable();
 await stream.write(“Content of the file”);
 await stream.close();
-    `,tag:"8 Browser APIs"},{title:"File Reader API",answer:`
+    `,tag:"6 Browser APIs"},{title:"File Reader API",answer:`
 File Reader API is a Class(Browser API) for reading different types of files.
 
 Methods:
@@ -694,7 +633,7 @@ load
 abort
 error
 loadend
-    `,tag:"8 Browser APIs"},{title:"Parse a CSV with FileReader API",code:`
+    `,tag:"6 Browser APIs"},{title:"Parse a CSV with FileReader API",code:`
 const fr = new FileReader();
 fr.readAsText(fileInput.files[0]); //Read a CSV file
 
@@ -704,7 +643,7 @@ fr.addEventListener("load", () => {
 ")
   lines.forEach((line) => { //do something… })
 });
-    `,tag:"8 Browser APIs"},{title:"Parse img file with FileReaderAPI",answer:"PS - We can add effects drawing that image on a canvas",code:`
+    `,tag:"6 Browser APIs"},{title:"Parse img file with FileReaderAPI",answer:"PS - We can add effects drawing that image on a canvas",code:`
 const fr = new FileReader();
 fr.readAsDataURL(fileInput.files[0]);
 
@@ -712,4 +651,56 @@ fr.addEventListener("load", () => {
   const url = fr.result;
   console.log(url)
 });
-    `,tag:"8 Browser APIs"}],ei=[...Vw,...zw,...Kw,...Qw,...Ww,...$w,...Xw,...Zw],jw=$.memo(({settings:i,onChangeSettings:a})=>{const[l,s]=$.useState(!1),o=(d,p)=>{const m={...i,[d]:p};localStorage.setItem("settings",JSON.stringify(m)),a(m)},_=$.useMemo(()=>Array.from(new Set(ei.map(d=>d.tag))).map(d=>({label:d,value:d})),[ei]);return Me.jsxs(Me.Fragment,{children:[Me.jsx("button",{className:ja.button,onClick:()=>s(!l),children:Me.jsx("img",{className:ja.icon,src:JI,alt:"Settings Icon"})}),l&&Me.jsxs("div",{className:ja.modal,children:[Me.jsx("button",{className:ja.close,onClick:()=>s(!1),children:"X"}),Me.jsxs("div",{className:ja.content,children:[Me.jsx("div",{className:ja.item,children:Me.jsx(Hw,{className:ja.dropdown,options:_,value:i.tags?.map(d=>({label:d,value:d})),onChange:d=>o("tags",d.map(p=>p.value)),isMulti:!0})}),Me.jsxs("div",{className:ja.item,children:[Me.jsx("label",{htmlFor:"",children:"Random"}),Me.jsx("input",{checked:i.random,onChange:d=>o("random",d.target.checked),type:"checkbox"})]})]})]})]})}),RR={random:!1,tags:[]};function Jw(i,a){return Math.floor(Math.random()*(a-i+1))+i}const ex="_results_1e1hi_1",tx="_list_1e1hi_15",nx="_topic_1e1hi_23",ep={results:ex,list:tx,topic:nx},CR=ei.reduce((i,a)=>(i.includes(a.tag)||i.push(a.tag),i),[]),ax=$.memo(({answeredQuestions:i,answeredCount:a,wrongCount:l})=>{const s=$.useMemo(()=>CR.filter(o=>{const _=ei.filter(p=>p.tag===o).length,d=i.filter(p=>p.tag===o).length;return _===d}),[i,ei,CR]);return Me.jsxs("div",{className:ep.results,children:[Me.jsx("span",{style:{color:"green"},children:a})," ",Me.jsx("span",{style:{color:"red"},children:l}),Me.jsx("div",{className:ep.list,children:s.map(o=>Me.jsx("p",{className:ep.topic,children:o},o))})]})}),OR="ANSWERED_INDEXES",ix=()=>{const[i,a]=$.useState([]),l=s=>{a(s);const o=s.map(_=>ei.findIndex(d=>d.tag===_.tag&&d.title===_.title));localStorage.setItem(OR,JSON.stringify({listOfIndexes:o,date:new Date().getDate()}))};return $.useEffect(()=>{const s=localStorage.getItem(OR);if(!s)return;const o=JSON.parse(s);if(o.date===new Date().getDate()){const _=o.listOfIndexes.map(d=>ei[d]);a(_)}},[]),{answeredQuestionsList:i,setAnsweredQuestionsList:l}},rx=()=>{const[i,a]=$.useState(),[l,s]=$.useState(!1),[o,_]=$.useState(0),[d,p]=$.useState(0),[m,E]=$.useState(!0),[S,f]=$.useState(!1),[b,v]=$.useState([]),[C,N]=$.useState(null),{answeredQuestionsList:R,setAnsweredQuestionsList:O}=ix(),I=w=>{if(w.length||N(null),s(!1),E(!0),f(!1),i&&i.random){const A=Jw(0,w.length-1);N(w[A])}i&&!i.random&&N(w[0])},M=w=>{f(!0),O([...R,C]);const A=b.filter(U=>U.id!==C?.id);v(A),w==="yes"&&(_(o+1),I(A)),w==="no"&&l&&(p(d+1),I(A)),w==="no"&&!l&&(p(d+1),s(!0),E(!1))};return $.useEffect(()=>{if(i)return;const w=localStorage.getItem("settings"),A=w?JSON.parse(w):RR;a(A)},[i]),$.useEffect(()=>{!C&&b.length&&I(b)},[C,b,i]),$.useEffect(()=>{let w=ei.map((A,U)=>({...A,id:U}));i?.tags.length&&(w=w.filter(A=>i.tags.includes(A.tag))),v(w),I(w)},[i?.tags]),Me.jsxs("div",{className:Qn.wrapper,children:[Me.jsx(ax,{answeredCount:o,wrongCount:d,answeredQuestions:R}),Me.jsx(jw,{settings:i||RR,onChangeSettings:w=>a(w)}),C&&Me.jsxs(Me.Fragment,{children:[Me.jsx(QI,{question:C,showAnswer:l}),Me.jsxs("div",{className:Qn.buttons,children:[!l&&Me.jsx("button",{className:`${Qn.button} ${Qn.show_answer}`,onClick:()=>s(!0),children:"Show answer"}),l&&S&&Me.jsx("button",{className:`${Qn.button} ${Qn.show_answer}`,onClick:()=>I(b),children:"Next question"}),m&&Me.jsxs(Me.Fragment,{children:[Me.jsx("button",{className:`${Qn.button} ${Qn.dont_know}`,onClick:()=>M("no"),children:"Don't know"}),Me.jsx("button",{className:`${Qn.button} ${Qn.know}`,onClick:()=>M("yes"),children:"Know answer"})]})]})]}),!C&&Me.jsx("p",{children:"No questions left"})]})};function ox(){return Me.jsx(rx,{})}LN.createRoot(document.getElementById("root")).render(Me.jsx($.StrictMode,{children:Me.jsx(ox,{})}));
+    `,tag:"6 Browser APIs"},{title:"Core Web Vitals",answer:`
+1. Largest contentful paint
+2. First input delay
+3. Cumulative layout shift
+
+Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
+    `,tag:"6 Browser APIs"},{title:"Web optimization",answer:`
+1. Assets optimization. Minify images(use lightweight formats like waif, fetch priority attribute), css files, fonts and scripts
+
+2. Code splitting. Split app bundle into chunks
+
+3. Use CDNs for assets to upload faster
+
+4. API requests optimization
+
+5. Computations memoization and caching
+
+6. Using web workers for heavy operations to run in the background
+
+7. Remove render blocking javascript
+
+8. Set sizes for images to prevent layout shifts
+
+Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
+    `,tag:"6 Browser APIs"},{title:"Accessibility(a11y)",answer:`
+1. Use labels for inputs and other elements, use aria-labels for audio for screen readers.
+
+2. Make UI accessible for people who doesn’t differ colors, provide contrast and accessible elements sizes
+
+3. Use semantic html tags to help screen readers recognize elements
+
+4. Use tab-index attribute to make elements properly focused with tab
+
+4. Use es-lint plugin (eslint-plugin-jsx-a11y) for analyzing accessibility
+
+6. Use lighthouse, chrome://accessibility and dev tools rendering tools for analyzing pages for accessibility
+
+7. Use hidden html blocks which are not visible but contains some content and can be transcribed with audio
+    `,tag:"6 Browser APIs"},{title:"Key AJAX Security Strategies",answer:`
+1. Prevent CSRF requests using unique tokens for each request
+
+2. Prevent XSS sanitizing inputs, eval() and dangerouslySetInnerHTML.
+
+3. Use https for secure data transmission. Prevent Man in the middle attacks.
+
+4. Use strong server-side validation.
+
+5. Allow only trusted domains(CORS)
+
+6. Avoid oversharing data, don’t return sensitive data from the API and in error messages
+    `,tag:"6 Browser APIs"}],Xw=[{title:"React fiber",answer:`
+React Fiber is React's core reconciliation algorithm, introduced in React 16 to enable incremental rendering and improve performance
+    `,tag:"7 React"}],ei=[...Vw,...zw,...Kw,...Qw,...Ww,...$w,...Xw],Zw=$.memo(({settings:i,onChangeSettings:a})=>{const[l,s]=$.useState(!1),o=(d,p)=>{const m={...i,[d]:p};localStorage.setItem("settings",JSON.stringify(m)),a(m)},_=$.useMemo(()=>Array.from(new Set(ei.map(d=>d.tag))).map(d=>({label:d,value:d})),[ei]);return Me.jsxs(Me.Fragment,{children:[Me.jsx("button",{className:ja.button,onClick:()=>s(!l),children:Me.jsx("img",{className:ja.icon,src:JI,alt:"Settings Icon"})}),l&&Me.jsxs("div",{className:ja.modal,children:[Me.jsx("button",{className:ja.close,onClick:()=>s(!1),children:"X"}),Me.jsxs("div",{className:ja.content,children:[Me.jsx("div",{className:ja.item,children:Me.jsx(Hw,{className:ja.dropdown,options:_,value:i.tags?.map(d=>({label:d,value:d})),onChange:d=>o("tags",d.map(p=>p.value)),isMulti:!0})}),Me.jsxs("div",{className:ja.item,children:[Me.jsx("label",{htmlFor:"",children:"Random"}),Me.jsx("input",{checked:i.random,onChange:d=>o("random",d.target.checked),type:"checkbox"})]})]})]})]})}),RR={random:!1,tags:[]};function jw(i,a){return Math.floor(Math.random()*(a-i+1))+i}const Jw="_results_1e1hi_1",ex="_list_1e1hi_15",tx="_topic_1e1hi_23",ep={results:Jw,list:ex,topic:tx},CR=ei.reduce((i,a)=>(i.includes(a.tag)||i.push(a.tag),i),[]),nx=$.memo(({answeredQuestions:i,answeredCount:a,wrongCount:l})=>{const s=$.useMemo(()=>CR.filter(o=>{const _=ei.filter(p=>p.tag===o).length,d=i.filter(p=>p.tag===o).length;return _===d}),[i,ei,CR]);return Me.jsxs("div",{className:ep.results,children:[Me.jsx("span",{style:{color:"green"},children:a})," ",Me.jsx("span",{style:{color:"red"},children:l}),Me.jsx("div",{className:ep.list,children:s.map(o=>Me.jsx("p",{className:ep.topic,children:o},o))})]})}),OR="ANSWERED_INDEXES",ax=()=>{const[i,a]=$.useState([]),l=s=>{a(s);const o=s.map(_=>ei.findIndex(d=>d.tag===_.tag&&d.title===_.title));localStorage.setItem(OR,JSON.stringify({listOfIndexes:o,date:new Date().getDate()}))};return $.useEffect(()=>{const s=localStorage.getItem(OR);if(!s)return;const o=JSON.parse(s);if(o.date===new Date().getDate()){const _=o.listOfIndexes.map(d=>ei[d]);a(_)}},[]),{answeredQuestionsList:i,setAnsweredQuestionsList:l}},ix=()=>{const[i,a]=$.useState(),[l,s]=$.useState(!1),[o,_]=$.useState(0),[d,p]=$.useState(0),[m,E]=$.useState(!0),[S,f]=$.useState(!1),[b,v]=$.useState([]),[C,N]=$.useState(null),{answeredQuestionsList:R,setAnsweredQuestionsList:O}=ax(),I=w=>{if(w.length||N(null),s(!1),E(!0),f(!1),i&&i.random){const A=jw(0,w.length-1);N(w[A])}i&&!i.random&&N(w[0])},M=w=>{f(!0),O([...R,C]);const A=b.filter(U=>U.id!==C?.id);v(A),w==="yes"&&(_(o+1),I(A)),w==="no"&&l&&(p(d+1),I(A)),w==="no"&&!l&&(p(d+1),s(!0),E(!1))};return $.useEffect(()=>{if(i)return;const w=localStorage.getItem("settings"),A=w?JSON.parse(w):RR;a(A)},[i]),$.useEffect(()=>{!C&&b.length&&I(b)},[C,b,i]),$.useEffect(()=>{let w=ei.map((A,U)=>({...A,id:U}));i?.tags.length&&(w=w.filter(A=>i.tags.includes(A.tag))),v(w),I(w)},[i?.tags]),Me.jsxs("div",{className:Qn.wrapper,children:[Me.jsx(nx,{answeredCount:o,wrongCount:d,answeredQuestions:R}),Me.jsx(Zw,{settings:i||RR,onChangeSettings:w=>a(w)}),C&&Me.jsxs(Me.Fragment,{children:[Me.jsx(QI,{question:C,showAnswer:l}),Me.jsxs("div",{className:Qn.buttons,children:[!l&&Me.jsx("button",{className:`${Qn.button} ${Qn.show_answer}`,onClick:()=>s(!0),children:"Show answer"}),l&&S&&Me.jsx("button",{className:`${Qn.button} ${Qn.show_answer}`,onClick:()=>I(b),children:"Next question"}),m&&Me.jsxs(Me.Fragment,{children:[Me.jsx("button",{className:`${Qn.button} ${Qn.dont_know}`,onClick:()=>M("no"),children:"Don't know"}),Me.jsx("button",{className:`${Qn.button} ${Qn.know}`,onClick:()=>M("yes"),children:"Know answer"})]})]})]}),!C&&Me.jsx("p",{children:"No questions left"})]})};function rx(){return Me.jsx(ix,{})}LN.createRoot(document.getElementById("root")).render(Me.jsx($.StrictMode,{children:Me.jsx(rx,{})}));

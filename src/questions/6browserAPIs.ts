@@ -289,4 +289,66 @@ Use testing tools like lighthouse, chrome profiler, react profiler and web vital
     `,
     tag: "6 Browser APIs",
   },
+  {
+    title: "Web Socket API",
+    answer: `Web socket is a an API for bidirectional connection to the server.`,
+    code: `const ws = new WebSocket("url") //Create websocket
+ws.onmessage(ev => console.log(ev)) //Add message listener
+ws.send("test") //Send message
+    `,
+    tag: "6 Browser APIs",
+  },
+  {
+    title: "Browser Critical Rendering Path",
+    answer: `
+1. Browser parses HTML and builds DOM (DOM)
+
+2. Browser parses CSS and constructs CSSOM (CSSOM)
+
+3. Combines DOM and CSSOM to form rendering tree (Render Tree)
+
+4. Browser calculates sizes and positions of elements (Reflow)
+
+5. Browser paints the pixels to the screen (Repaint)`,
+    tag: "6 Browser APIs",
+  },
+  {
+    title: "Browser Events",
+    answer: `
+dblclick, dragstart (and other drag events), drop, mouseover, resize, focus, blur.
+
+Touch events are used to handle mobile/table touch events`,
+    tag: "6 Browser APIs",
+  },
+  {
+    title: "Custom events",
+    answer: `You can create and dispatch custom events in the browser`,
+    code: `
+window.addEventListener("myEvent", (e) => console.log(e.detail));
+
+const myEvent = new CustomEvent("myEvent", {
+  detail: { username: "Alice", id: 101 },
+  bubbles: true, // Allow event to propagate up the DOM
+  cancelable: true, // Allow preventDefault() to work
+});
+
+dispatchEvent(myEvent);`,
+    tag: "6 Browser APIs",
+  },
+
+  {
+    title: "Browser modules",
+    answer: `You can use native JS modules in the browser adding type="module” attribute to the script.
+Doing this the script won’t pollute the global scope and can have using of ES Modules(import/export) inside it.`,
+    code: `
+//module1.js
+const name = "123"
+export {name}
+
+//module2.js
+import { name } from "./module1.js";
+const name2 = name + 2;
+console.log(name2)`,
+    tag: "6 Browser APIs",
+  },
 ];

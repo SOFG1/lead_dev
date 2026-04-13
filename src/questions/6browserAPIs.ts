@@ -1,6 +1,6 @@
 import type { IQuestion } from "../types/IQuestion";
 
-export const questions8: Omit<IQuestion, "id">[] = [
+export const questions6: Omit<IQuestion, "id">[] = [
   {
     title: "Web Workers",
     answer: `Web workers are JavaScript threads which run in parallel with the main thread.`,
@@ -10,7 +10,7 @@ webWorker.postMessage(messageData)
 
 webWorker.onmessage = (e) => console.log(e)
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Shared Web Worker",
@@ -18,7 +18,7 @@ webWorker.onmessage = (e) => console.log(e)
     code: `
     const webWorker = new SharedWorker(“worker.js”)
         `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Inline Web Worker",
@@ -26,12 +26,12 @@ webWorker.onmessage = (e) => console.log(e)
     code: `const blob = new Blob([workerCode], { type: 'text/javascript' });
 const url = URL.createObjectURL(blob);
 return new Worker(url);`,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Importing scripts to Web Workers",
     code: `importScripts(‘script1.js', 'library.js')`,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Web Worker termination",
@@ -41,14 +41,14 @@ worker.terminate()
 
 //Terminate inside worker.js
 self.close()`,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Web Worker error handling",
     code: `const myWorker = new Worker('worker.js');
 
 myWorker.onerror = (event) => { … error handling};`,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Web Worker main thread communication",
@@ -56,7 +56,7 @@ myWorker.onerror = (event) => { … error handling};`,
 Use postMessage and on message functions inside web worker to communicate with the main thread
 And use worker.onmessage and worker.postMessage inside main thread to communicate with the worker
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Get User Media (camera and microphone input)",
@@ -81,7 +81,7 @@ navigator.mediaDevices.getUserMedia(options)
     console.error("An error occurred", err);
  });
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Post message",
@@ -103,14 +103,14 @@ window.addEventListener("message", (event) => {
   },
 );
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "FileSystem API",
     answer: `
 FileSystem API is an API for accessing files on user’s device from browser
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Prompt user to upload a file (FileSystem API)",
@@ -120,7 +120,7 @@ Use window.showOpenFilePicker() or <input type="file”> to prompt the user to u
     code: `
 const [fileHandle] = await window.showOpenFilePicker();
 const file = await fileHandle.getFile()`,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Prompt user to open a directory (FileSystem API)",
@@ -129,7 +129,7 @@ const file = await fileHandle.getFile()`,
 PS - this works only in https context and not in all browsers
 
 This will return an object with: keys(), values(), entries() and other methods to work with the content of selected directory`,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Editing text files (FileSystem API)",
@@ -143,7 +143,7 @@ const stream = await fileHandle.createWritable()
 await stream.write(“New content of the file”)
 await stream.close()
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Save edited file as a new file (FileSystem API)",
@@ -153,7 +153,7 @@ const stream = await fileHandle.createWritable();
 await stream.write(“Content of the file”);
 await stream.close();
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Save edited file as a new file (FileSystem API)",
@@ -163,7 +163,7 @@ const stream = await fileHandle.createWritable();
 await stream.write(“Content of the file”);
 await stream.close();
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "File Reader API",
@@ -189,7 +189,7 @@ abort
 error
 loadend
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Parse a CSV with FileReader API",
@@ -203,7 +203,7 @@ fr.addEventListener("load", () => {
   lines.forEach((line) => { //do something… })
 });
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
   },
   {
     title: "Parse img file with FileReaderAPI",
@@ -217,6 +217,76 @@ fr.addEventListener("load", () => {
   console.log(url)
 });
     `,
-    tag: "8 Browser APIs",
+    tag: "6 Browser APIs",
+  },
+  {
+    title: "Core Web Vitals",
+    answer: `
+1. Largest contentful paint
+2. First input delay
+3. Cumulative layout shift
+
+Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
+    `,
+    tag: "6 Browser APIs",
+  },
+  {
+    title: "Web optimization",
+    answer: `
+1. Assets optimization. Minify images(use lightweight formats like waif, fetch priority attribute), css files, fonts and scripts
+
+2. Code splitting. Split app bundle into chunks
+
+3. Use CDNs for assets to upload faster
+
+4. API requests optimization
+
+5. Computations memoization and caching
+
+6. Using web workers for heavy operations to run in the background
+
+7. Remove render blocking javascript
+
+8. Set sizes for images to prevent layout shifts
+
+Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
+    `,
+    tag: "6 Browser APIs",
+  },
+  {
+    title: "Accessibility(a11y)",
+    answer: `
+1. Use labels for inputs and other elements, use aria-labels for audio for screen readers.
+
+2. Make UI accessible for people who doesn’t differ colors, provide contrast and accessible elements sizes
+
+3. Use semantic html tags to help screen readers recognize elements
+
+4. Use tab-index attribute to make elements properly focused with tab
+
+4. Use es-lint plugin (eslint-plugin-jsx-a11y) for analyzing accessibility
+
+6. Use lighthouse, chrome://accessibility and dev tools rendering tools for analyzing pages for accessibility
+
+7. Use hidden html blocks which are not visible but contains some content and can be transcribed with audio
+    `,
+    tag: "6 Browser APIs",
+  },
+  {
+    title: "Key AJAX Security Strategies",
+    answer: `
+1. Prevent CSRF requests using unique tokens for each request
+
+2. Prevent XSS sanitizing inputs, eval() and dangerouslySetInnerHTML.
+
+3. Use https for secure data transmission. Prevent Man in the middle attacks.
+
+4. Use strong server-side validation.
+
+5. Allow only trusted domains(CORS)
+
+6. Avoid oversharing data, don’t return sensitive data from the API and in error messages
+    `,
+    tag: "6 Browser APIs",
   },
 ];

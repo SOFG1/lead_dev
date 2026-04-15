@@ -324,7 +324,7 @@ Touch events are used to handle mobile/table touch events`,
     title: "Custom events",
     answer: `You can create and dispatch custom events in the browser`,
     code: `
-window.addEventListener("myEvent", (e) => console.log(e.detail));
+document.addEventListener("myEvent", (e) => console.log(e.detail));
 
 const myEvent = new CustomEvent("myEvent", {
   detail: { username: "Alice", id: 101 },

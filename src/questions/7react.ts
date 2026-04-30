@@ -122,4 +122,144 @@ You should pay attention to experience of your team. And learning curve of the f
     `,
     tag: "7 Frameworks(React)",
   },
+  {
+    title: "React benefits and weak sides",
+    answer: `React benefits:
+1. Performance. Virtual DOM(makes DOM manipulations unnecessary)
+
+2. Flexible. User have choice for libraries for state management , routing and other functionality.
+
+3. Easy to learn
+
+4. Large community
+
+5. SEO friendliness
+
+
+
+React weak sides:
+1. Doesn’t have a good modern documentation
+
+2. Fast development pace. Frequent releases
+
+3. NOT a Framework just a library. React only provides UI Libraryother functionality like state management requires additional libraries
+`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "React hooks - benefits, what problem solve",
+    answer: `Hooks provide more convenient and reusable code.
+
+Solves the problem of wrapping components into HOCs to provide external data.`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "React 16 - 18 new features",
+    answer: `
+    1. Fiber architecture - dividing render process into small more performant processes(fibers)
+
+2. Concurrent rendering mechanism which allows to run multiple tasks simultaneously, to prevent render blocking
+
+3. Batching - automatic grouping multiple state updates into single pre-render
+
+4. Transitions - distinguishing between urgent and non-urgent updates. (useTransitions and useDefferedValue hooks)`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "HOC common use cases in React App",
+    answer: `HOC is a function which adds some logic to component like conditional rendering, auth checks, etc.`,
+    tag: "7 Frameworks(React)",
+  },
+
+  {
+    title: "Does react meet functional programming concept ?",
+    answer: `Yes React aligns with functional programming concepts like Pure Functions and Immutability.
+
+But in some cases for example state management react uses some OOP concepts`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "React Compiler",
+    answer: `React compiler is a feature which adds automatic memoization for components, functions and data.(memo, useMemo, useCallback)
+
+    This feature is available in React 19.`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "How to improve React Application performance ?",
+    answer: `Use:
+1. react compiler or memoization hooks
+
+2. production build
+
+3. code-splitting
+
+4. lazy-loading
+5. fragment for grouped elements instead of html tags
+6. lists virtualization`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "How to handle errors in React Application",
+    answer: `
+    Use:
+1. Error boundaries for components
+
+2. Use try/catch for javascript code
+
+3. Implement global error handling`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "React Fiber, Concurrent Rendering (for non technical person)",
+    answer: `React fiber divides render processes(fibers) for urgent and non urgent and runs urgent at first`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "React Reconciliation process",
+    answer: `Reconciliation process is when react update UI according to the state.
+
+UI update happens in the most optimized way comparing 2 versions(old and new) of DOM.`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "Redux Pros & Cons",
+    answer: `Benefits: Centralized state, Predictability, DevTools, Testability and EcoSystem
+
+Drawbacks: Boilerplate code, learning curve, large package size.`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "Testing strategy",
+    answer: `
+    Testing pyramid(unit > integration > e2e)
+
+Use ESLint, TypeScript and SonarCube for static code analysis.
+Unit tests
+Integration tests
+E2e tsts
+`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "When to use SSR",
+    answer: `Improve page loading speed
+Improve Social Media compatibility
+Improve Search Engine visibility `,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "How to avoid component naming duplication ?",
+    answer: `Use feature/module based naming. eg: SubstitutionPage, SubstitutionModal, SubstitutionItem…`,
+    tag: "7 Frameworks(React)",
+  },
+  {
+    title: "How to handle theming in React app ?",
+    answer: `Create object with available styles: theme.js, darkTheme, lightTheme…
+
+Use variables for values like: textPrimary, backgroundSecondary, buttonBgPrimary…
+
+Integrate with styles SCSS, TailwindCSS or StyledComponents`,
+    tag: "7 Frameworks(React)",
+  },
 ];

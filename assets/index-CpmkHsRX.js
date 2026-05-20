@@ -870,9 +870,9 @@ Security - Enforcing encryption, authentication, and authorization protocols acr
 They provide us with a solid starting point.
 The rest of the system need to be designed around them.`,tag:"8 Software Design"},{title:"Types of Software Architecture Constraints",answer:`Technical constraint - it can be particular software platform, cloud vendor, use of particular programming language or software
 
-    Situations when we must compromise on architectural decisions due to business requirements constraints.
+Situations when we must compromise on architectural decisions due to business requirements constraints.
 
-    Regulatory/Legal constraints - constraints based on countries rules/ laws and government decisions etc.`,tag:"8 Software Design"},{title:"Steps of defining Software Architecture",answer:`Identify stakeholders, Gather requirements and constraints
+Regulatory/Legal constraints - constraints based on countries rules/ laws and government decisions etc.`,tag:"8 Software Design"},{title:"Steps of defining Software Architecture",answer:`Identify stakeholders, Gather requirements and constraints
 
 Identify key components
 
@@ -893,8 +893,8 @@ Liskov Substitution - Objects in the system can not be replaceable by their sub-
 Interface Segregation - No client should be forced to depend on methods it does not use. It is better to have many small, client-specific interfaces than one general-purpose interface.
 
 Dependency Inversion - High-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions.`,tag:"8 Software Design"},{title:"SoC",answer:`
-    Separation of Concepts - separate your application into different sections, and each section will address a separate concern.`,tag:"8 Software Design"},{title:"Single Responsibility",answer:`
-   Every module in the system should be responsible for single functionality.`,tag:"8 Software Design"},{title:"Law of Demeter, Principal of least knowledge",answer:`
+Separation of Concepts - separate your application into different sections, and each section will address a separate concern.`,tag:"8 Software Design"},{title:"Single Responsibility",answer:`
+Every module in the system should be responsible for single functionality.`,tag:"8 Software Design"},{title:"Law of Demeter, Principal of least knowledge",answer:`
 Objects in the system should know minimal information about other objects.`,tag:"8 Software Design"},{title:"DRY",answer:`
 Don’t Repeat Yourself - every piece of knowledge must have a single, authoritative representation in the system.`,tag:"8 Software Design"},{title:"KISS",answer:`
 Keep It Simple, Stupid - systems, products, and processes work best if they remain simple rather than becoming unnecessarily complex.`,tag:"8 Software Design"},{title:"YAGNI",answer:`
@@ -907,8 +907,13 @@ This makes small classes more flexible, independent and modifications won’t af
 You can use following principles and use code analysis tools to avoid naming collisions.
 
 Use naming styles according to entities (PascalCase, camelCase, kebab-case, snake-case)
+
 Use module/feature based prefixes
+
 Use nouns for variables and verbs for functions
+
 Naming consistency is over preference
+
 Stick entirely to one natural language (ideally English)
+
 Avoid abbreviations (getUser instedof getUsr)`,tag:"8 Software Design"}],ei=[...Vw,...zw,...Kw,...Qw,...Ww,...$w,...Xw,...Zw],jw=$.memo(({settings:i,onChangeSettings:a})=>{const[l,s]=$.useState(!1),o=(d,p)=>{const m={...i,[d]:p};localStorage.setItem("settings",JSON.stringify(m)),a(m)},_=$.useMemo(()=>Array.from(new Set(ei.map(d=>d.tag))).map(d=>({label:d,value:d})),[ei]);return Me.jsxs(Me.Fragment,{children:[Me.jsx("button",{className:ja.button,onClick:()=>s(!l),children:Me.jsx("img",{className:ja.icon,src:JI,alt:"Settings Icon"})}),l&&Me.jsxs("div",{className:ja.modal,children:[Me.jsx("button",{className:ja.close,onClick:()=>s(!1),children:"X"}),Me.jsxs("div",{className:ja.content,children:[Me.jsx("div",{className:ja.item,children:Me.jsx(Hw,{className:ja.dropdown,options:_,value:i.tags?.map(d=>({label:d,value:d})),onChange:d=>o("tags",d.map(p=>p.value)),isMulti:!0})}),Me.jsxs("div",{className:ja.item,children:[Me.jsx("label",{htmlFor:"",children:"Random"}),Me.jsx("input",{checked:i.random,onChange:d=>o("random",d.target.checked),type:"checkbox"})]})]})]})]})}),RR={random:!1,tags:[]};function Jw(i,a){return Math.floor(Math.random()*(a-i+1))+i}const ex="_results_1e1hi_1",tx="_list_1e1hi_15",nx="_topic_1e1hi_23",ep={results:ex,list:tx,topic:nx},CR=ei.reduce((i,a)=>(i.includes(a.tag)||i.push(a.tag),i),[]),ax=$.memo(({answeredQuestions:i,answeredCount:a,wrongCount:l})=>{const s=$.useMemo(()=>CR.filter(o=>{const _=ei.filter(p=>p.tag===o).length,d=i.filter(p=>p.tag===o).length;return _===d}),[i,ei,CR]);return Me.jsxs("div",{className:ep.results,children:[Me.jsx("span",{style:{color:"green"},children:a})," ",Me.jsx("span",{style:{color:"red"},children:l}),Me.jsx("div",{className:ep.list,children:s.map(o=>Me.jsx("p",{className:ep.topic,children:o},o))})]})}),OR="ANSWERED_INDEXES",ix=()=>{const[i,a]=$.useState([]),l=s=>{a(s);const o=s.map(_=>ei.findIndex(d=>d.tag===_.tag&&d.title===_.title));localStorage.setItem(OR,JSON.stringify({listOfIndexes:o,date:new Date().getDate()}))};return $.useEffect(()=>{const s=localStorage.getItem(OR);if(!s)return;const o=JSON.parse(s);if(o.date===new Date().getDate()){const _=o.listOfIndexes.map(d=>ei[d]);a(_)}},[]),{answeredQuestionsList:i,setAnsweredQuestionsList:l}},rx=()=>{const[i,a]=$.useState(),[l,s]=$.useState(!1),[o,_]=$.useState(0),[d,p]=$.useState(0),[m,g]=$.useState(!0),[S,f]=$.useState(!1),[T,v]=$.useState([]),[C,N]=$.useState(null),{answeredQuestionsList:R,setAnsweredQuestionsList:O}=ix(),I=w=>{if(w.length||N(null),s(!1),g(!0),f(!1),i&&i.random){const A=Jw(0,w.length-1);N(w[A])}i&&!i.random&&N(w[0])},M=w=>{f(!0),O([...R,C]);const A=T.filter(U=>U.id!==C?.id);v(A),w==="yes"&&(_(o+1),I(A)),w==="no"&&l&&(p(d+1),I(A)),w==="no"&&!l&&(p(d+1),s(!0),g(!1))};return $.useEffect(()=>{if(i)return;const w=localStorage.getItem("settings"),A=w?JSON.parse(w):RR;a(A)},[i]),$.useEffect(()=>{!C&&T.length&&I(T)},[C,T,i]),$.useEffect(()=>{let w=ei.map((A,U)=>({...A,id:U}));i?.tags.length&&(w=w.filter(A=>i.tags.includes(A.tag))),v(w),I(w)},[i?.tags]),Me.jsxs("div",{className:Qn.wrapper,children:[Me.jsx(ax,{answeredCount:o,wrongCount:d,answeredQuestions:R}),Me.jsx(jw,{settings:i||RR,onChangeSettings:w=>a(w)}),C&&Me.jsxs(Me.Fragment,{children:[Me.jsx(QI,{question:C,showAnswer:l}),Me.jsxs("div",{className:Qn.buttons,children:[!l&&Me.jsx("button",{className:`${Qn.button} ${Qn.show_answer}`,onClick:()=>s(!0),children:"Show answer"}),l&&S&&Me.jsx("button",{className:`${Qn.button} ${Qn.show_answer}`,onClick:()=>I(T),children:"Next question"}),m&&Me.jsxs(Me.Fragment,{children:[Me.jsx("button",{className:`${Qn.button} ${Qn.dont_know}`,onClick:()=>M("no"),children:"Don't know"}),Me.jsx("button",{className:`${Qn.button} ${Qn.know}`,onClick:()=>M("yes"),children:"Know answer"})]})]})]}),!C&&Me.jsx("p",{children:"No questions left"})]})};function ox(){return Me.jsx(rx,{})}LN.createRoot(document.getElementById("root")).render(Me.jsx($.StrictMode,{children:Me.jsx(ox,{})}));

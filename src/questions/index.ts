@@ -5,6 +5,8 @@ import { questions4 } from './4typescript';
 import { questions5 } from './5cicd';
 import { questions6 } from './6browserAPIs';
 import { questions7 } from './7react';
+import { questions8 } from './8softwareDesign';
+
 
 
 export const allQuestions = [
@@ -15,4 +17,5 @@ export const allQuestions = [
     ...questions5,
     ...questions6,
     ...questions7,
+    ...questions8,
 ]

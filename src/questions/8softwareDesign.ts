@@ -52,9 +52,9 @@ The rest of the system need to be designed around them.`,
   },
   {
     title: "Types of Software Architecture Constraints",
-    answer: `Technical constraint - it can be particular software platform, cloud vendor, use of particular programming language or software
+    answer: `Technical constraints - it can be particular software platform, cloud vendor, use of particular programming language or software
 
-Situations when we must compromise on architectural decisions due to business requirements constraints.
+Business constraints - Situations when we must compromise on architectural decisions due to business requirements constraints.
 
 Regulatory/Legal constraints - constraints based on countries rules/ laws and government decisions etc.`,
     tag: "8 Software Design",

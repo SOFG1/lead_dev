@@ -868,9 +868,9 @@ Scalability - ability to scale when data flow grows
 Security - Enforcing encryption, authentication, and authorization protocols across channels`,tag:"8 Software Design"},{title:"Software architecture constraints",answer:`A system constraint is essentially a decision that was already made for us, restricting our degree of freedom when designing and implementing the system. System constraints are referred as pillars for software architecture.
 
 They provide us with a solid starting point.
-The rest of the system need to be designed around them.`,tag:"8 Software Design"},{title:"Types of Software Architecture Constraints",answer:`Technical constraint - it can be particular software platform, cloud vendor, use of particular programming language or software
+The rest of the system need to be designed around them.`,tag:"8 Software Design"},{title:"Types of Software Architecture Constraints",answer:`Technical constraints - it can be particular software platform, cloud vendor, use of particular programming language or software
 
-Situations when we must compromise on architectural decisions due to business requirements constraints.
+Business constraints - Situations when we must compromise on architectural decisions due to business requirements constraints.
 
 Regulatory/Legal constraints - constraints based on countries rules/ laws and government decisions etc.`,tag:"8 Software Design"},{title:"Steps of defining Software Architecture",answer:`Identify stakeholders, Gather requirements and constraints
 

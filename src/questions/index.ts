@@ -6,6 +6,8 @@ import { questions5 } from './5cicd';
 import { questions6 } from './6browserAPIs';
 import { questions7 } from './7react';
 import { questions8 } from './8softwareDesign';
+import { questions9 } from './9designPatterns';
+
 
 
 
@@ -18,4 +20,5 @@ export const allQuestions = [
     ...questions6,
     ...questions7,
     ...questions8,
+    ...questions9
 ]

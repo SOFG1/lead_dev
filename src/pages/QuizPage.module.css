@@ -37,3 +37,11 @@
 .dont_know {
   background-color: rgba(255, 0, 0, 0.718);
 }
+
+.total {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  font-size: 14px;
+  width: fit-content;
+}

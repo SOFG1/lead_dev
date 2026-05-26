@@ -135,6 +135,7 @@ export const QuizPage = () => {
         </>
       )}
       {!question && <p>No questions left</p>}
+      <p className={s.total}>Total: {allQuestions.length}</p>
     </div>
   );
 };

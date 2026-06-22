@@ -383,6 +383,3 @@ const user2 = new User('Bob', chatRoom);
     tag: "9 Design patterns",
   },
 ];
-
-
-console.log(questions9, 111111)

@@ -249,6 +249,8 @@ Use testing tools like lighthouse, chrome profiler, react profiler and web vital
 
 8. Set sizes for images to prevent layout shifts
 
+9. Use fetchPriority, async/defer and rel="preload" tags
+
 Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
     `,
     tag: "6 Browser APIs",
@@ -296,20 +298,6 @@ Use testing tools like lighthouse, chrome profiler, react profiler and web vital
 ws.onmessage(ev => console.log(ev)) //Add message listener
 ws.send("test") //Send message
     `,
-    tag: "6 Browser APIs",
-  },
-  {
-    title: "Browser Critical Rendering Path",
-    answer: `
-1. Browser parses HTML and builds DOM (DOM)
-
-2. Browser parses CSS and constructs CSSOM (CSSOM)
-
-3. Combines DOM and CSSOM to form rendering tree (Render Tree)
-
-4. Browser calculates sizes and positions of elements (Reflow)
-
-5. Browser paints the pixels to the screen (Repaint)`,
     tag: "6 Browser APIs",
   },
   {

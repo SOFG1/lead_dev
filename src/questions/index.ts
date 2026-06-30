@@ -9,6 +9,8 @@ import { questions8 } from './8softwareDesign';
 import { questions9 } from './9designPatterns';
 import { questions10 } from './10webPerformance';
 import { questions11 } from './11security';
+import { questions12 } from './12communicationProtocols';
+
 
 
 
@@ -26,5 +28,6 @@ export const allQuestions = [
     ...questions8,
     ...questions9,
     ...questions10,
-    ...questions11
+    ...questions11,
+    ...questions12
 ]

@@ -22,6 +22,7 @@ export const questions1: Omit<IQuestion, "id">[] = [
     answer:
       "use testing platforms, reset.css, vendor prefixes, auto prefixers, polyfils",
     tag: "1 HTML, CSS",
+    list: true,
   },
   {
     title: "CSS custom properties",
@@ -42,12 +43,14 @@ export const questions1: Omit<IQuestion, "id">[] = [
     title: "CSS properties which affect performance",
     answer: "size, position, margins, paddings, shadows",
     tag: "1 HTML, CSS",
+    list: true,
   },
   {
     title: "Font loading strategies.",
     answer:
       "Flash Of Invisible Text - font-display-block, Flash Of Unstyled Text font-display-swap, Flash Of Faux Text)",
     tag: "1 HTML, CSS",
+    list: true,
   },
   {
     title: "Aspect-ratio",

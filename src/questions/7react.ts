@@ -20,6 +20,7 @@ MPA has better SEO and for content heavy pages. And SPA is better for apps like 
 SPA has bad SEO because it represents an empty html file
     `,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "SSR, CSR, SSG vs ISR",
@@ -40,6 +41,7 @@ Microfrontends is an approach of merging multiple independent frontends into 1 p
 Pros: Independent team autonomy, fast deploying time and scalability for large applications.
 Cons: It’s hard to maintain, hard to handle shared parts and has some performance overhead. `,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "Monorepo",
@@ -48,6 +50,7 @@ Monorepo is an approach when we store multiple projects(microfrontends), the opp
 Pros: Simplifies code/libraries sharing across projects, eases team collaboration.
 Cons: Makes hard to manage CI`,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "PWA",
@@ -61,11 +64,13 @@ Hardware access
 Push notifications
 Installation into user device`,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "CSS Methodologies",
     answer: `BEM, OOCSS, SMACSS, Atomic CSS, CSS-inJS, CSS Modules`,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "CSS BEM",
@@ -121,6 +126,7 @@ You should pay attention to experience of your team. And learning curve of the f
 9. Project structure flexibility and and ease of integration(microfrontends)
     `,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "React benefits and weak sides",
@@ -145,6 +151,7 @@ React weak sides:
 3. NOT a Framework just a library. React only provides UI Libraryother functionality like state management requires additional libraries
 `,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "React hooks - benefits, what problem solve",
@@ -164,6 +171,7 @@ Solves the problem of wrapping components into HOCs to provide external data.`,
 
 4. Transitions - distinguishing between urgent and non-urgent updates. (useTransitions and useDefferedValue hooks)`,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "HOC common use cases in React App",
@@ -198,6 +206,7 @@ But in some cases for example state management react uses some OOP concepts`,
 5. fragment for grouped elements instead of html tags
 6. lists virtualization`,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "How to handle errors in React Application",

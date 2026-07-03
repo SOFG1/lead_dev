@@ -134,6 +134,7 @@ Private - property is available only inside the class and not even in subclasses
 Static - property is available only from the Class(not instance, like in native JS)
     `,
     tag: "4 TypeScript",
+    list: true,
   },
   {
     title: "Class static block",
@@ -380,6 +381,7 @@ To use decorators, you must enable the experimentalDecorators option in your tsc
 }
         `,
     tag: "4 TypeScript",
+    list: true,
   },
   {
     title: "Class Method Decorator",
@@ -553,6 +555,7 @@ outDir - specifies target folder for compiled files
 moduleResolution - module system for input code
     `,
     tag: "4 TypeScript",
+    list: true,
   },
   {
     title: "Multiple TS config files",
@@ -683,6 +686,7 @@ window.customProp = "value";
 
         `,
     tag: "4 TypeScript",
+    list: true,
   },
   {
     title: "Declare const",

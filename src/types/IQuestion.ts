@@ -5,4 +5,5 @@ export interface IQuestion {
     tag: string
     answer?: string
     code?: string
+    list?: boolean
 }

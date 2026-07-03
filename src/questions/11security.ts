@@ -23,6 +23,7 @@ Man in the middle attacks are situations when someone intercepts a peer to peer 
 10. Mishandling of Exceptional Conditions
     `,
     tag: "11 Security",
+    list: true
   },
   {
     title: "Broken Access Control",

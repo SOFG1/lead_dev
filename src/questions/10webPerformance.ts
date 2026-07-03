@@ -12,6 +12,7 @@ Reflow. Browser sets sizes and positions of the elements.
 Repaint. Browser paints the screen pixels according to UI.
     `,
     tag: "10 Web Performance",
+    list: true,
   },
   {
     title: "requestAnimationFrame",
@@ -158,6 +159,7 @@ Optimize DOM operations, use throttling, paginations and virtualized lists
 Use memoization (caching), avoid thrashing and optimize javascript code.
     `,
     tag: "10 Web Performance",
+    list: true,
   },
   {
     title: "How to handle memory leaks",

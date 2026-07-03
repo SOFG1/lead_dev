@@ -190,6 +190,7 @@ error
 loadend
     `,
     tag: "6 Browser APIs",
+    list: true,
   },
   {
     title: "Parse a CSV with FileReader API",
@@ -254,6 +255,7 @@ Use testing tools like lighthouse, chrome profiler, react profiler and web vital
 Use testing tools like lighthouse, chrome profiler, react profiler and web vitals extension
     `,
     tag: "6 Browser APIs",
+    list: true,
   },
   {
     title: "Accessibility(a11y)",
@@ -273,6 +275,7 @@ Use testing tools like lighthouse, chrome profiler, react profiler and web vital
 7. Use hidden html blocks which are not visible but contains some content and can be transcribed with audio
     `,
     tag: "6 Browser APIs",
+    list: true,
   },
   {
     title: "Key AJAX Security Strategies",
@@ -290,6 +293,7 @@ Use testing tools like lighthouse, chrome profiler, react profiler and web vital
 6. Avoid oversharing data, don’t return sensitive data from the API and in error messages
     `,
     tag: "6 Browser APIs",
+    list: true,
   },
   {
     title: "Web Socket API",

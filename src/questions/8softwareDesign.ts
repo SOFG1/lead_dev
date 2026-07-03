@@ -28,6 +28,7 @@ Efficiency - module should consume minimum resources
 
 Understandability - module should be cleat and understandable for others`,
     tag: "8 Software Design",
+    list: true,
   },
   {
     title: "Software relations quality attributes",
@@ -41,6 +42,7 @@ Scalability - ability to scale when data flow grows
 
 Security - Enforcing encryption, authentication, and authorization protocols across channels`,
     tag: "8 Software Design",
+    list: true,
   },
   {
     title: "Software architecture constraints",
@@ -75,6 +77,7 @@ Document and review
 
 Iterate and validate(build a lightweight proof of concept and re-check steps)`,
     tag: "8 Software Design",
+    list: true,
   },
   {
     title: "SOLID",
@@ -88,6 +91,7 @@ Interface Segregation - No client should be forced to depend on methods it does 
 
 Dependency Inversion - High-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions.`,
     tag: "8 Software Design",
+    list: true,
   },
   {
     title: "SoC",
@@ -152,6 +156,7 @@ Stick entirely to one natural language (ideally English)
 
 Avoid abbreviations (getUser instedof getUsr)`,
     tag: "8 Software Design",
+    list: true,
   },
 
 ];

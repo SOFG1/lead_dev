@@ -14,6 +14,7 @@ export const questions2: Omit<IQuestion, "id">[] = [
 Object.getOwnPropertyDescriptor(obj, "myProp");
 `,
     tag: "2 Javascript",
+    list: true,
   },
   {
     title: "Recursion",
@@ -23,6 +24,7 @@ Cons: Memory usage, stack overflow risk, performance overhead. Infinite loop ris
 Example: factorial, tree operations
     `,
     tag: "2 Javascript",
+    list: true,
   },
   {
     title: "Chaining",
@@ -118,6 +120,7 @@ Super() - must be called in extended Class constructor
 
  4. Assigning to a read-only property operation throws an error instead of silent failing.`,
     tag: "2 Javascript",
+    list: true,
   },
   {
     title: "structuredClone",

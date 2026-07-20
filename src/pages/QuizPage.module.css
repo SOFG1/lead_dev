@@ -59,3 +59,10 @@
   font-weight: 700;
 }
 
+.todayAnswered {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  font-size: 14px;
+  width: fit-content;
+}

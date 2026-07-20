@@ -8,6 +8,7 @@ import type { IQuestion } from "../types/IQuestion";
 import { allQuestions } from "../questions";
 import { AnsweredTopicsComponent } from "../components/AnsweredTopicsComponent";
 import { useAnsweredQuestions } from "../hooks/useAnsweredQuestions";
+import { useTodaysStats } from "../hooks/useTodaysStats";
 
 const listsCount = allQuestions.filter((q) => q.list).length;
 
@@ -22,6 +23,8 @@ export const QuizPage = () => {
   const [questionsList, setQuestionsList] = useState<IQuestion[]>([]);
 
   const [question, setQuestion] = useState<IQuestion | null>(null);
+
+  const { todayAnswered, increaseAnsweredCount } = useTodaysStats();
 
   const { answeredQuestionsList, setAnsweredQuestionsList } =
     useAnsweredQuestions();
@@ -49,6 +52,7 @@ export const QuizPage = () => {
     setQuestionsList(updatedList);
     if (type === "yes") {
       setAnsweredCount(answeredCount + 1);
+      increaseAnsweredCount()
       setNextQuestion(updatedList);
     }
     if (type === "no" && showAnswer) {
@@ -140,10 +144,16 @@ export const QuizPage = () => {
         </>
       )}
       {!question && <p>No questions left</p>}
+      <div className={s.todayAnswered}>
+        <p className={s.todayAnsweredText}>Today answered: {todayAnswered}</p>
+      </div>
+
       <div className={s.total}>
         <p className={s.totalText}>Total: {allQuestions.length}</p>
         <p>Total lists: {listsCount}</p>
-        <p className={s.current}>Current questions: <span>{questionsList.length}</span></p>
+        <p className={s.current}>
+          Current questions: <span>{questionsList.length}</span>
+        </p>
       </div>
     </div>
   );

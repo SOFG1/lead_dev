@@ -141,8 +141,9 @@ export const QuizPage = () => {
       )}
       {!question && <p>No questions left</p>}
       <div className={s.total}>
-        <p>Total: {allQuestions.length}</p>
+        <p className={s.totalText}>Total: {allQuestions.length}</p>
         <p>Total lists: {listsCount}</p>
+        <p className={s.current}>Current questions: <span>{questionsList.length}</span></p>
       </div>
     </div>
   );

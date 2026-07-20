@@ -45,3 +45,17 @@
   font-size: 14px;
   width: fit-content;
 }
+
+.total p {
+  margin-bottom: 2px;
+}
+
+.totalText {
+  font-weight: 700;
+}
+
+.current span {
+  color: green;
+  font-weight: 700;
+}
+

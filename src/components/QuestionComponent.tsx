@@ -14,7 +14,7 @@ export const QuestionComponent = ({ question, showAnswer }: Props) => {
     <div>
       <p className={s.tag}>{question.tag}</p>
       <h2 className={s.title}>
-        <span>{question.id! + 1}.</span> {question.title}
+        <span>{question.id! + 1}.</span> {question.title} {question.list && <span>(list)</span>}
       </h2>
       <div style={{ opacity: showAnswer ? 1 : 0 }}>
         <p className={s.answer}>{question.answer}</p>

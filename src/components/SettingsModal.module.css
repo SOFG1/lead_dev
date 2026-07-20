@@ -46,6 +46,10 @@
     align-items: center;
 }
 
+.label {
+    width: 70px;
+}
+
 
 .dropdown {
     width: 100%;

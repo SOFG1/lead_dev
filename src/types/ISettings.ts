@@ -1,9 +1,11 @@
 export interface ISettings {
-    random: boolean
-    tags: string[]
+  random: boolean;
+  lists: boolean;
+  tags: string[];
 }
 
 export const defaultSettings: ISettings = {
-    random: false,
-    tags: []
-}
+  random: false,
+  lists: false,
+  tags: [],
+};

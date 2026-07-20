@@ -18,29 +18,31 @@ export const questions8: Omit<IQuestion, "id">[] = [
   },
   {
     title: "Software modules quality attributes",
-    answer: `Modifiability - modules should be modifiable easily without changing other modules.
+    answer: `
+1. Modifiability - modules should be modifiable easily without changing other modules.
 
-Testability
+2. Testability
 
-Reusability - modules should be independent from other parts and could be used in other places of the system
+3. Reusability - modules should be independent from other parts and could be used in other places of the system
 
-Efficiency - module should consume minimum resources
+4. Efficiency - module should consume minimum resources
 
-Understandability - module should be cleat and understandable for others`,
+5. Understandability - module should be cleat and understandable for others`,
     tag: "8 Software Design",
     list: true,
   },
   {
     title: "Software relations quality attributes",
-    answer: `Interoperability - modules should be able to communicate easily through standardized protocols
+    answer: `
+1. Interoperability - modules should be able to communicate easily through standardized protocols
 
-Latency and performance - messages between modules should be fast and efficient
+2. Latency and performance - messages between modules should be fast and efficient
 
-Reliability and error resistance - The ability to handle network partitions, errors retries and queues without crashing
+3. Reliability and error resistance - The ability to handle network partitions, errors retries and queues without crashing
 
-Scalability - ability to scale when data flow grows
+4. Scalability - ability to scale when data flow grows
 
-Security - Enforcing encryption, authentication, and authorization protocols across channels`,
+5. Security - Enforcing encryption, authentication, and authorization protocols across channels`,
     tag: "8 Software Design",
     list: true,
   },
@@ -63,17 +65,18 @@ Regulatory/Legal constraints - constraints based on countries rules/ laws and go
   },
   {
     title: "Steps of defining Software Architecture",
-    answer: `Identify stakeholders, Gather requirements and constraints
+    answer: `
+1. Identify stakeholders, Gather requirements and constraints
 
-Identify key components
+2. Identify key components
 
-Choose an architectural style (Layered, Microservices, Event-driven…)
+3. Choose an architectural style (Layered, Microservices, Event-driven…)
 
-Select the technology stack
+4. Select the technology stack
 
-Define data architecture and communication
+5. Define data architecture and communication
 
-Document and review
+6. Document and review
 
 Iterate and validate(build a lightweight proof of concept and re-check steps)`,
     tag: "8 Software Design",
@@ -142,19 +145,19 @@ This makes small classes more flexible, independent and modifications won’t af
   {
     title: "Defining Naming Conventions",
     answer: `
-You can use following principles and use code analysis tools to avoid naming collisions.
+You can use following principles and use code analysis tools to avoid naming collisions:
 
-Use naming styles according to entities (PascalCase, camelCase, kebab-case, snake-case)
+1. Use naming styles according to entities (PascalCase, camelCase, kebab-case, snake-case)
 
-Use module/feature based prefixes
+2. Use module/feature based prefixes
 
-Use nouns for variables and verbs for functions
+3. Use nouns for variables and verbs for functions
 
-Naming consistency is over preference
+4. Naming consistency is over preference
 
-Stick entirely to one natural language (ideally English)
+5. Stick entirely to one natural language (ideally English)
 
-Avoid abbreviations (getUser instedof getUsr)`,
+6. Avoid abbreviations (getUser instedof getUsr)`,
     tag: "8 Software Design",
     list: true,
   },

@@ -38,7 +38,9 @@ ISR - Concept of ISR which rebuilds the page if some dynamic parts changed.   `,
     title: "Microfrontends",
     answer: `
 Microfrontends is an approach of merging multiple independent frontends into 1 project.
+
 Pros: Independent team autonomy, fast deploying time and scalability for large applications.
+
 Cons: It’s hard to maintain, hard to handle shared parts and has some performance overhead. `,
     tag: "7 Frameworks(React)",
     list: true,
@@ -47,7 +49,9 @@ Cons: It’s hard to maintain, hard to handle shared parts and has some performa
     title: "Monorepo",
     answer: `
 Monorepo is an approach when we store multiple projects(microfrontends), the opposite approach is polyrepo
+
 Pros: Simplifies code/libraries sharing across projects, eases team collaboration.
+
 Cons: Makes hard to manage CI`,
     tag: "7 Frameworks(React)",
     list: true,
@@ -203,7 +207,9 @@ But in some cases for example state management react uses some OOP concepts`,
 3. code-splitting
 
 4. lazy-loading
+
 5. fragment for grouped elements instead of html tags
+
 6. lists virtualization`,
     tag: "7 Frameworks(React)",
     list: true,

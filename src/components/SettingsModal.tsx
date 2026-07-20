@@ -3,7 +3,7 @@ import SettingsIcon from "../assets/settings.svg";
 import s from "./SettingsModal.module.css";
 import type { ISettings } from "../types/ISettings";
 import Select from "react-select";
-import { allQuestions } from '../questions';
+import { allQuestions } from "../questions";
 
 interface IProps {
   settings: ISettings;
@@ -58,10 +58,18 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
               />
             </div>
             <div className={s.item}>
-              <label htmlFor="">Random</label>
+              <label className={s.label} htmlFor="">Random</label>
               <input
                 checked={settings.random}
                 onChange={(e) => onChangeSetting("random", e.target.checked)}
+                type="checkbox"
+              />
+            </div>
+            <div className={s.item}>
+              <label className={s.label} htmlFor="">Only lists</label>
+              <input
+                checked={settings.lists}
+                onChange={(e) => onChangeSetting("lists", e.target.checked)}
                 type="checkbox"
               />
             </div>
@@ -70,4 +78,4 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
       )}
     </>
   );
-})
+});

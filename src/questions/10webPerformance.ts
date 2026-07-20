@@ -4,12 +4,17 @@ export const questions10: Omit<IQuestion, "id">[] = [
   {
     title: "Critical Rendering Path",
     answer: `
-DOM. Browser parses HTML. Creating DOM.
-CSSOM. Browser parses CSS. Creating CSSOM.
-JavaScript. Browser parses and executes javascript. Parses script tags.
-Render Tree. Browser combines DOM and CSSOM. Creates a render tree.
-Reflow. Browser sets sizes and positions of the elements.
-Repaint. Browser paints the screen pixels according to UI.
+1. DOM. Browser parses HTML. Creating DOM.
+
+2. CSSOM. Browser parses CSS. Creating CSSOM.
+
+3. JavaScript. Browser parses and executes javascript. Parses script tags.
+
+4. Render Tree. Browser combines DOM and CSSOM. Creates a render tree.
+
+5. Reflow. Browser sets sizes and positions of the elements.
+
+6. Repaint. Browser paints the screen pixels according to UI.
     `,
     tag: "10 Web Performance",
     list: true,
@@ -150,13 +155,13 @@ Works only with https or on localhost.
   {
     title: "CPU bound operations optimization",
     answer: `
-Use web workers for heavy operations
+1. Use web workers for heavy operations
 
-Use requestIdleCallback to make operation asynchronous
+2. Use requestIdleCallback to make operation asynchronous and run in the background
 
-Optimize DOM operations, use throttling, paginations and virtualized lists
+3. Optimize DOM operations, use throttling, paginations and virtualized lists
 
-Use memoization (caching), avoid thrashing and optimize javascript code.
+4. Use memoization (caching), avoid thrashing and optimize javascript code.
     `,
     tag: "10 Web Performance",
     list: true,

@@ -9,6 +9,8 @@ import { allQuestions } from "../questions";
 import { AnsweredTopicsComponent } from "../components/AnsweredTopicsComponent";
 import { useAnsweredQuestions } from "../hooks/useAnsweredQuestions";
 
+const listsCount = allQuestions.filter((q) => q.list).length;
+
 export const QuizPage = () => {
   const [settings, setSettings] = useState<ISettings>();
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
@@ -80,9 +82,12 @@ export const QuizPage = () => {
     if (settings?.tags.length) {
       list = list.filter((q) => settings.tags.includes(q.tag));
     }
+    if (settings?.lists) {
+      list = list.filter((q) => q.list);
+    }
     setQuestionsList(list);
     setNextQuestion(list);
-  }, [settings?.tags]);
+  }, [settings?.tags, settings?.lists]);
 
   return (
     <div className={s.wrapper}>
@@ -135,7 +140,10 @@ export const QuizPage = () => {
         </>
       )}
       {!question && <p>No questions left</p>}
-      <p className={s.total}>Total: {allQuestions.length}</p>
+      <div className={s.total}>
+        <p>Total: {allQuestions.length}</p>
+        <p>Total lists: {listsCount}</p>
+      </div>
     </div>
   );
 };

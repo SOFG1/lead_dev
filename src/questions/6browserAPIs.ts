@@ -232,9 +232,9 @@ Use testing tools like lighthouse, chrome profiler, react profiler and web vital
     tag: "6 Browser APIs",
   },
   {
-    title: "Web optimization",
+    title: "Web Page Loading Optimization",
     answer: `
-1. Assets optimization. Minify images(use lightweight formats like waif, fetch priority attribute), css files, fonts and scripts
+1. Assets optimization. Minify images(use lightweight formats like awif, fetch priority attribute), css files, fonts and scripts
 
 2. Code splitting. Split app bundle into chunks
 

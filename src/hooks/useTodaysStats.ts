@@ -2,32 +2,47 @@ import { useEffect, useMemo, useState } from "react";
 
 const TODAYS_STATS = "TODAYS_STATS";
 
+interface StorageData {
+  [data: string]: {
+    count: number;
+    listsCount: number;
+  };
+}
+
 export const useTodaysStats = () => {
   const [count, setCount] = useState<number>(0);
+  const [listsCount, setListsCount] = useState<number>(0);
 
   const todayDate = useMemo(() => {
     return new Date().getDate().toString();
   }, []);
 
-  const increaseAnsweredCount = () => {
+  const increaseAnsweredCount = (isList?: boolean) => {
     const increased = count + 1;
-    localStorage.setItem(
-      TODAYS_STATS,
-      JSON.stringify({ [todayDate]: increased })
-    );
+    const listsIncreased = isList ? listsCount + 1 : listsCount;
+    const data: StorageData = {
+      [todayDate]: {
+        count: increased,
+        listsCount: listsIncreased,
+      },
+    };
+    localStorage.setItem(TODAYS_STATS, JSON.stringify(data));
     setCount(increased);
+    setListsCount(listsIncreased);
   };
 
   useEffect(() => {
-    const todaysStats = localStorage.getItem(TODAYS_STATS);
-    const todayCount: string | undefined =
-      todaysStats && JSON.parse(todaysStats)[todayDate];
-    console.log("saveddddddd", todayCount);
-    setCount(todayCount ? Number(todayCount) : 0);
+    const storageData = localStorage.getItem(TODAYS_STATS);
+    if(storageData) {
+      const data: StorageData = JSON.parse(storageData)
+      setCount(data[todayDate].count ? Number(data[todayDate].count) : 0);
+      setListsCount(data[todayDate].listsCount ? Number(data[todayDate].listsCount) : 0);
+    }
   }, [todayDate]);
 
   return {
     todayAnswered: count,
+    todayAnsweredLists: listsCount,
     increaseAnsweredCount,
   };
 };

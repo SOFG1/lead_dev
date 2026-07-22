@@ -24,7 +24,8 @@ export const QuizPage = () => {
 
   const [question, setQuestion] = useState<IQuestion | null>(null);
 
-  const { todayAnswered, increaseAnsweredCount } = useTodaysStats();
+  const { todayAnswered, todayAnsweredLists, increaseAnsweredCount } =
+    useTodaysStats();
 
   const { answeredQuestionsList, setAnsweredQuestionsList } =
     useAnsweredQuestions();
@@ -52,7 +53,7 @@ export const QuizPage = () => {
     setQuestionsList(updatedList);
     if (type === "yes") {
       setAnsweredCount(answeredCount + 1);
-      increaseAnsweredCount()
+      increaseAnsweredCount(question?.list);
       setNextQuestion(updatedList);
     }
     if (type === "no" && showAnswer) {
@@ -145,7 +146,9 @@ export const QuizPage = () => {
       )}
       {!question && <p>No questions left</p>}
       <div className={s.todayAnswered}>
-        <p className={s.todayAnsweredText}>Today answered: {todayAnswered}</p>
+        <p className={s.todayAnsweredText}>
+          Today answered: {todayAnswered} ({todayAnsweredLists})
+        </p>
       </div>
 
       <div className={s.total}>

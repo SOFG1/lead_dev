@@ -33,10 +33,12 @@ export const useTodaysStats = () => {
 
   useEffect(() => {
     const storageData = localStorage.getItem(TODAYS_STATS);
-    if(storageData) {
-      const data: StorageData = JSON.parse(storageData)
+    const data: StorageData = JSON.parse(storageData || "{}");
+    if (data[todayDate]) {
       setCount(data[todayDate].count ? Number(data[todayDate].count) : 0);
-      setListsCount(data[todayDate].listsCount ? Number(data[todayDate].listsCount) : 0);
+      setListsCount(
+        data[todayDate].listsCount ? Number(data[todayDate].listsCount) : 0
+      );
     }
   }, [todayDate]);
 

@@ -25,10 +25,14 @@ Preflight requests are made to check whether this origin is allowed by CORS to s
     title: "HTTP vs GraphQL Comparison",
     answer: `
 Over-fetching and under-fetching. Sometimes we get extra data or make multiple requests to get specific amount of keys. In graphQL it’s configurable.
+
 Step up complexity. HTTP is supported out of the box has minimal learning curve. GraphQL requires knowledge and schemas configuration.
+
 GraphQL uses single endpoint and includes returned data in the schema. HTTP uses only multiple specific endpoints specified by API.
+
 HTTP supports built in caching`,
     tag: "12 Web Communication Protocols",
+    list: true,
   },
   {
     title: "HTTPS Purpose",

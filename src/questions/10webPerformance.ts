@@ -98,6 +98,7 @@ Idle - Use idle time for background operations
 Load - loading time of the app should be less than 5 seconds
     `,
     tag: "10 Web Performance",
+    list: true,
   },
   {
     title: "requestIdleCallback",
@@ -127,6 +128,7 @@ Record page loading and analyze reports
 Use lighthouse, page speed insights or dev tools
     `,
     tag: "10 Web Performance",
+    list: true,
   },
   {
     title: "HTTP2, HTTP3",
@@ -150,6 +152,7 @@ Supports push notifications and can mock and intercept network requests.
 
 Works only with https or on localhost.
     `,
+    list: true,
     tag: "10 Web Performance",
   },
   {

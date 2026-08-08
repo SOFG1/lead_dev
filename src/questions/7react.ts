@@ -243,6 +243,7 @@ UI update happens in the most optimized way comparing 2 versions(old and new) of
 
 Drawbacks: Boilerplate code, learning curve, large package size.`,
     tag: "7 Frameworks(React)",
+    list: true,
   },
   {
     title: "Testing strategy",

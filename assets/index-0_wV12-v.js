@@ -835,7 +835,7 @@ But in some cases for example state management react uses some OOP concepts`,tag
 
 UI update happens in the most optimized way comparing 2 versions(old and new) of DOM.`,tag:"7 Frameworks(React)"},{title:"Redux Pros & Cons",answer:`Benefits: Centralized state, Predictability, DevTools, Testability and EcoSystem
 
-Drawbacks: Boilerplate code, learning curve, large package size.`,tag:"7 Frameworks(React)"},{title:"Testing strategy",answer:`
+Drawbacks: Boilerplate code, learning curve, large package size.`,tag:"7 Frameworks(React)",list:!0},{title:"Testing strategy",answer:`
     Testing pyramid(unit > integration > e2e)
 
 Use ESLint, TypeScript and SonarCube for static code analysis.
@@ -1273,7 +1273,7 @@ Animation - Animations after user input should be 60fps
 Idle - Use idle time for background operations
 
 Load - loading time of the app should be less than 5 seconds
-    `,tag:"10 Web Performance"},{title:"requestIdleCallback",answer:`
+    `,tag:"10 Web Performance",list:!0},{title:"requestIdleCallback",answer:`
     requestIdleCallback - is a function which queues a callback and executes during browser idle time. It’s a macro task in event loop stack.
     `,tag:"10 Web Performance"},{title:"Core Web Vitals",answer:`
 Largest Contentful Paint
@@ -1287,7 +1287,7 @@ Use network throttling and CPU throttling in Chrome DevTools.
 Record page loading and analyze reports
 
 Use lighthouse, page speed insights or dev tools
-    `,tag:"10 Web Performance"},{title:"HTTP2, HTTP3",answer:`
+    `,tag:"10 Web Performance",list:!0},{title:"HTTP2, HTTP3",answer:`
 HTTP2 and HTTP3 are newer versions of HTTP protocol which makes data transfer in more optimized way.
     `,tag:"10 Web Performance"},{title:"Service Workers",answer:`
 Service workers are scripts which run in parallel on a different thread.
@@ -1301,7 +1301,7 @@ Service Worker acts as a proxy between network and browser, works independently 
 Supports push notifications and can mock and intercept network requests.
 
 Works only with https or on localhost.
-    `,tag:"10 Web Performance"},{title:"CPU bound operations optimization",answer:`
+    `,list:!0,tag:"10 Web Performance"},{title:"CPU bound operations optimization",answer:`
 1. Use web workers for heavy operations
 
 2. Use requestIdleCallback to make operation asynchronous and run in the background
@@ -1339,9 +1339,12 @@ WebSocket has low latency requests sent immediately.
 WebSockets has low server loading which is more optimized approach`,tag:"12 Web Communication Protocols"},{title:"OPTIONS (Preflight) request",answer:`
 Preflight requests are made to check whether this origin is allowed by CORS to sent request to that origin`,tag:"12 Web Communication Protocols"},{title:"HTTP vs GraphQL Comparison",answer:`
 Over-fetching and under-fetching. Sometimes we get extra data or make multiple requests to get specific amount of keys. In graphQL it’s configurable.
+
 Step up complexity. HTTP is supported out of the box has minimal learning curve. GraphQL requires knowledge and schemas configuration.
+
 GraphQL uses single endpoint and includes returned data in the schema. HTTP uses only multiple specific endpoints specified by API.
-HTTP supports built in caching`,tag:"12 Web Communication Protocols"},{title:"HTTPS Purpose",answer:`
+
+HTTP supports built in caching`,tag:"12 Web Communication Protocols",list:!0},{title:"HTTPS Purpose",answer:`
 HTTPS primary purpose is to ensure secure connection. It makes this by encrypting data before sending.`,tag:"12 Web Communication Protocols"}],lx=[{title:"Isomorphic / Universal rendering",answer:`
 Isomorphic rendering is JavaScript code(in NextJS or Nuxt) which is able to run on both client and server side.
 It’s very efficient and returns already rendered HTML to the UI.`,tag:"13 Rendering strategies"},{title:"Render as you fetch",answer:`

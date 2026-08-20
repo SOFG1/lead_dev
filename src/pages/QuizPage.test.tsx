@@ -26,8 +26,8 @@ describe("QuizPage", () => {
   it("moves to the next question after answering a question", () => {
     render(<QuizPage />);
 
-    fireEvent.click(screen.getAllByRole("button", { name: /show answer/i })[0]);
-    fireEvent.click(screen.getAllByRole("button", { name: /know answer/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /show answer button/i })[0]);
+    fireEvent.click(screen.getAllByRole("button", { name: /know button/i })[0]);
 
     expect(screen.getByRole("heading", { name: /2\./i })).toBeTruthy();
     expect(screen.getByText(/css float/i)).toBeTruthy();

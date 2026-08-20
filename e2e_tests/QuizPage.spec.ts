@@ -39,7 +39,7 @@ test("Know button updates the stats", async ({ page }) => {
 
   await page.getByRole("button", { name: "Know answer" }).click();
 
-  await expect(page.getByText(/Today answered/i)).toBeVisible(
+  await expect(page.getByText(/Today answered/i)).toHaveText(
     "Today answered: 1 (0)",
   );
 });

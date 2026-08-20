@@ -34,12 +34,12 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
 
   return (
     <>
-      <button className={s.button} onClick={() => setOpened(!opened)}>
+      <button className={s.button} onClick={() => setOpened(!opened)} aria-label="Settings button">
         <img className={s.icon} src={SettingsIcon} alt="Settings Icon" />
       </button>
       {opened && (
         <div className={s.modal}>
-          <button className={s.close} onClick={() => setOpened(false)}>
+          <button className={s.close} onClick={() => setOpened(false)} aria-label="Close settings button">
             X
           </button>
           <div className={s.content}>
@@ -55,6 +55,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
                   )
                 }
                 isMulti={true}
+                aria-label="Category dropdown"
               />
             </div>
             <div className={s.item}>
@@ -63,6 +64,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
                 checked={settings.random}
                 onChange={(e) => onChangeSetting("random", e.target.checked)}
                 type="checkbox"
+                aria-label="Random checkbox"
               />
             </div>
             <div className={s.item}>
@@ -71,6 +73,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
                 checked={settings.lists}
                 onChange={(e) => onChangeSetting("lists", e.target.checked)}
                 type="checkbox"
+                aria-label="Lists checkbox"
               />
             </div>
           </div>

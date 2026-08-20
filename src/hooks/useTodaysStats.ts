@@ -35,9 +35,10 @@ export const useTodaysStats = () => {
     const storageData = localStorage.getItem(TODAYS_STATS);
     const data: StorageData = JSON.parse(storageData || "{}");
     if (data[todayDate]) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCount(data[todayDate].count ? Number(data[todayDate].count) : 0);
       setListsCount(
-        data[todayDate].listsCount ? Number(data[todayDate].listsCount) : 0
+        data[todayDate].listsCount ? Number(data[todayDate].listsCount) : 0,
       );
     }
   }, [todayDate]);

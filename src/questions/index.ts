@@ -25,5 +25,5 @@ export const allQuestions = [
   ...questions10,
   ...questions11,
   ...questions12,
-  ...questions13
+  ...questions13,
 ];

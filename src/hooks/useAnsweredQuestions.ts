@@ -14,12 +14,12 @@ export const useAnsweredQuestions = () => {
     //Set in local storage
     const listOfIndexes = questions.map((question) =>
       allQuestions.findIndex(
-        (q) => q.tag === question.tag && q.title === question.title
-      )
+        (q) => q.tag === question.tag && q.title === question.title,
+      ),
     );
     localStorage.setItem(
       ANSWERED_INDEXES,
-      JSON.stringify({ listOfIndexes, date: new Date().getDate() })
+      JSON.stringify({ listOfIndexes, date: new Date().getDate() }),
     );
   };
 
@@ -30,6 +30,7 @@ export const useAnsweredQuestions = () => {
     const data = JSON.parse(savedItems);
     if (data.date === new Date().getDate()) {
       const items = data.listOfIndexes.map((i: number) => allQuestions[i]);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setAnsweredQuestionsList(items);
     }
   }, []);

@@ -6,16 +6,16 @@
 }
 
 .list {
-    margin-top: 6px;
+  margin-top: 6px;
 }
 
 .topic {
-    font-size: 10px;
-    font-weight: 600;
-    color: green;
-    max-width: 90px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-bottom: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  color: green;
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 2px;
 }

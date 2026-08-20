@@ -19,12 +19,13 @@ export const AnsweredTopicsComponent = memo(
   ({ answeredQuestions, answeredCount, wrongCount }: Props) => {
     const topicsList = useMemo(() => {
       return allTopics.filter((topic) => {
-        const totalCount = allQuestions.filter(q => q.tag === topic).length
-        const answered = answeredQuestions.filter(q => q.tag === topic).length
+        const totalCount = allQuestions.filter((q) => q.tag === topic).length;
+        const answered = answeredQuestions.filter(
+          (q) => q.tag === topic,
+        ).length;
         return totalCount === answered;
       });
-    }, [answeredQuestions, allTopics]);
-
+    }, [answeredQuestions]);
 
     return (
       <div className={s.results}>
@@ -39,5 +40,5 @@ export const AnsweredTopicsComponent = memo(
         </div>
       </div>
     );
-  }
+  },
 );

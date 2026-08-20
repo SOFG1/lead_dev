@@ -1,4 +1,4 @@
-import type { IQuestion } from '../types/IQuestion';
+import type { IQuestion } from "../types/IQuestion";
 
 export const questions1: Omit<IQuestion, "id">[] = [
   {

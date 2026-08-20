@@ -1,37 +1,36 @@
 .title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 22px;
-    line-height: 1.15;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  line-height: 1.15;
 }
 
 .title span {
-    color: gray;
+  color: gray;
 }
 
 .answer {
-    max-width: 400px;
-    line-height: 1.15;
-    margin: 0 auto;
-    font-size: 18px;
-    white-space: pre-wrap;
+  max-width: 400px;
+  line-height: 1.15;
+  margin: 0 auto;
+  font-size: 18px;
+  white-space: pre-wrap;
 }
 
 .tag {
-    background-color: #FAB95B;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #8f4500;
-    text-align: center;
-    padding: 4px 10px;
-    width: fit-content;
-    margin: 0 auto 7px;
+  background-color: #fab95b;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8f4500;
+  text-align: center;
+  padding: 4px 10px;
+  width: fit-content;
+  margin: 0 auto 7px;
 }
 
 .code_wrapper {
-    max-width: 100%;
-    width: 100%;
-    overflow: auto;
+  max-width: 100%;
+  width: 100%;
+  overflow: auto;
 }
-

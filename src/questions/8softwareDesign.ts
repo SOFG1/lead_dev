@@ -161,5 +161,4 @@ You can use following principles and use code analysis tools to avoid naming col
     tag: "8 Software Design",
     list: true,
   },
-
 ];

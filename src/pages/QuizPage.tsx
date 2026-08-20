@@ -13,7 +13,10 @@ import { useTodaysStats } from "../hooks/useTodaysStats";
 const listsCount = allQuestions.filter((q) => q.list).length;
 
 export const QuizPage = () => {
-  const [settings, setSettings] = useState<ISettings>();
+  const savedSettings = localStorage.getItem("settings");
+  const [settings, setSettings] = useState<ISettings>(
+    savedSettings ? JSON.parse(savedSettings) : defaultSettings,
+  );
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [answeredCount, setAnsweredCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
@@ -70,17 +73,10 @@ export const QuizPage = () => {
     }
   };
 
-  //Set settings from LocalStorage
-  useEffect(() => {
-    if (settings) return;
-    const savedSettings = localStorage.getItem("settings");
-    const value = savedSettings ? JSON.parse(savedSettings) : defaultSettings;
-    setSettings(value);
-  }, [settings]);
-
   //Set initial question index
   useEffect(() => {
     if (!question && questionsList.length) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setNextQuestion(questionsList);
     }
   }, [question, questionsList, settings, setNextQuestion]);
@@ -93,6 +89,7 @@ export const QuizPage = () => {
     if (settings?.lists) {
       list = list.filter((q) => q.list);
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQuestionsList(list);
     setNextQuestion(list);
   }, [settings?.tags, settings?.lists, setNextQuestion]);

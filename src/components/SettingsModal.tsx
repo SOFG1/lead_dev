@@ -15,7 +15,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
 
   const onChangeSetting = (
     prop: keyof ISettings,
-    value: ISettings[keyof ISettings]
+    value: ISettings[keyof ISettings],
   ) => {
     const newSettings = {
       ...settings,
@@ -34,12 +34,20 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
 
   return (
     <>
-      <button className={s.button} onClick={() => setOpened(!opened)} aria-label="Settings button">
+      <button
+        className={s.button}
+        onClick={() => setOpened(!opened)}
+        aria-label="Settings button"
+      >
         <img className={s.icon} src={SettingsIcon} alt="Settings Icon" />
       </button>
       {opened && (
         <div className={s.modal}>
-          <button className={s.close} onClick={() => setOpened(false)} aria-label="Close settings button">
+          <button
+            className={s.close}
+            onClick={() => setOpened(false)}
+            aria-label="Close settings button"
+          >
             X
           </button>
           <div className={s.content}>
@@ -52,7 +60,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
                 onChange={(v) =>
                   onChangeSetting(
                     "tags",
-                    v.map((v) => v.value)
+                    v.map((v) => v.value),
                   )
                 }
                 isMulti={true}
@@ -60,7 +68,9 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
               />
             </div>
             <div className={s.item}>
-              <label className={s.label} htmlFor="">Random</label>
+              <label className={s.label} htmlFor="">
+                Random
+              </label>
               <input
                 checked={settings.random}
                 onChange={(e) => onChangeSetting("random", e.target.checked)}
@@ -69,7 +79,9 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
               />
             </div>
             <div className={s.item}>
-              <label className={s.label} htmlFor="">Only lists</label>
+              <label className={s.label} htmlFor="">
+                Only lists
+              </label>
               <input
                 checked={settings.lists}
                 onChange={(e) => onChangeSetting("lists", e.target.checked)}

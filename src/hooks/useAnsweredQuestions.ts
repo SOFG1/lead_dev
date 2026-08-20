@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import type { IQuestion } from "../types/IQuestion";
-import { allQuestions } from "../questions";
+import { useEffect, useState } from 'react';
+import type { IQuestion } from '../types/IQuestion';
+import { allQuestions } from '../questions';
 
-const ANSWERED_INDEXES = "ANSWERED_INDEXES";
+const ANSWERED_INDEXES = 'ANSWERED_INDEXES';
 
 export const useAnsweredQuestions = () => {
   const [answeredQuestionsList, setAnsweredQuestionsList] = useState<
@@ -14,12 +14,12 @@ export const useAnsweredQuestions = () => {
     //Set in local storage
     const listOfIndexes = questions.map((question) =>
       allQuestions.findIndex(
-        (q) => q.tag === question.tag && q.title === question.title,
-      ),
+        (q) => q.tag === question.tag && q.title === question.title
+      )
     );
     localStorage.setItem(
       ANSWERED_INDEXES,
-      JSON.stringify({ listOfIndexes, date: new Date().getDate() }),
+      JSON.stringify({ listOfIndexes, date: new Date().getDate() })
     );
   };
 

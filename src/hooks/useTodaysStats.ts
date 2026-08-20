@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from 'react';
 
-const TODAYS_STATS = "TODAYS_STATS";
+const TODAYS_STATS = 'TODAYS_STATS';
 
 interface StorageData {
   [data: string]: {
@@ -33,12 +33,12 @@ export const useTodaysStats = () => {
 
   useEffect(() => {
     const storageData = localStorage.getItem(TODAYS_STATS);
-    const data: StorageData = JSON.parse(storageData || "{}");
+    const data: StorageData = JSON.parse(storageData || '{}');
     if (data[todayDate]) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setCount(data[todayDate].count ? Number(data[todayDate].count) : 0);
       setListsCount(
-        data[todayDate].listsCount ? Number(data[todayDate].listsCount) : 0,
+        data[todayDate].listsCount ? Number(data[todayDate].listsCount) : 0
       );
     }
   }, [todayDate]);

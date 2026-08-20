@@ -1,21 +1,21 @@
-import { QuestionComponent } from "../components/QuestionComponent";
-import s from "./QuizPage.module.css";
-import { SettingsModal } from "../components/SettingsModal";
-import { useCallback, useEffect, useState } from "react";
-import { defaultSettings, type ISettings } from "../types/ISettings";
-import { generateRandomNumber } from "../utils/generateRandomNumber";
-import type { IQuestion } from "../types/IQuestion";
-import { allQuestions } from "../questions";
-import { AnsweredTopicsComponent } from "../components/AnsweredTopicsComponent";
-import { useAnsweredQuestions } from "../hooks/useAnsweredQuestions";
-import { useTodaysStats } from "../hooks/useTodaysStats";
+import { QuestionComponent } from '../components/QuestionComponent';
+import s from './QuizPage.module.css';
+import { SettingsModal } from '../components/SettingsModal';
+import { useCallback, useEffect, useState } from 'react';
+import { defaultSettings, type ISettings } from '../types/ISettings';
+import { generateRandomNumber } from '../utils/generateRandomNumber';
+import type { IQuestion } from '../types/IQuestion';
+import { allQuestions } from '../questions';
+import { AnsweredTopicsComponent } from '../components/AnsweredTopicsComponent';
+import { useAnsweredQuestions } from '../hooks/useAnsweredQuestions';
+import { useTodaysStats } from '../hooks/useTodaysStats';
 
 const listsCount = allQuestions.filter((q) => q.list).length;
 
 export const QuizPage = () => {
-  const savedSettings = localStorage.getItem("settings");
+  const savedSettings = localStorage.getItem('settings');
   const [settings, setSettings] = useState<ISettings>(
-    savedSettings ? JSON.parse(savedSettings) : defaultSettings,
+    savedSettings ? JSON.parse(savedSettings) : defaultSettings
   );
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [answeredCount, setAnsweredCount] = useState(0);
@@ -49,24 +49,24 @@ export const QuizPage = () => {
         setQuestion(list[0]);
       }
     },
-    [settings],
+    [settings]
   );
 
-  const buttonClick = (type: "yes" | "no") => {
+  const buttonClick = (type: 'yes' | 'no') => {
     setCurrentQuestionAnsered(true);
     setAnsweredQuestionsList([...answeredQuestionsList, question!]); //Add question to answered list
     const updatedList = questionsList.filter((q) => q.id !== question?.id);
     setQuestionsList(updatedList);
-    if (type === "yes") {
+    if (type === 'yes') {
       setAnsweredCount(answeredCount + 1);
       increaseAnsweredCount(question?.list);
       setNextQuestion(updatedList);
     }
-    if (type === "no" && showAnswer) {
+    if (type === 'no' && showAnswer) {
       setWrongCount(wrongCount + 1);
       setNextQuestion(updatedList);
     }
-    if (type === "no" && !showAnswer) {
+    if (type === 'no' && !showAnswer) {
       setWrongCount(wrongCount + 1);
       setShowAnswer(true);
       setShowAnswerButtons(false);
@@ -130,13 +130,13 @@ export const QuizPage = () => {
               <>
                 <button
                   className={`${s.button} ${s.dont_know}`}
-                  onClick={() => buttonClick("no")}
+                  onClick={() => buttonClick('no')}
                 >
                   Don't know
                 </button>
                 <button
                   className={`${s.button} ${s.know}`}
-                  onClick={() => buttonClick("yes")}
+                  onClick={() => buttonClick('yes')}
                 >
                   Know answer
                 </button>

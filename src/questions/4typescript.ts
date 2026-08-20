@@ -1,44 +1,44 @@
-import type { IQuestion } from "../types/IQuestion";
+import type { IQuestion } from '../types/IQuestion';
 
-export const questions4: Omit<IQuestion, "id">[] = [
+export const questions4: Omit<IQuestion, 'id'>[] = [
   {
-    title: "Primitive types",
+    title: 'Primitive types',
     answer: `
   String, number, boolean, bigint, undefined, null
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Structural vs Nominal types",
+    title: 'Structural vs Nominal types',
     answer: `
 Complex structures for example objects can have different names but identical structures.
 So they will be equal by structural comparison and different by nominal comparison
 
 Typescript has structural type checking and doesn’t look at names when compares types. It only compares properties and their types.
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Never type",
+    title: 'Never type',
     answer: `
 Never type defines a type which will never occur.
 This means that a variable with never type can never hold any value. Using it we can denote impossibility in the system.
 It can happen after throwing an error and in the last condition of exhaustive check function.
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Record",
+    title: 'Record',
     answer: `
 Record is a utility type which defines an object with the same key type and value type for all properties
     `,
     code: `
       type RecordType = Record<string, string | number>
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Tuple",
+    title: 'Tuple',
     answer: `
 Tuple is a type similar to array but with fixed size
     `,
@@ -46,20 +46,20 @@ Tuple is a type similar to array but with fixed size
     [string, number, number, string] //Tuple
     string | number[] //Array
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Named tuple",
+    title: 'Named tuple',
     answer: `
 Named tuple syntax for giving names to tuple elements
     `,
     code: `
     type UserTuple = [id: number, name: string, isAdmin: boolean];
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "as const",
+    title: 'as const',
     answer: `
 as const prevents type widening and makes variable readonly(on typescript level)
 
@@ -67,12 +67,12 @@ eg: const person = {name: ‘John Doe’, age: 32}  will have type: {name: strin
 
 With as const it will have {name: ‘John Doe’, age: 32} type
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Call Signatures (for callable functions)",
+    title: 'Call Signatures (for callable functions)',
     answer:
-      "Call signature is syntax for creating types for functions with properties",
+      'Call signature is syntax for creating types for functions with properties',
     code: `
 type FunctionWithProp = {
  (param1: string, param2: number): void,
@@ -85,12 +85,12 @@ const functionWithProp:  FunctionWithProp = (param1, param2) => {
 
 functionWithProp.customProp = “custom property”
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Construct signatures (for constructor functions)",
+    title: 'Construct signatures (for constructor functions)',
     answer:
-      "Construct signature is signature for creating types for constructor functions",
+      'Construct signature is signature for creating types for constructor functions',
     code: `
 type StringConstructable = {
   new (name: string): {name: string};
@@ -106,19 +106,19 @@ interface CallOrConstruct {
   (n?: number): string; // Call signature (can be called as a normal function)
   new (s: string): Date; // Construct signature (can be called with "new")
 }`,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "strictBindCallApply",
+    title: 'strictBindCallApply',
     answer: `
 strictBindCallApply - is a flag in “complierOptions” in typescript configuration.
 If the flag is enabled typescript checks parameters and ‘this’ context for bind(), call(), apply()
 If not enables they will be type of any
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Classes",
+    title: 'Classes',
     answer: `
 TypeScript classes have prefixes for its properties:
 
@@ -132,13 +132,13 @@ Private - property is available only inside the class and not even in subclasses
 
 Static - property is available only from the Class(not instance, like in native JS)
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
     list: true,
   },
   {
-    title: "Class static block",
+    title: 'Class static block',
     answer:
-      "Static blocks in class are executed during initialization and have access to private properties",
+      'Static blocks in class are executed during initialization and have access to private properties',
     code: `
     class Database {
      private static connection: Connection
@@ -148,12 +148,12 @@ Static - property is available only from the Class(not instance, like in native 
      }
     }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Class auto accessors",
+    title: 'Class auto accessors',
     answer:
-      "Typescript has feature for declaring simple get() and set() methods in a class with less boilerplate code",
+      'Typescript has feature for declaring simple get() and set() methods in a class with less boilerplate code',
     code: `
     class MyClass {
      private _value: string
@@ -170,35 +170,35 @@ Static - property is available only from the Class(not instance, like in native 
     class MyClass {
      accessor value: string
     }`,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Readonly",
+    title: 'Readonly',
     answer: `
 Readonly<T> - prefix for type, interface or class properties which will throw an error when we try to modify the property.
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "ReadonlyArray",
+    title: 'ReadonlyArray',
     answer: `
 ReadonlyArray<T> is a operator which makes an array immutable
 The difference between “as const” and ReadonlyArray is that “as const” provides deep immutability
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Conditional types",
+    title: 'Conditional types',
     answer: `
 Conditional type is like ternary operator in JS
     `,
     code: `
     type MyConditionalType<T> = T extends U ? X : Y;
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Infer",
+    title: 'Infer',
     answer: `
 Infer can only be used on the right hand side of the extends keyword
 Infer extracts a generic type and allows to return it in a condition
@@ -206,41 +206,41 @@ Infer extracts a generic type and allows to return it in a condition
     code: `
     type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Awaited",
+    title: 'Awaited',
     answer: `
   returns awaited type
     `,
     code: `
     type A = Awaited<Promise<string>> //type A = string
       `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "makes all properties of a type optional",
+    title: 'makes all properties of a type optional',
     code: `
   Partial<T>
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "makes all properties of a type required",
+    title: 'makes all properties of a type required',
     code: `
   Required<T>
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Makes all properties readonly",
+    title: 'Makes all properties readonly',
     code: `
 Readonly<T>
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Picks optional properties of a type(object)",
+    title: 'Picks optional properties of a type(object)',
     code: `
 Pick<T>
 
@@ -253,10 +253,10 @@ interface MyInterface {
 //takes only a and b from MyInterface
 type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’>
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "creates a new type from a type(object) removing some properties.",
+    title: 'creates a new type from a type(object) removing some properties.',
     answer: `
     Omit<T>
 
@@ -267,10 +267,10 @@ type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’>
     //Will be MyInterface without ‘c’ and ‘b’ properties
     type OmitedType = Omit<MyInterface, ‘c’ | ‘b’>
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Constructs a type excluding types from a union type",
+    title: 'Constructs a type excluding types from a union type',
     answer: `
     Exclude<T>
     `,
@@ -280,11 +280,11 @@ type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’>
   //equals - ‘a’ | ‘b’
   type ExcludedType = Exclude<UnionType, ‘c’>
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
     title:
-      "extracts matching types from first union type that exist in the second union",
+      'extracts matching types from first union type that exist in the second union',
     answer: `
     Extract<T>
     `,
@@ -292,10 +292,10 @@ type PickedTypes = Pick<MyInterface, ‘a’ | ‘b’>
     // returns 'b' | 'c'
     type Extracted = Extract<'a' | 'b' | 'c', 'b', | 'c' | 'f'>
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "defines the type of context ‘this’ for an object and it’s methods",
+    title: 'defines the type of context ‘this’ for an object and it’s methods',
     answer: `
     ThisType
     `,
@@ -306,10 +306,10 @@ const obj: ThisType<TypeOfThis> {
   }
 }
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "extracts type of ‘this’ from a function type",
+    title: 'extracts type of ‘this’ from a function type',
     answer: `
     Checks parameters of context 'this' in the function and constructs a type
 ThisParameterType<T>
@@ -317,30 +317,30 @@ ThisParameterType<T>
     code: `
     type ThisType = ThisParameterType<type of someFunction>
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "removes type of context ’this’ from a function type",
+    title: 'removes type of context ’this’ from a function type',
     answer: `
 OmitThisParameter<T>
     `,
     code: `
     type FunctionWithoutContextType = OmitThisParameter<FunctionWithContextType>
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "extracts type of the instance of a class type",
+    title: 'extracts type of the instance of a class type',
     answer: `
 InstanceType<T>
     `,
     code: `
     type MyClassInstanceType = InstanceType<typeof MyClass>
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Function overloads",
+    title: 'Function overloads',
     code: `
 //Overloads
 function add(a: number, b: number): number;
@@ -356,10 +356,10 @@ function add(a: unknown, b: unknown): number {
   return 0;
 }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Decorators",
+    title: 'Decorators',
     answer: `
 Decorator is a tool for adding additional logic to classes, method, etc. Without changing the initial implementation.
 They work as Higher Order Functions under the hood
@@ -379,11 +379,11 @@ To use decorators, you must enable the experimentalDecorators option in your tsc
   }
 }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
     list: true,
   },
   {
-    title: "Class Method Decorator",
+    title: 'Class Method Decorator',
     answer: `
 Class method decorator adds additional logic or different implementation to Class method without touching the original implementation
     `,
@@ -413,10 +413,10 @@ Class method decorator adds additional logic or different implementation to Clas
       }
     }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Class Decorator",
+    title: 'Class Decorator',
     code: `
 function ClassDec<This, Args extends any[]>(
   target: new (...args: any[]) => This,
@@ -434,10 +434,10 @@ class Demo {
 }
 
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Class Field Decorator",
+    title: 'Class Field Decorator',
     code: `
 function FieldDec<This, Args extends any[]>(
   target: undefined,
@@ -458,10 +458,10 @@ class Demo {
 
 const obj = new Demo()
 `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Type Narrowing",
+    title: 'Type Narrowing',
     answer: `
 Type narrowing is when we get type of variables more specific conditions
     `,
@@ -473,10 +473,10 @@ function padLeft(padding: number | string, input: string): string {
   return padding + input;
 }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Type Predicate",
+    title: 'Type Predicate',
     answer: `
 Type predicates are functions which return whether a variable matches type or not
     `,
@@ -485,10 +485,10 @@ function isFish(pet: Fish | Bird): pet is Fish {
   return !!pet?.swim
 }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Assert Function",
+    title: 'Assert Function',
     answer: `
 Assert functions are like predicates but throw error when condition is not met
     `,
@@ -500,10 +500,10 @@ function assertString(value: unknown): asserts value is string {
   }
 }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Type Casting",
+    title: 'Type Casting',
     answer: `
 Casting is when we tell typescript compiler what type will variable have
     `,
@@ -511,10 +511,10 @@ Casting is when we tell typescript compiler what type will variable have
 let x: unknown = 'hello';
 console.log((x as string).length);
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Satisfies operator",
+    title: 'Satisfies operator',
     answer: `
 The satisfies operator ensures that an expression is assignable to a given type, without modifying or transforming it’s type.
     `,
@@ -524,10 +524,10 @@ type TargetType = string | number;
 
 const variable = expression satisfies TargetType;
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Satisfies vs Casting(as)",
+    title: 'Satisfies vs Casting(as)',
     answer: `
 Difference between Satisfies and Casting is that satisfies doesn’t change the type and leaves it as it was.
     `,
@@ -538,10 +538,10 @@ type TargetType = string | number;
 const variable = expression satisfies TargetType; //variable type will be any
 const variable2 = expression as TargetType; //variable2 type will be string | number
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "TS Config",
+    title: 'TS Config',
     answer: `
 target - Specifies javascript version to compile - ES5, ES6, ESNext
 
@@ -553,11 +553,11 @@ outDir - specifies target folder for compiled files
 
 moduleResolution - module system for input code
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
     list: true,
   },
   {
-    title: "Multiple TS config files",
+    title: 'Multiple TS config files',
     answer: `
 It’s allowed to create multiple ts config files. For example: tsconfig.base.ts, tsconfig.test.ts
     `,
@@ -570,10 +570,10 @@ It’s allowed to create multiple ts config files. For example: tsconfig.base.ts
   "include": ["test/**/*", "src/**/*"] // Include both source and test files
 }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "TS Config Isolated modules",
+    title: 'TS Config Isolated modules',
     answer: `
 Isolated module ensures that your code can be compiled into a single file basis. This is safer when we use an alternative compiler or single file compilation
     `,
@@ -584,17 +584,17 @@ Isolated module ensures that your code can be compiled into a single file basis.
   }
 }
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "rootDirs (Virtual Directories)",
+    title: 'rootDirs (Virtual Directories)',
     answer: `
 Root dirs - helps to specify physically separate folders as single merged module
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Namespace",
+    title: 'Namespace',
     answer: `
 Namespace is a feature for creating isolated scopes in typescript to prevent global space pollution.
 PS - using modules is better approach than using namespaces
@@ -618,17 +618,17 @@ namespace Geometry {
 const circle = new Geometry.Circle(5);
 const square = new Geometry.Shapes.Square();
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Modules",
+    title: 'Modules',
     answer: `
 TypeScript modules are imports and exports from different files
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Type Definitions (DefinitelyTyped)",
+    title: 'Type Definitions (DefinitelyTyped)',
     answer: `
 Type definitions(DefinitelyTyped) are typescript repositories(declaration types) for javascript npm libraries that don’t have their own types.
 
@@ -636,18 +636,18 @@ DefinitelyTyped is a single place for community to provide declaration types. Ty
     `,
     code: `npm install -D @types/jquery`,
 
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Declaration merging",
+    title: 'Declaration merging',
     answer: `
 Declaration merging is a tool in TypeScript which merges instances when they are declared multiple times.
 Mergable types: Interface, Namespace… \nPS - Classes are not mergable
     `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
   {
-    title: "Extending and Overriding globals or libraries",
+    title: 'Extending and Overriding globals or libraries',
     answer: `
 In typescript we can Extend or Override global types and libraries types.
     `,
@@ -684,17 +684,17 @@ declare const window: {
 window.customProp = "value";
 
         `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
     list: true,
   },
   {
-    title: "Declare const",
+    title: 'Declare const',
     answer: `
 In TypeScript we can define in a single file that a variable which exists globally will have the declared type in the file
     `,
     code: `
     //This means that this global variable is string type in this file
     declare const API_URL: string; `,
-    tag: "4 TypeScript",
+    tag: '4 TypeScript',
   },
 ];

@@ -1,9 +1,9 @@
-import { memo, useMemo, useState } from "react";
-import SettingsIcon from "../assets/settings.svg";
-import s from "./SettingsModal.module.css";
-import type { ISettings } from "../types/ISettings";
-import Select from "react-select";
-import { allQuestions } from "../questions";
+import { memo, useMemo, useState } from 'react';
+import SettingsIcon from '../assets/settings.svg';
+import s from './SettingsModal.module.css';
+import type { ISettings } from '../types/ISettings';
+import Select from 'react-select';
+import { allQuestions } from '../questions';
 
 interface IProps {
   settings: ISettings;
@@ -15,13 +15,13 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
 
   const onChangeSetting = (
     prop: keyof ISettings,
-    value: ISettings[keyof ISettings],
+    value: ISettings[keyof ISettings]
   ) => {
     const newSettings = {
       ...settings,
       [prop]: value,
     };
-    localStorage.setItem("settings", JSON.stringify(newSettings));
+    localStorage.setItem('settings', JSON.stringify(newSettings));
     onChangeSettings(newSettings);
   };
 
@@ -59,8 +59,8 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
                 value={settings.tags?.map((v) => ({ label: v, value: v }))}
                 onChange={(v) =>
                   onChangeSetting(
-                    "tags",
-                    v.map((v) => v.value),
+                    'tags',
+                    v.map((v) => v.value)
                   )
                 }
                 isMulti={true}
@@ -73,7 +73,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
               </label>
               <input
                 checked={settings.random}
-                onChange={(e) => onChangeSetting("random", e.target.checked)}
+                onChange={(e) => onChangeSetting('random', e.target.checked)}
                 type="checkbox"
                 aria-label="Random checkbox"
               />
@@ -84,7 +84,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
               </label>
               <input
                 checked={settings.lists}
-                onChange={(e) => onChangeSetting("lists", e.target.checked)}
+                onChange={(e) => onChangeSetting('lists', e.target.checked)}
                 type="checkbox"
                 aria-label="Lists checkbox"
               />

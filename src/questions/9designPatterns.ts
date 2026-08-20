@@ -1,17 +1,17 @@
-import type { IQuestion } from "../types/IQuestion";
+import type { IQuestion } from '../types/IQuestion';
 
-export const questions9: Omit<IQuestion, "id">[] = [
+export const questions9: Omit<IQuestion, 'id'>[] = [
   {
-    title: "What JavaScript patterns do you know ?",
+    title: 'What JavaScript patterns do you know ?',
     answer: `
 Creational - singleton, factory, builder, prototype
 Structural - adapter, decorator, facade, flyweight, proxy
 Behavioral - observer, strategy, memento
     `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Singleton pattern",
+    title: 'Singleton pattern',
     answer: `
 Singleton is a creational pattern that creates an object which can be in a single instance in the system
     `,
@@ -26,10 +26,10 @@ class Singleton {
   }
 }
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Factory pattern",
+    title: 'Factory pattern',
     answer: `
 Factory is a creational pattern which creates a new instance of a class depending on the input parameter
     `,
@@ -45,10 +45,10 @@ class VehicleFactory {
  }
 }
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Builder pattern",
+    title: 'Builder pattern',
     answer: `
 Builder is a creational pettern which creates a customized object defining properties spep by step(chaining methods)`,
     code: `
@@ -90,10 +90,10 @@ const myBurger = new BurgerBuilder()
   .addSauce()
   .build();
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Prototype pattern",
+    title: 'Prototype pattern',
     answer: `
 Prototype pattern is a creational pattern which creates an object adding another object as a prototype of it.
     `,
@@ -108,10 +108,10 @@ function createCar(type) {
   return car;
 }
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Adapter pattern",
+    title: 'Adapter pattern',
     answer: `
 Adapter is a structural pattern which makes incompatible instances work together wrapping with a new class.
     `,
@@ -138,10 +138,10 @@ class UserAdapter {
   }
 }
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Decorator pattern",
+    title: 'Decorator pattern',
     answer: `
 Decorator is a structural pattern which adds some functionality to an existing object.
     `,
@@ -163,10 +163,10 @@ class MilkDecorator {
 }
 
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Facade pattern",
+    title: 'Facade pattern',
     answer: `
 Facade is a structural pattern which provides simplified interface for more complex classes
     `,
@@ -204,10 +204,10 @@ class ComputerFacade {
 }
 
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Proxy pattern",
+    title: 'Proxy pattern',
     answer: `
 Proxy pattern is a structural pattern which adds a wrapper to original class and adds some logic during working with it for example logging, auth checks etc…
     `,
@@ -242,10 +242,10 @@ class DatabaseProxy {
   }
 }
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Observer pattern",
+    title: 'Observer pattern',
     answer: `
 Observer is a behavioral pattern which notifies dependent objects when state changes
     `,
@@ -271,10 +271,10 @@ const subject = new Subject(),
 subject.subscribe(obs);
 subject.notify("Hello");
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Memento pattern",
+    title: 'Memento pattern',
     answer: `
 Memento is a behavioral pattern which saves and restores states
     `,
@@ -301,10 +301,10 @@ class Editor {
   }
 }
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Visitor pattern",
+    title: 'Visitor pattern',
     answer: `
 Visitor is a behavioral design pattern that allows you to add new operations to a group of objects without modifying the objects
     `,
@@ -343,10 +343,10 @@ const soundVisitor = new SoundVisitor();
 new Dog().accept(soundVisitor)
 
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
   {
-    title: "Mediator pattern",
+    title: 'Mediator pattern',
     answer: `
 The Mediator pattern is a behavioral design pattern that connects objects without directly referring them to each other.
     `,
@@ -380,6 +380,6 @@ const chatRoom = new ChatRoom();
 const user1 = new User('Alice', chatRoom);
 const user2 = new User('Bob', chatRoom);
         `,
-    tag: "9 Design patterns",
+    tag: '9 Design patterns',
   },
 ];

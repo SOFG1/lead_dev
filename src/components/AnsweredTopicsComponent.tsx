@@ -1,7 +1,7 @@
-import { memo, useMemo } from "react";
-import type { IQuestion } from "../types/IQuestion";
-import s from "./AnsweredTopicsComponent.module.css";
-import { allQuestions } from "../questions";
+import { memo, useMemo } from 'react';
+import type { IQuestion } from '../types/IQuestion';
+import s from './AnsweredTopicsComponent.module.css';
+import { allQuestions } from '../questions';
 
 interface Props {
   answeredQuestions: IQuestion[];
@@ -21,7 +21,7 @@ export const AnsweredTopicsComponent = memo(
       return allTopics.filter((topic) => {
         const totalCount = allQuestions.filter((q) => q.tag === topic).length;
         const answered = answeredQuestions.filter(
-          (q) => q.tag === topic,
+          (q) => q.tag === topic
         ).length;
         return totalCount === answered;
       });
@@ -29,8 +29,8 @@ export const AnsweredTopicsComponent = memo(
 
     return (
       <div className={s.results}>
-        <span style={{ color: "green" }}>{answeredCount}</span>{" "}
-        <span style={{ color: "red" }}>{wrongCount}</span>
+        <span style={{ color: 'green' }}>{answeredCount}</span>{' '}
+        <span style={{ color: 'red' }}>{wrongCount}</span>
         <div className={s.list}>
           {topicsList.map((t) => (
             <p className={s.topic} key={t}>
@@ -40,5 +40,5 @@ export const AnsweredTopicsComponent = memo(
         </div>
       </div>
     );
-  },
+  }
 );

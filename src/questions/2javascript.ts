@@ -1,8 +1,8 @@
-import type { IQuestion } from "../types/IQuestion";
+import type { IQuestion } from '../types/IQuestion';
 
-export const questions2: Omit<IQuestion, "id">[] = [
+export const questions2: Omit<IQuestion, 'id'>[] = [
   {
-    title: "Object property descriptor",
+    title: 'Object property descriptor',
     code: `Object.defineProperty(obj, "myProp", {
   value: 42, //Define value
   writable: true, //Set editable or not
@@ -13,28 +13,28 @@ export const questions2: Omit<IQuestion, "id">[] = [
 // get configuration of property
 Object.getOwnPropertyDescriptor(obj, "myProp");
 `,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
     list: true,
   },
   {
-    title: "Recursion",
+    title: 'Recursion',
     answer: `
 Pros: Simplicity, reduces code complexity
 Cons: Memory usage, stack overflow risk, performance overhead. Infinite loop risk
 Example: factorial, tree operations
     `,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
     list: true,
   },
   {
-    title: "Chaining",
+    title: 'Chaining',
     answer: `
 Chaining is approach when method of an object return the object and we can toggle several methods sequently
     `,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Currying(каррирование)",
+    title: 'Currying(каррирование)',
     code: `
 const curriedAdd = (a) => (b) => a + b;
 console.log(curriedAdd(5)(3)); // Output: 8
@@ -45,15 +45,15 @@ const numbers = [1, 5, 10, 20];
 const isGreaterThan10 = greaterThan(10);
 const filtered = numbers.filter(isGreaterThan10); // [20]
     `,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Bind arguments to function",
+    title: 'Bind arguments to function',
     answer: `bind(), call(), apply()`,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Memoization",
+    title: 'Memoization',
     code: `
 const cache = {}
 function getSquare(num) {
@@ -65,20 +65,20 @@ function getSquare(num) {
 
 //PS - use WeakMap if parameter is an object to prevent garbage collection
     `,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Garbage collector",
+    title: 'Garbage collector',
     answer: `Garbage collector is a built in tool in JS which removes unused data. But it has some drawbacks during circular references`,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "WeakMap, WeakSet",
+    title: 'WeakMap, WeakSet',
     answer: `Are the same Map and Set. But work only with objects to prevent memory leaks`,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Prototypal Inheritance, create an object with prototype",
+    title: 'Prototypal Inheritance, create an object with prototype',
     answer: `
 Properties of a Class are in the proto of its instances
 
@@ -92,25 +92,25 @@ Class.prototype // Get prototype of a Class
 
 // Create an empty object and receive its prototype as an object
 Object.create(protoObject)`,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Classes",
+    title: 'Classes',
     answer: `Methods and props of a Class goes into proto of its instance
 
 Static - static properties only available in Class not in instances
 
 Super() - must be called in extended Class constructor
 `,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Function properties",
+    title: 'Function properties',
     answer: `In javascript we can assign properties to functions`,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Strict Mode",
+    title: 'Strict Mode',
     answer: `
  1. Throws a ReferenceError accessing undeclared variables.
 
@@ -119,21 +119,21 @@ Super() - must be called in extended Class constructor
  3. Variables inside eval() stay within the eval() scope.
 
  4. Assigning to a read-only property operation throws an error instead of silent failing.`,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
     list: true,
   },
   {
-    title: "structuredClone",
+    title: 'structuredClone',
     answer: `structuredClone - is a native js method for deepCloning objects`,
     code: `
 const obj = { id: 1, name: "test" };
 const cloned = structuredClone(obj);
     `,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
   {
-    title: "Tree shaking",
+    title: 'Tree shaking',
     answer: `Tree shaking is the process of removing dead(unused) code during bundling. Included in modern bundlers`,
-    tag: "2 Javascript",
+    tag: '2 Javascript',
   },
 ];

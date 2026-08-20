@@ -23,7 +23,7 @@ export const AnsweredTopicsComponent = memo(
         const answered = answeredQuestions.filter(q => q.tag === topic).length
         return totalCount === answered;
       });
-    }, [answeredQuestions, allQuestions, allTopics]);
+    }, [answeredQuestions, allTopics]);
 
 
     return (

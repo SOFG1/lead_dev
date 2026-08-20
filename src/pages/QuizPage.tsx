@@ -1,7 +1,7 @@
 import { QuestionComponent } from "../components/QuestionComponent";
 import s from "./QuizPage.module.css";
 import { SettingsModal } from "../components/SettingsModal";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { defaultSettings, type ISettings } from "../types/ISettings";
 import { generateRandomNumber } from "../utils/generateRandomNumber";
 import type { IQuestion } from "../types/IQuestion";
@@ -30,21 +30,24 @@ export const QuizPage = () => {
   const { answeredQuestionsList, setAnsweredQuestionsList } =
     useAnsweredQuestions();
 
-  const setNextQuestion = (list: IQuestion[]) => {
-    if (!list.length) {
-      setQuestion(null);
-    }
-    setShowAnswer(false);
-    setShowAnswerButtons(true);
-    setCurrentQuestionAnsered(false);
-    if (settings && settings.random) {
-      const index = generateRandomNumber(0, list.length - 1);
-      setQuestion(list[index]);
-    }
-    if (settings && !settings.random) {
-      setQuestion(list[0]);
-    }
-  };
+  const setNextQuestion = useCallback(
+    (list: IQuestion[]) => {
+      if (!list.length) {
+        setQuestion(null);
+      }
+      setShowAnswer(false);
+      setShowAnswerButtons(true);
+      setCurrentQuestionAnsered(false);
+      if (settings && settings.random) {
+        const index = generateRandomNumber(0, list.length - 1);
+        setQuestion(list[index]);
+      }
+      if (settings && !settings.random) {
+        setQuestion(list[0]);
+      }
+    },
+    [settings],
+  );
 
   const buttonClick = (type: "yes" | "no") => {
     setCurrentQuestionAnsered(true);
@@ -80,7 +83,7 @@ export const QuizPage = () => {
     if (!question && questionsList.length) {
       setNextQuestion(questionsList);
     }
-  }, [question, questionsList, settings]);
+  }, [question, questionsList, settings, setNextQuestion]);
 
   useEffect(() => {
     let list = allQuestions.map((q, i) => ({ ...q, id: i }));
@@ -92,7 +95,7 @@ export const QuizPage = () => {
     }
     setQuestionsList(list);
     setNextQuestion(list);
-  }, [settings?.tags, settings?.lists]);
+  }, [settings?.tags, settings?.lists, setNextQuestion]);
 
   return (
     <div className={s.wrapper}>

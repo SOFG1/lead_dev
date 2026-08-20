@@ -30,7 +30,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
       label: o,
       value: o,
     }));
-  }, [allQuestions]);
+  }, []);
 
   return (
     <>

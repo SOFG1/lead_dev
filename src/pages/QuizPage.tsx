@@ -113,7 +113,7 @@ export const QuizPage = () => {
               <button
                 className={`${s.button} ${s.show_answer}`}
                 onClick={() => setShowAnswer(true)}
-                  aria-label="Show answer button"
+                aria-label="Show answer button"
               >
                 Show answer
               </button>
@@ -122,7 +122,6 @@ export const QuizPage = () => {
               <button
                 className={`${s.button} ${s.show_answer}`}
                 onClick={() => setNextQuestion(questionsList)}
-                  aria-label="Next button"
               >
                 Next question
               </button>
@@ -132,14 +131,12 @@ export const QuizPage = () => {
                 <button
                   className={`${s.button} ${s.dont_know}`}
                   onClick={() => buttonClick("no")}
-                  aria-label="Don't know button"
                 >
                   Don't know
                 </button>
                 <button
                   className={`${s.button} ${s.know}`}
                   onClick={() => buttonClick("yes")}
-                  aria-label="Know button"
                 >
                   Know answer
                 </button>
@@ -150,13 +147,15 @@ export const QuizPage = () => {
       )}
       {!question && <p>No questions left</p>}
       <div className={s.todayAnswered}>
-        <p className={s.todayAnsweredText}>
+        <p className={s.todayAnsweredText} aria-label="Today answered count">
           Today answered: {todayAnswered} ({todayAnsweredLists})
         </p>
       </div>
 
       <div className={s.total}>
-        <p className={s.totalText} aria-label="Total answered count">Total: {allQuestions.length}</p>
+        <p className={s.totalText} aria-label="Total count">
+          Total: {allQuestions.length}
+        </p>
         <p>Total lists: {listsCount}</p>
         <p className={s.current} aria-label="Current questions count">
           Current questions: <span>{questionsList.length}</span>

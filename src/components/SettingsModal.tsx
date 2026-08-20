@@ -43,6 +43,7 @@ export const SettingsModal = memo(({ settings, onChangeSettings }: IProps) => {
             X
           </button>
           <div className={s.content}>
+            <h2 className={s.title}>Settings</h2>
             <div className={s.item}>
               <Select
                 className={s.dropdown}

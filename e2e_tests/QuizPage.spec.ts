@@ -10,5 +10,5 @@ test("has first question title", async ({ page }) => {
 test("settings modal opened", async ({ page }) => {
   await page.goto("https://sofg1.github.io/lead_dev/");
 
-  await page.getByAltText('Settings Icon').click();
+  await page.getByLabel('Settings button').click();
 });

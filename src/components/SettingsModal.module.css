@@ -8,6 +8,11 @@
     transition: 300ms;
 }
 
+.title {
+    font-size: 25px;
+    text-align: center;
+}
+
 .button:active {
     opacity: 0.6;
 }

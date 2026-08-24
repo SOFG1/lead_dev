@@ -19,7 +19,7 @@ export const QuestionComponent = ({ question, showAnswer }: Props) => {
       </h2>
       <div style={{ opacity: showAnswer ? 1 : 0 }}>
         <p className={s.answer}>{question.answer}</p>
-        <div className={s.code_wrapper}>
+        <div className={s.codeWrapper}>
           {question.code && (
             <SyntaxHighlighter
               language="typescript"

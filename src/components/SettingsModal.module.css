@@ -25,10 +25,7 @@
 .modal {
   position: fixed;
   z-index: 10;
-  top: 40px;
-  right: 40px;
-  left: 40px;
-  bottom: 40px;
+  inset: 40px;
   background-color: #fff;
   border-radius: 40px;
 }

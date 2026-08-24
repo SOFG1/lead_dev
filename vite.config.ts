@@ -8,4 +8,10 @@ export default defineConfig({
   test: {
     exclude: [...configDefaults.exclude, 'e2e_tests'],
   },
+  css: {
+    modules: {
+      // This converts kebab-case classes to camelCase
+      localsConvention: 'camelCase',
+    },
+  },
 });

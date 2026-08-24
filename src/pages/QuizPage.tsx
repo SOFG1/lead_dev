@@ -129,7 +129,7 @@ export const QuizPage = () => {
             {showAnswerButtons && (
               <>
                 <button
-                  className={`${s.button} ${s.dont_know}`}
+                  className={`${s.button} ${s.dontKnow}`}
                   onClick={() => buttonClick('no')}
                 >
                   Don't know

@@ -34,8 +34,8 @@
   background-color: green;
 }
 
-.dont_know {
-  background-color: rgba(255, 0, 0, 0.718);
+.dont-know {
+  background-color: rgb(255 0 0 / 71.8%);
 }
 
 .total {
@@ -50,7 +50,7 @@
   margin-bottom: 2px;
 }
 
-.totalText {
+.total-text {
   font-weight: 700;
 }
 
@@ -59,7 +59,7 @@
   font-weight: 700;
 }
 
-.todayAnswered {
+.today-answered {
   position: fixed;
   left: 10px;
   bottom: 10px;

@@ -31,7 +31,7 @@ describe('QuizPage', () => {
     fireEvent.click(
       screen.getAllByRole('button', { name: /show answer button/i })[0]
     );
-    fireEvent.click(screen.getAllByRole('button', { name: /know button/i })[0]);
+    fireEvent.click(screen.getAllByRole('button', { name: /Know answer/i })[0]);
 
     expect(screen.getByRole('heading', { name: /2\./i })).toBeTruthy();
     expect(screen.getByText(/css float/i)).toBeTruthy();

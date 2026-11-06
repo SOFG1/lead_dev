@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  quality-checks:
+  installing-dependencies:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +26,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+  quality-checks:
+      runs-on: ubuntu-latest
+
+      steps:
       - name: ESLint
         run: npm run lint
 
@@ -38,5 +42,9 @@ jobs:
       - name: Run tests
         run: npm test -- --run
 
+  build:
+      runs-on: ubuntu-latest
+
+      steps:
       - name: Build
         run: npm run build

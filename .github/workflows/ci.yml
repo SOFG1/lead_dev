@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  quality-checks:
-    name: Code Quality
+  deps-installation:
+    name: Dependencies Installation
     runs-on: ubuntu-latest
 
     steps:

@@ -30,7 +30,7 @@ jobs:
         run: npm run lint
 
       - name: StyleLint
-        run: npm run lint:styles
+        run: npm run lint:css
 
       - name: TypeScript check
         run: npx tsc --noEmit

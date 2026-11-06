@@ -57,7 +57,6 @@ jobs:
 
   playwright-tests:
     name: Playwright Tests
-    needs: tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
 

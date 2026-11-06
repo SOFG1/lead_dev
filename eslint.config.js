@@ -21,5 +21,20 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      complexity: ['error', { max: 12 }],
+
+      // Restricts deep callback nesting to prevent "callback hell"
+      'max-nested-callbacks': ['warn', { max: 4 }],
+
+      // Limits depth of blocks (e.g., deeply nested loops/if conditions)
+      'max-depth': ['warn', { max: 4 }],
+
+      // Restricts maximum number of parameters allowed per function
+      'max-params': ['error', { max: 3 }],
+
+      // Restricts maximum number of statements inside a single function
+      'max-statements': ['warn', { max: 20 }],
+    },
   },
 ]);

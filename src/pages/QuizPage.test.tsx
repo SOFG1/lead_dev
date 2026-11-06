@@ -12,6 +12,11 @@ describe('QuizPage', () => {
   it('shows the current question and reveals the answer when requested', () => {
     render(<QuizPage />);
 
+    const showAnswerButton = screen.getByRole('button', {
+      name: /show answer button/i,
+    });
+
+    expect(showAnswerButton.textContent).toBe('Show answer');
     expect(screen.getByRole('heading', { name: /1\./i })).toBeTruthy();
     const answerText = screen.getByText(
       /hidden, image, color, month, week, search/i
@@ -20,7 +25,7 @@ describe('QuizPage', () => {
 
     expect(answerWrapper.style.opacity).toBe('0');
 
-    fireEvent.click(screen.getAllByRole('button', { name: /show answer/i })[0]);
+    fireEvent.click(showAnswerButton);
 
     expect(answerWrapper.style.opacity).toBe('1');
   });

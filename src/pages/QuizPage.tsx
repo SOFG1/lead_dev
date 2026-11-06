@@ -115,7 +115,7 @@ export const QuizPage = () => {
                 onClick={() => setShowAnswer(true)}
                 aria-label="Show answer button"
               >
-                Show answer
+                Show answerrrrr
               </button>
             )}
             {showAnswer && currenQuestionAnswered && (

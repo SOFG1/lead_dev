@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1787645288926" clover="3.2.0">
-  <project timestamp="1787645288926" name="All files">
-    <metrics statements="140" coveredstatements="117" conditionals="69" coveredconditionals="44" methods="46" coveredmethods="37" elements="255" coveredelements="198" complexity="0" loc="140" ncloc="140" packages="7" files="27" classes="27"/>
+<coverage generated="1793963168647" clover="3.2.0">
+  <project timestamp="1793963168648" name="All files">
+    <metrics statements="140" coveredstatements="123" conditionals="69" coveredconditionals="51" methods="46" coveredmethods="38" elements="255" coveredelements="212" complexity="0" loc="140" ncloc="140" packages="7" files="27" classes="27"/>
     <package name="assets">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="settings.svg" path="/Users/macbook/Desktop/lead_dev/src/assets/settings.svg">
@@ -60,49 +60,49 @@
       </file>
     </package>
     <package name="hooks">
-      <metrics statements="37" coveredstatements="31" conditionals="16" coveredconditionals="7" methods="10" coveredmethods="9"/>
+      <metrics statements="37" coveredstatements="37" conditionals="16" coveredconditionals="14" methods="10" coveredmethods="10"/>
       <file name="useAnsweredQuestions.ts" path="/Users/macbook/Desktop/lead_dev/src/hooks/useAnsweredQuestions.ts">
-        <metrics statements="17" coveredstatements="13" conditionals="6" coveredconditionals="3" methods="6" coveredmethods="5"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="7" type="stmt"/>
-        <line num="12" count="7" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="cond" truecount="2" falsecount="0"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="27" count="7" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="38" count="7" type="stmt"/>
+        <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="27" count="12" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="29" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="38" count="12" type="stmt"/>
       </file>
       <file name="useTodaysStats.ts" path="/Users/macbook/Desktop/lead_dev/src/hooks/useTodaysStats.ts">
-        <metrics statements="20" coveredstatements="18" conditionals="10" coveredconditionals="4" methods="4" coveredmethods="4"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="7" type="stmt"/>
-        <line num="14" count="7" type="stmt"/>
-        <line num="16" count="7" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="20" count="7" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="34" count="7" type="stmt"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="36" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="37" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="46" count="7" type="stmt"/>
+        <metrics statements="20" coveredstatements="20" conditionals="10" coveredconditionals="8" methods="4" coveredmethods="4"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="14" count="12" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="20" count="12" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="34" count="12" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="46" count="12" type="stmt"/>
       </file>
     </package>
     <package name="pages">
@@ -175,59 +175,59 @@
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="10webPerformance.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/10webPerformance.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="11security.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/11security.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="12communicationProtocols.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/12communicationProtocols.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="13renderingStrategies.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/13renderingStrategies.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="1htmlcss.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/1htmlcss.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="2javascript.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/2javascript.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="3regexp.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/3regexp.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="4typescript.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/4typescript.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="5cicd.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/5cicd.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="6browserAPIs.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/6browserAPIs.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="7react.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/7react.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="8softwareDesign.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/8softwareDesign.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="9designPatterns.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/9designPatterns.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
       </file>
       <file name="index.ts" path="/Users/macbook/Desktop/lead_dev/src/questions/index.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="15" count="2" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
       </file>
     </package>
     <package name="types">

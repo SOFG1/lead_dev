@@ -11,6 +11,7 @@ import { questions10 } from './10webPerformance';
 import { questions11 } from './11security';
 import { questions12 } from './12communicationProtocols';
 import { questions13 } from './13renderingStrategies';
+import { questions14 } from './14softwarePractices';
 
 export const allQuestions = [
   ...questions1,
@@ -26,4 +27,5 @@ export const allQuestions = [
   ...questions11,
   ...questions12,
   ...questions13,
+  ...questions14,
 ];

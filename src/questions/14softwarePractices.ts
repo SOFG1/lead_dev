@@ -1,6 +1,6 @@
 import type { IQuestion } from '../types/IQuestion';
 
-export const questions13: Omit<IQuestion, 'id'>[] = [
+export const questions14: Omit<IQuestion, 'id'>[] = [
   {
     title: 'Tools and techniques for ensuring code quality (List)',
     answer: `
